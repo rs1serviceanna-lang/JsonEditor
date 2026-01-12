@@ -714,6 +714,9 @@ distclean: clean
 run: $(TARGET)
 	./run_with_server.sh
 
+double_test: $(TARGET)
+	./double_test.sh
+
 mocclean: compiler_moc_header_clean compiler_moc_objc_header_clean compiler_moc_source_clean
 
 mocables: compiler_moc_header_make_all compiler_moc_objc_header_make_all compiler_moc_source_make_all

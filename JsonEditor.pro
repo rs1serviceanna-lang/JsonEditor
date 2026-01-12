@@ -21,3 +21,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 run.commands = ./run_with_server.sh
 run.depends = $(TARGET)
 QMAKE_EXTRA_TARGETS += run
+
+# Double test target (Server + 2 Clients)
+double_test.commands = ./double_test.sh
+double_test.depends = $(TARGET)
+QMAKE_EXTRA_TARGETS += double_test
