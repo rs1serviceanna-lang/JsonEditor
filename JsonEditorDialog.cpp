@@ -250,6 +250,15 @@ void JsonEditorDialog::onGetFinished(QNetworkReply *reply)
         currentJson = doc.object();
         displayJson(currentJson);
         
+        // Scan for dependencies
+        dependencyUuids.clear();
+        findUuids(doc.toVariant().toJsonValue(), dependencyUuids);
+        
+        // Register listeners (if WS is ready)
+        QStringList parts = currentUuid.split('#');
+        for (const QString &p : parts) registerListener(p);
+        for (const QString &d : dependencyUuids) registerListener(d);
+
         statusLabel->setText("✓ Loaded successfully");
         statusLabel->setStyleSheet("QLabel { color: green; padding: 5px; }");
         saveButton->setEnabled(true);
