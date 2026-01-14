@@ -1,13 +1,41 @@
 #include "JsonEditorDialog.h"
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QMessageBox>
+#include <QFile>
+#include <QSslCertificate>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QFont>
 
 JsonEditorDialog::JsonEditorDialog(QWidget *parent)
     : QDialog(parent)
     , networkManager(new QNetworkAccessManager(this))
+    , webSocket(new QWebSocket(QString(), QWebSocketProtocol::VersionLatest, this))
 {
+    // Load and trust the server certificate
+    QFile certFile("metax.crt");
+    if (certFile.open(QIODevice::ReadOnly)) {
+        QSslCertificate cert(&certFile);
+        QSslConfiguration sslConfig = QSslConfiguration::defaultConfiguration();
+        QList<QSslCertificate> caCerts = sslConfig.caCertificates();
+        caCerts.append(cert);
+        sslConfig.setCaCertificates(caCerts);
+        QSslConfiguration::setDefaultConfiguration(sslConfig);
+        qDebug() << "Trusted metax.crt for SSL/ALPN";
+    }
+
     setupUi();
     
-    // Connect network reply finished signal (generic handler if needed, 
-    // but we use specific connections for requests)
+    connect(webSocket, &QWebSocket::textMessageReceived, this, &JsonEditorDialog::onTextMessageReceived);
+    connect(webSocket, QOverload<const QList<QSslError>&>::of(&QWebSocket::sslErrors), this, &JsonEditorDialog::onSslErrors);
+    connect(webSocket, &QWebSocket::connected, [this]() {
+        qDebug() << "WebSocket connected";
+    });
+    
+    webSocket->open(QUrl("wss://localhost:5001"));
 }
 
 JsonEditorDialog::~JsonEditorDialog()
@@ -75,7 +103,9 @@ void JsonEditorDialog::parse(const QString &uuid)
     saveButton->setEnabled(false);
     
     // GET request
-    QString urlStr = QString("%1/db/get?id=%2").arg(BASE_URL).arg(uuid);
+    QStringList idParts = uuid.split('#');
+    QString reqId = idParts.first();
+    QString urlStr = QString("%1/db/get?id=%2").arg(BASE_URL).arg(QString::fromUtf8(QUrl::toPercentEncoding(reqId)));
     QNetworkRequest request((QUrl(urlStr)));
     
     // Ignore SSL errors (verify=False)
@@ -90,6 +120,64 @@ void JsonEditorDialog::parse(const QString &uuid)
     connect(reply, &QNetworkReply::finished, [this, reply]() {
         onGetFinished(reply);
     });
+}
+
+void JsonEditorDialog::onTextMessageReceived(const QString &message)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(message.toUtf8());
+    if (doc.isNull() || !doc.isObject()) return;
+    QJsonObject obj = doc.object();
+    
+    if (obj.contains("token")) {
+        wsToken = obj["token"].toString();
+        qDebug() << "Received token:" << wsToken;
+        if (!currentUuid.isEmpty()) {
+            QStringList parts = currentUuid.split('#');
+            for (const QString &p : parts) registerListener(p);
+            for (const QString &d : dependencyUuids) registerListener(d);
+        }
+    } else if (obj.contains("event") && obj["event"].toString() == "update") {
+        QString uuid = obj["uuid"].toString();
+        QStringList monitored = currentUuid.split('#');
+        if (monitored.contains(uuid) || dependencyUuids.contains(uuid)) {
+            qDebug() << "Update detected for" << uuid << "- Reloading";
+            parse(currentUuid);
+        }
+    }
+}
+
+void JsonEditorDialog::onSslErrors(const QList<QSslError> &errors)
+{
+    qDebug() << "WS SSL Errors:" << errors;
+    webSocket->ignoreSslErrors();
+}
+
+void JsonEditorDialog::registerListener(const QString &uuid)
+{
+    if (wsToken.isEmpty() || uuid.isEmpty()) return;
+    QString urlStr = QString("%1/db/register_listener?id=%2&token=%3")
+        .arg(BASE_URL).arg(QString::fromUtf8(QUrl::toPercentEncoding(uuid))).arg(wsToken);
+    QNetworkRequest request((QUrl(urlStr)));
+    QSslConfiguration sslConfig = request.sslConfiguration();
+    sslConfig.setPeerVerifyMode(QSslSocket::VerifyNone);
+    request.setSslConfiguration(sslConfig);
+    request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
+    
+    networkManager->get(request);
+}
+
+static const QRegularExpression UUID_RE("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", QRegularExpression::CaseInsensitiveOption);
+
+void JsonEditorDialog::findUuids(const QJsonValue &val, QSet<QString> &found)
+{
+    if (val.isString()) {
+        QString s = val.toString();
+        if (UUID_RE.match(s).hasMatch()) found.insert(s);
+    } else if (val.isArray()) {
+        for (const QJsonValue &v : val.toArray()) findUuids(v, found);
+    } else if (val.isObject()) {
+        for (const QJsonValue &v : val.toObject()) findUuids(v, found);
+    }
 }
 
 void JsonEditorDialog::onLoadClicked()

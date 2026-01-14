@@ -1,4 +1,4 @@
-QT += core gui widgets network
+QT += core gui widgets network websockets
 
 CONFIG += c++11
 
@@ -17,10 +17,12 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-# Custom run target
+# Custom run/test targets
 run.commands = ./run_with_server.sh
 run.depends = $(TARGET)
-QMAKE_EXTRA_TARGETS += run
+test.commands = ./run_with_server.sh
+test.depends = $(TARGET)
+QMAKE_EXTRA_TARGETS += run test
 
 # Double test target (Server + 2 Clients)
 double_test.commands = ./double_test.sh

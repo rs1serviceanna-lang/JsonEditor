@@ -31,11 +31,13 @@ cleanup() {
 # Trap cleanup on exit
 trap cleanup EXIT
 
-echo "Starting Metax Zero Webserver..."
+echo "Starting Metax Zero Webserver (Stable Version)..."
 pushd "$SERVER_DIR" > /dev/null
-# Start server in background
-$SERVER_SCRIPT &
+source ./start.conf
+pushd ./metax_2/ > /dev/null
+node ../../rest_api_stable.mjs storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
 SERVER_PID=$!
+popd > /dev/null
 popd > /dev/null
 
 echo "Waiting for server to initialize..."

@@ -15,6 +15,11 @@
 #include <QSslConfiguration>
 #include <QMessageBox>
 #include <QTimer>
+#include <QtWebSockets/QWebSocket>
+#include <QSet>
+#include <QRegularExpression>
+#include <QUrl>
+#include <QUrlQuery>
 
 class JsonEditorDialog : public QDialog
 {
@@ -32,6 +37,8 @@ private slots:
     void onSaveClicked();
     void onGetFinished(QNetworkReply *reply);
     void onPostFinished(QNetworkReply *reply);
+    void onTextMessageReceived(const QString &message);
+    void onSslErrors(const QList<QSslError> &errors);
 
 private:
     void setupUi();
@@ -47,8 +54,14 @@ private:
     
     // Networking
     QNetworkAccessManager *networkManager;
+    QWebSocket *webSocket;
     QString currentUuid;
     QJsonObject currentJson;
+    QString wsToken;
+    QSet<QString> dependencyUuids;
+
+    void registerListener(const QString &uuid);
+    void findUuids(const QJsonValue &val, QSet<QString> &found);
     
     // Constants
     const QString BASE_URL = "https://localhost:5001";

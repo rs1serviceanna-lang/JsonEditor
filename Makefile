@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I/opt/qt-5.15.10/include -I/opt/qt-5.15.10/include/QtWidgets -I/opt/qt-5.15.10/include/QtGui -I/opt/qt-5.15.10/include/QtNetwork -I/opt/qt-5.15.10/include/QtCore -I. -I/usr/include/libdrm -I/opt/qt-5.15.10/mkspecs/linux-g++
+INCPATH       = -I. -I/opt/qt-5.15.10/include -I/opt/qt-5.15.10/include/QtWidgets -I/opt/qt-5.15.10/include/QtGui -I/opt/qt-5.15.10/include/QtWebSockets -I/opt/qt-5.15.10/include/QtNetwork -I/opt/qt-5.15.10/include/QtCore -I. -I/usr/include/libdrm -I/opt/qt-5.15.10/mkspecs/linux-g++
 QMAKE         = /opt/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = JsonEditor1.0.0
 DISTDIR = /home/tigran/ProjectWithAi/JsonEditor/.tmp/JsonEditor1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
-LIBS          = $(SUBLIBS) /opt/qt-5.15.10/lib/libQt5Widgets.so /opt/qt-5.15.10/lib/libQt5Gui.so /opt/qt-5.15.10/lib/libQt5Network.so /opt/qt-5.15.10/lib/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) /opt/qt-5.15.10/lib/libQt5Widgets.so /opt/qt-5.15.10/lib/libQt5Gui.so /opt/qt-5.15.10/lib/libQt5WebSockets.so /opt/qt-5.15.10/lib/libQt5Network.so /opt/qt-5.15.10/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -714,6 +714,9 @@ distclean: clean
 run: $(TARGET)
 	./run_with_server.sh
 
+test: $(TARGET)
+	./run_with_server.sh
+
 double_test: $(TARGET)
 	./double_test.sh
 
@@ -908,9 +911,21 @@ moc_JsonEditorDialog.cpp: JsonEditorDialog.h \
 		/opt/qt-5.15.10/include/QtCore/QTimer \
 		/opt/qt-5.15.10/include/QtCore/qtimer.h \
 		/opt/qt-5.15.10/include/QtCore/qbasictimer.h \
+		/opt/qt-5.15.10/include/QtWebSockets/QWebSocket \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsocket.h \
+		/opt/qt-5.15.10/include/QtNetwork/QAbstractSocket \
+		/opt/qt-5.15.10/include/QtNetwork/QNetworkProxy \
+		/opt/qt-5.15.10/include/QtNetwork/qnetworkproxy.h \
+		/opt/qt-5.15.10/include/QtNetwork/qhostaddress.h \
+		/opt/qt-5.15.10/include/QtNetwork/QSslError \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsockets_global.h \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsocketprotocol.h \
+		/opt/qt-5.15.10/include/QtCore/QSet \
+		/opt/qt-5.15.10/include/QtCore/QRegularExpression \
+		/opt/qt-5.15.10/include/QtCore/QUrlQuery \
 		moc_predefs.h \
 		/opt/qt-5.15.10/bin/moc
-	/opt/qt-5.15.10/bin/moc $(DEFINES) --include /home/tigran/ProjectWithAi/JsonEditor/moc_predefs.h -I/opt/qt-5.15.10/mkspecs/linux-g++ -I/home/tigran/ProjectWithAi/JsonEditor -I/opt/qt-5.15.10/include -I/opt/qt-5.15.10/include/QtWidgets -I/opt/qt-5.15.10/include/QtGui -I/opt/qt-5.15.10/include/QtNetwork -I/opt/qt-5.15.10/include/QtCore -I/opt/kf5/include -I/usr/include/c++/13.2.0 -I/usr/include/c++/13.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/13.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.0/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.0/include-fixed -I/usr/include JsonEditorDialog.h -o moc_JsonEditorDialog.cpp
+	/opt/qt-5.15.10/bin/moc $(DEFINES) --include /home/tigran/ProjectWithAi/JsonEditor/moc_predefs.h -I/opt/qt-5.15.10/mkspecs/linux-g++ -I/home/tigran/ProjectWithAi/JsonEditor -I/opt/qt-5.15.10/include -I/opt/qt-5.15.10/include/QtWidgets -I/opt/qt-5.15.10/include/QtGui -I/opt/qt-5.15.10/include/QtWebSockets -I/opt/qt-5.15.10/include/QtNetwork -I/opt/qt-5.15.10/include/QtCore -I/opt/kf5/include -I/usr/include/c++/13.2.0 -I/usr/include/c++/13.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/13.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.0/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.0/include-fixed -I/usr/include JsonEditorDialog.h -o moc_JsonEditorDialog.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1038,6 +1053,10 @@ main.o: main.cpp /opt/qt-5.15.10/include/QtWidgets/QApplication \
 		/opt/qt-5.15.10/include/QtGui/qtouchdevice.h \
 		/opt/qt-5.15.10/include/QtGui/qguiapplication.h \
 		/opt/qt-5.15.10/include/QtGui/qinputmethod.h \
+		/opt/qt-5.15.10/include/QtCore/QCommandLineParser \
+		/opt/qt-5.15.10/include/QtCore/qcommandlineparser.h \
+		/opt/qt-5.15.10/include/QtCore/qcommandlineoption.h \
+		/opt/qt-5.15.10/include/QtCore/QCommandLineOption \
 		JsonEditorDialog.h \
 		/opt/qt-5.15.10/include/QtWidgets/QDialog \
 		/opt/qt-5.15.10/include/QtWidgets/qdialog.h \
@@ -1106,7 +1125,19 @@ main.o: main.cpp /opt/qt-5.15.10/include/QtWidgets/QApplication \
 		/opt/qt-5.15.10/include/QtWidgets/qmessagebox.h \
 		/opt/qt-5.15.10/include/QtCore/QTimer \
 		/opt/qt-5.15.10/include/QtCore/qtimer.h \
-		/opt/qt-5.15.10/include/QtCore/qbasictimer.h
+		/opt/qt-5.15.10/include/QtCore/qbasictimer.h \
+		/opt/qt-5.15.10/include/QtWebSockets/QWebSocket \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsocket.h \
+		/opt/qt-5.15.10/include/QtNetwork/QAbstractSocket \
+		/opt/qt-5.15.10/include/QtNetwork/QNetworkProxy \
+		/opt/qt-5.15.10/include/QtNetwork/qnetworkproxy.h \
+		/opt/qt-5.15.10/include/QtNetwork/qhostaddress.h \
+		/opt/qt-5.15.10/include/QtNetwork/QSslError \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsockets_global.h \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsocketprotocol.h \
+		/opt/qt-5.15.10/include/QtCore/QSet \
+		/opt/qt-5.15.10/include/QtCore/QRegularExpression \
+		/opt/qt-5.15.10/include/QtCore/QUrlQuery
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 JsonEditorDialog.o: JsonEditorDialog.cpp JsonEditorDialog.h \
@@ -1280,7 +1311,24 @@ JsonEditorDialog.o: JsonEditorDialog.cpp JsonEditorDialog.h \
 		/opt/qt-5.15.10/include/QtWidgets/qmessagebox.h \
 		/opt/qt-5.15.10/include/QtCore/QTimer \
 		/opt/qt-5.15.10/include/QtCore/qtimer.h \
-		/opt/qt-5.15.10/include/QtCore/qbasictimer.h
+		/opt/qt-5.15.10/include/QtCore/qbasictimer.h \
+		/opt/qt-5.15.10/include/QtWebSockets/QWebSocket \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsocket.h \
+		/opt/qt-5.15.10/include/QtNetwork/QAbstractSocket \
+		/opt/qt-5.15.10/include/QtNetwork/QNetworkProxy \
+		/opt/qt-5.15.10/include/QtNetwork/qnetworkproxy.h \
+		/opt/qt-5.15.10/include/QtNetwork/qhostaddress.h \
+		/opt/qt-5.15.10/include/QtNetwork/QSslError \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsockets_global.h \
+		/opt/qt-5.15.10/include/QtWebSockets/qwebsocketprotocol.h \
+		/opt/qt-5.15.10/include/QtCore/QSet \
+		/opt/qt-5.15.10/include/QtCore/QRegularExpression \
+		/opt/qt-5.15.10/include/QtCore/QUrlQuery \
+		/opt/qt-5.15.10/include/QtCore/QJsonArray \
+		/opt/qt-5.15.10/include/QtCore/qjsonarray.h \
+		/opt/qt-5.15.10/include/QtCore/QFile \
+		/opt/qt-5.15.10/include/QtNetwork/QSslCertificate \
+		/opt/qt-5.15.10/include/QtGui/QFont
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonEditorDialog.o JsonEditorDialog.cpp
 
 moc_JsonEditorDialog.o: moc_JsonEditorDialog.cpp 
