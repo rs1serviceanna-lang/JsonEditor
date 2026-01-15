@@ -64,7 +64,7 @@ private:
     void findUuids(const QJsonValue &val, QSet<QString> &found);
     
     // Constants
-    const QString BASE_URL = "https://localhost:5001";
+    const QString BASE_URL = "https://127.0.0.1:5001";
 };
 
 #endif // JSONEDITORDIALOG_H

@@ -87,12 +87,7 @@ function handle_http_server_error(e) {
 }
 
 function route_incoming_request(req, res) {
-	if (req.socket.alpnProtocol === "http/1.1") {
-		console.log(`rejecting http/1.1 request from ${req.socket.remoteAddress}`);
-		res.writeHead(400, { "content-type": "application/json" });
-		res.end(`{"error": "rest_api only supports http/2 protocol"}`);
-		return;
-	}
+	// Ensure pseudo-headers for downstream modules (db_rest_api, odm_rest_api)
 	//res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
 	//res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
 	// Ensure pseudo-headers for downstream modules (db_rest_api, odm_rest_api)

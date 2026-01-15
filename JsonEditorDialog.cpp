@@ -16,7 +16,7 @@ JsonEditorDialog::JsonEditorDialog(QWidget *parent)
     , webSocket(new QWebSocket(QString(), QWebSocketProtocol::VersionLatest, this))
 {
     // Load and trust the server certificate
-    QFile certFile("metax.crt");
+    QFile certFile("metax_zero_webserver/certs/metax.crt");
     if (certFile.open(QIODevice::ReadOnly)) {
         QSslCertificate cert(&certFile);
         QSslConfiguration sslConfig = QSslConfiguration::defaultConfiguration();
@@ -116,9 +116,24 @@ void JsonEditorDialog::parse(const QString &uuid)
     // Enable HTTP/2
     request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
     
+    qDebug() << "Starting GET request to:" << urlStr;
     QNetworkReply *reply = networkManager->get(request);
+    
+    // Diagnostic handlers
     connect(reply, &QNetworkReply::finished, [this, reply]() {
+        qDebug() << "QNetworkReply finished! Status code:" << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         onGetFinished(reply);
+    });
+    
+    connect(reply, &QNetworkReply::errorOccurred, [this, reply](QNetworkReply::NetworkError code) {
+        qDebug() << "NETWORK ERROR:" << code << reply->errorString();
+        statusLabel->setText("Network Error: " + reply->errorString());
+        statusLabel->setStyleSheet("QLabel { color: red; padding: 5px; }");
+    });
+    
+    connect(reply, &QNetworkReply::sslErrors, [this, reply](const QList<QSslError> &errors) {
+        for (const QSslError &e : errors) qDebug() << "SSL ERROR IN GET:" << e.errorString();
+        reply->ignoreSslErrors();
     });
 }
 
