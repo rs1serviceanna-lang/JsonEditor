@@ -13,7 +13,7 @@ import { Buffer } from "buffer";
 global.Buffer = Buffer;
 
 //imports from third party libraries
-import ws_pkg from "/home/tigran/ProjectWithAi/JsonEditor/metax_zero_webserver/node_modules/ws/index.js";
+import ws_pkg from "./metax_zero_webserver/node_modules/ws/index.js";
 const { WebSocketServer } = ws_pkg;
 
 const config = {};
@@ -88,9 +88,15 @@ function handle_http_server_error(e) {
 
 function route_incoming_request(req, res) {
 	// Ensure pseudo-headers for downstream modules (db_rest_api, odm_rest_api)
-	//res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-	//res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-	// Ensure pseudo-headers for downstream modules (db_rest_api, odm_rest_api)
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+	res.setHeader('Access-Control-Allow-Headers', '*');
+
+	if (req.method === 'OPTIONS') {
+		res.writeHead(200);
+		res.end();
+		return;
+	}
 	if (!req.headers[":path"]) req.headers[":path"] = req.url;
 	if (!req.headers[":scheme"]) req.headers[":scheme"] = "https";
 	if (!req.headers[":method"]) req.headers[":method"] = req.method;

@@ -54,5 +54,7 @@ echo "Starting JsonEditor Instance 2 (Right)..."
 $APP_BIN --x 970 --y 100 --width 900 --height 800 &
 
 echo "Both instances started side-by-side."
+echo "Opening monitor.html in browser..."
+xdg-open "$(pwd)/monitor.html" &
 echo "Press Enter to stop the server and exit..."
 read
