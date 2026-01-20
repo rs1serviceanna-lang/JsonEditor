@@ -112,6 +112,9 @@ function route_incoming_request(req, res) {
 		case "oo":
 			handle_odm_request(req, res);
 			break;
+		case "config":
+			handle_config_request(req, res);
+			break;
 		default:
 			res.writeHead(400, { "content-type": "application/json" });
 			res.end(`{"error":"request is not handled yet."}`);
@@ -150,6 +153,18 @@ global.send_notification_to_websocket_clients = (uuid) => {
 				"listened_uuids has token in list, but websocket object not found.");
 			wss_clients[token].send(JSON.stringify({ event: "update", uuid }))
 		}
+	}
+}
+
+function handle_config_request(req, res) {
+	console.log(`handling config request`, `request path: ${req.headers[":path"]}`);
+	const req_path = req.headers[":path"].split("?")[0];
+	if (req_path === "/config/get_user_id") {
+		res.writeHead(200, { "content-type": "application/json" });
+		res.end(JSON.stringify({ user_id: "d0000000-0000-0000-0000-000000000000" }));
+	} else {
+		res.writeHead(400, { "content-type": "application/json" });
+		res.end(`{"error":"config request is not handled yet."}`);
 	}
 }
 
