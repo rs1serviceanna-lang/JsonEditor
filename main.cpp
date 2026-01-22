@@ -22,10 +22,16 @@ int main(int argc, char *argv[])
     parser.addOption(wOption);
     QCommandLineOption hOption("height", "Window height", "height", "600");
     parser.addOption(hOption);
-
+    QCommandLineOption serverOption("server", "Metax Server URL", "url", "https://192.168.11.73:5001");
+    parser.addOption(serverOption);
+    
     parser.process(app);
 
     JsonEditorDialog dialog;
+    
+    if (parser.isSet(serverOption)) {
+        dialog.setServerUrl(parser.value(serverOption));
+    }
     
     int x = parser.value(xOption).toInt();
     int y = parser.value(yOption).toInt();

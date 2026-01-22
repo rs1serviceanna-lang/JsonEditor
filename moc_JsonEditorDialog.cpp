@@ -23,8 +23,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_JsonEditorDialog_t {
-    QByteArrayData data[13];
-    char stringdata0[162];
+    QByteArrayData data[14];
+    char stringdata0[177];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,14 +45,15 @@ QT_MOC_LITERAL(8, 96, 21), // "onTextMessageReceived"
 QT_MOC_LITERAL(9, 118, 7), // "message"
 QT_MOC_LITERAL(10, 126, 11), // "onSslErrors"
 QT_MOC_LITERAL(11, 138, 16), // "QList<QSslError>"
-QT_MOC_LITERAL(12, 155, 6) // "errors"
+QT_MOC_LITERAL(12, 155, 6), // "errors"
+QT_MOC_LITERAL(13, 162, 14) // "onDisconnected"
 
     },
     "JsonEditorDialog\0onLoadClicked\0\0"
     "onSaveClicked\0onGetFinished\0QNetworkReply*\0"
     "reply\0onPostFinished\0onTextMessageReceived\0"
     "message\0onSslErrors\0QList<QSslError>\0"
-    "errors"
+    "errors\0onDisconnected"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +63,7 @@ static const uint qt_meta_data_JsonEditorDialog[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,12 +71,13 @@ static const uint qt_meta_data_JsonEditorDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x08 /* Private */,
-       3,    0,   45,    2, 0x08 /* Private */,
-       4,    1,   46,    2, 0x08 /* Private */,
-       7,    1,   49,    2, 0x08 /* Private */,
-       8,    1,   52,    2, 0x08 /* Private */,
-      10,    1,   55,    2, 0x08 /* Private */,
+       1,    0,   49,    2, 0x08 /* Private */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    1,   51,    2, 0x08 /* Private */,
+       7,    1,   54,    2, 0x08 /* Private */,
+       8,    1,   57,    2, 0x08 /* Private */,
+      10,    1,   60,    2, 0x08 /* Private */,
+      13,    0,   63,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -84,6 +86,7 @@ static const uint qt_meta_data_JsonEditorDialog[] = {
     QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void, QMetaType::QString,    9,
     QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -100,6 +103,7 @@ void JsonEditorDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 3: _t->onPostFinished((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         case 4: _t->onTextMessageReceived((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 5: _t->onSslErrors((*reinterpret_cast< const QList<QSslError>(*)>(_a[1]))); break;
+        case 6: _t->onDisconnected(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -159,13 +163,13 @@ int JsonEditorDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

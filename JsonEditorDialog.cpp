@@ -34,8 +34,9 @@ JsonEditorDialog::JsonEditorDialog(QWidget *parent)
     connect(webSocket, &QWebSocket::connected, [this]() {
         qDebug() << "WebSocket connected";
     });
+    connect(webSocket, &QWebSocket::disconnected, this, &JsonEditorDialog::onDisconnected);
     
-    webSocket->open(QUrl("wss://localhost:5001"));
+    webSocket->open(QUrl("wss://192.168.11.73:5001"));
 }
 
 JsonEditorDialog::~JsonEditorDialog()
@@ -103,9 +104,8 @@ void JsonEditorDialog::parse(const QString &uuid)
     saveButton->setEnabled(false);
     
     // GET request
-    QStringList idParts = uuid.split('#');
-    QString reqId = idParts.first();
-    QString urlStr = QString("%1/db/get?id=%2").arg(BASE_URL).arg(QString::fromUtf8(QUrl::toPercentEncoding(reqId)));
+    QString reqId = uuid.split('#').first();
+    QString urlStr = QString("%1/db/get?id=%2").arg(baseUrl).arg(QString::fromUtf8(QUrl::toPercentEncoding(reqId)));
     QNetworkRequest request((QUrl(urlStr)));
     
     // Ignore SSL errors (verify=False)
@@ -171,7 +171,7 @@ void JsonEditorDialog::registerListener(const QString &uuid)
 {
     if (wsToken.isEmpty() || uuid.isEmpty()) return;
     QString urlStr = QString("%1/db/register_listener?id=%2&token=%3")
-        .arg(BASE_URL).arg(QString::fromUtf8(QUrl::toPercentEncoding(uuid))).arg(wsToken);
+        .arg(baseUrl).arg(QString::fromUtf8(QUrl::toPercentEncoding(uuid))).arg(wsToken);
     QNetworkRequest request((QUrl(urlStr)));
     QSslConfiguration sslConfig = request.sslConfiguration();
     sslConfig.setPeerVerifyMode(QSslSocket::VerifyNone);
@@ -218,7 +218,7 @@ void JsonEditorDialog::onSaveClicked()
     saveButton->setEnabled(false);
     
     // POST request
-    QString urlStr = QString("%1/db/save/node?id=%2").arg(BASE_URL).arg(currentUuid);
+    QString urlStr = QString("%1/db/save/node?id=%2").arg(baseUrl).arg(currentUuid);
     QNetworkRequest request((QUrl(urlStr)));
     
     // Ignore SSL
@@ -319,3 +319,33 @@ QJsonObject JsonEditorDialog::getJsonFromEditor()
     
     return doc.object();
 }
+
+void JsonEditorDialog::onDisconnected()
+{
+    qDebug() << "WebSocket disconnected. Reconnecting in 3 seconds...";
+    QTimer::singleShot(3000, this, &JsonEditorDialog::reconnect);
+}
+
+void JsonEditorDialog::setServerUrl(const QString &url)
+{
+    baseUrl = url;
+    // Reconnect websocket if needed
+    if (webSocket->isValid()) {
+        webSocket->close();
+    }
+    
+    QString wsUrl = url;
+    wsUrl.replace("https://", "wss://");
+    wsUrl.replace("http://", "ws://");
+    webSocket->open(QUrl(wsUrl));
+}
+
+void JsonEditorDialog::reconnect()
+{
+    qDebug() << "Attempting to reconnect...";
+    QString wsUrl = baseUrl;
+    wsUrl.replace("https://", "wss://");
+    wsUrl.replace("http://", "ws://");
+    webSocket->open(QUrl(wsUrl));
+}
+

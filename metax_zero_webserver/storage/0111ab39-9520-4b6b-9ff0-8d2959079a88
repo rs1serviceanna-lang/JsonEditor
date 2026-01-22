@@ -965,15 +965,15 @@ class Metax {
          * @todo need to do more diagnostics before just reconnecting
          */
         scheduleReconnect() {
-                const seconds = 3000;
-                console.log(`scheduling a reconnect in ${seconds} seconds`);
+                const ms = 3000;
+                console.log(`scheduling a reconnect in ${ms/1000} seconds`);
                 setTimeout( () => {
                         this.createWebsocket()
                         .catch(e => {
                                 console.error("couldn't reconnect:",e)
                                 this.scheduleReconnect();
                         })
-                }, seconds);
+                }, ms);
                 console.log('scheduling:done');
         }
 

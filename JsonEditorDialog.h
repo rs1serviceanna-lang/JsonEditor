@@ -39,6 +39,7 @@ private slots:
     void onPostFinished(QNetworkReply *reply);
     void onTextMessageReceived(const QString &message);
     void onSslErrors(const QList<QSslError> &errors);
+    void onDisconnected();
 
 private:
     void setupUi();
@@ -60,11 +61,15 @@ private:
     QString wsToken;
     QSet<QString> dependencyUuids;
 
+    void reconnect();
     void registerListener(const QString &uuid);
     void findUuids(const QJsonValue &val, QSet<QString> &found);
     
     // Constants
-    const QString BASE_URL = "https://127.0.0.1:5001";
+    QString baseUrl = "https://192.168.11.73:5001";
+    
+public:
+    void setServerUrl(const QString &url);
 };
 
 #endif // JSONEDITORDIALOG_H

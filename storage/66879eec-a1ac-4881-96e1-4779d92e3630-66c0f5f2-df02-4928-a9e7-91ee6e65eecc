@@ -1,2 +1,0 @@
-return {[String(test.value)]: arg};
-

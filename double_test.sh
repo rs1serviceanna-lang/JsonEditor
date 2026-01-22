@@ -35,7 +35,7 @@ echo "Starting Metax Zero Webserver (Stable Version)..."
 pushd "$SERVER_DIR" > /dev/null
 source ./start.conf
 pushd ./metax_2/ > /dev/null
-node ../../rest_api_stable.mjs storage=../../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
+node ../../rest_api_stable.mjs storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
 SERVER_PID=$!
 popd > /dev/null
 popd > /dev/null
@@ -54,7 +54,5 @@ echo "Starting JsonEditor Instance 2 (Right)..."
 $APP_BIN --x 970 --y 100 --width 900 --height 800 &
 
 echo "Both instances started side-by-side."
-echo "Opening monitor.html in browser..."
-xdg-open "$(pwd)/monitor.html" &
 echo "Press Enter to stop the server and exit..."
 read
