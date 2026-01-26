@@ -20,6 +20,7 @@
 #include <QRegularExpression>
 #include <QUrl>
 #include <QUrlQuery>
+#include <QDateTime>
 
 class JsonEditorDialog : public QDialog
 {
@@ -31,6 +32,7 @@ public:
     
     void parse(const QString &uuid);
     void show();
+    void forceDisconnect();
 
 private slots:
     void onLoadClicked();
@@ -40,6 +42,8 @@ private slots:
     void onTextMessageReceived(const QString &message);
     void onSslErrors(const QList<QSslError> &errors);
     void onDisconnected();
+    void onError(QAbstractSocket::SocketError error);
+    void scheduleReconnect(int delayMs);
 
 private:
     void setupUi();
@@ -60,6 +64,11 @@ private:
     QJsonObject currentJson;
     QString wsToken;
     QSet<QString> dependencyUuids;
+    
+    // WebSocket reconnection tracking
+    QDateTime lastConnectionAttempt;
+    int reconnectAttempts = 0;
+    QTimer *reconnectTimer = nullptr;
 
     void reconnect();
     void registerListener(const QString &uuid);
@@ -70,6 +79,7 @@ private:
     
 public:
     void setServerUrl(const QString &url);
+    void loadUuid(const QString &uuid);
 };
 
 #endif // JSONEDITORDIALOG_H

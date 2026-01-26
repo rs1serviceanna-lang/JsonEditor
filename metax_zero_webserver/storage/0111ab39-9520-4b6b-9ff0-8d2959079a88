@@ -70,8 +70,8 @@ class Metax {
          *  @todo: derive this from Singleton class to avoid 
          *         messy code everywhere
          */
-        constructor() { 
-                console.assert( metax === notDefinedYet,
+        constructor() {
+                console.assert(metax === notDefinedYet,
                         'Trying to create second instance of class Metax');
                 this.mHost = notDefinedYet;
                 this.mPort = notDefinedYet;
@@ -129,6 +129,9 @@ class Metax {
                 this.mGetUserIDRequest = notDefinedYet;
                 this.mNotifyRequest = notDefinedYet;
                 this.mtranslateRequest = notDefinedYet;
+                this.reconnectAttempts = 0;
+                this.lastConnectionAttempt = 0;
+                this.reconnectTimer = null;
         }
 
         /**
@@ -147,9 +150,9 @@ class Metax {
          *  because inside the handlers it's lost, e.g. inside
          *  websocket.onmessage the variable 'this' is set to websocket.
          */
-        async connect(h='localhost',p=8001,e=true,s=false,t="") {
+        async connect(h = 'localhost', p = 8001, e = true, s = false, t = "") {
                 console.assert(metax === this, 'metax must be a singleton');
-                this.setupConnectionParameters(h,p,e,t,s);
+                this.setupConnectionParameters(h, p, e, t, s);
                 this.createWebsocket().catch(e => {
                         console.error("failed to connect websocket", e);
                 })
@@ -159,7 +162,7 @@ class Metax {
          *  @summary Disonnects from metax server
          */
         async disconnect() {
-                this.mWebsocket.onclose = () => {};
+                this.mWebsocket.onclose = () => { };
                 await this.mWebsocket.close();
                 return 'success';
         }
@@ -171,7 +174,7 @@ class Metax {
          * @todo: derive this from UUID class, 
          *         where other functions should be put
          */
- isValidUUID(u) {
+        isValidUUID(u) {
                 return /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u) ||
                         /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}-[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u);
         }
@@ -181,32 +184,32 @@ class Metax {
          * @param mime - MIME type of the object to be served back in get()
          * @param enc - Encryption level of file to save( default is the enc defined on connect )
          */
-        async save(data, mime='application/javascript', onProgress, enc = metax.mEncryption) {
+        async save(data, mime = 'application/javascript', onProgress, enc = metax.mEncryption) {
                 const r = await this.HTTPPost(this.mSaveRequest + enc, data, mime,
-                                this.mAccessToken, onProgress, data.length);
+                        this.mAccessToken, onProgress, data.length);
                 console.assert(
-                        this.isValidUUID(r.uuid), 
-                        `response to metax.save(${data},${mime}) ` + 
+                        this.isValidUUID(r.uuid),
+                        `response to metax.save(${data},${mime}) ` +
                         `returned an invalid uuid=${r.uuid}`
                 );
                 return r.uuid;
         }
-         
+
         /** @summary Save given data with given mime-type and return uuid
          * @param data - any data (blob/json/etc) to be sent to Metax
          * @param mime - MIME type of the object to be served back in get()
          * @param enc - Encryption level of file to save( default is the enc defined on connect )
          */
-        async saveData(data, mime = "application/javascript", onProgress, enc = metax.mEncryption, ) {
+        async saveData(data, mime = "application/javascript", onProgress, enc = metax.mEncryption,) {
                 let size = 0;
                 try {
                         size = data.get("size")
                 } catch { }
                 const s = await this.HTTPPost(this.mSaveAnyDataRequest + enc, data, mime,
-                                this.mAccessToken, onProgress, size);
+                        this.mAccessToken, onProgress, size);
                 console.assert(
-                        this.isValidUUID(s.uuid), 
-                        `response to metax.saveData(${data},${mime}) ` + 
+                        this.isValidUUID(s.uuid),
+                        `response to metax.saveData(${data},${mime}) ` +
                         `returned an invalid uuid=${s.uuid}`
                 );
                 return s.uuid;
@@ -218,11 +221,11 @@ class Metax {
          * @param mime - MIME type of the object to be served back in get()
          */
         async takeFile(path, mime) {
-                const r = await this.HTTPPost(this.mSavePathRequest,path,mime,
-                                this.mAccessToken);
+                const r = await this.HTTPPost(this.mSavePathRequest, path, mime,
+                        this.mAccessToken);
                 console.assert(
-                        this.isValidUUID(r.uuid), 
-                        `response to metax.takeFile(${path},${mime}) ` + 
+                        this.isValidUUID(r.uuid),
+                        `response to metax.takeFile(${path},${mime}) ` +
                         `returned an invalid uuid=${r.uuid}`
                 );
                 return r.uuid;
@@ -238,13 +241,13 @@ class Metax {
                 const p = `${this.mProtocol}://${this.mHost}:${this.mPort}`;
                 const r = `${p}/db/save/data?enc=${enc}`;
                 return fetch(r, {
-                                 method: 'post',
-                                 headers: { 'Content-Type': s },
-                                 body: e
-                                 })
-                .catch( e => {
-                        throw Error(`fetch(${url}) resulted in error:\n ${e}`);
-                });
+                        method: 'post',
+                        headers: { 'Content-Type': s },
+                        body: e
+                })
+                        .catch(e => {
+                                throw Error(`fetch(${url}) resulted in error:\n ${e}`);
+                        });
         }
 
         /**
@@ -254,9 +257,9 @@ class Metax {
          * @param mime - must be the same as when used to create the object.
          * @todo Metax - must be modified to not require MIME upon update.
          */
-        async update(uuid,data,mime='application/json', enc =  metax.mEncryption) {
+        async update(uuid, data, mime = 'application/json', enc = metax.mEncryption) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.update() is passed an invalid uuid=${uuid}`
                 );
                 const r = await this.HTTPPost(
@@ -264,8 +267,8 @@ class Metax {
                         data, mime, this.mAccessToken
                 );
                 console.assert(
-                        r.uuid === uuid, 
-                        `metax.update(${uuid}...) returned a `+
+                        r.uuid === uuid,
+                        `metax.update(${uuid}...) returned a ` +
                         `different uuid=${uuid}`
                 );
                 return 'success';
@@ -277,12 +280,12 @@ class Metax {
          */
         async copy(uuid) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         'metax.copy() is passed an invalid uuid =',
                         uuid
                 );
                 const r = await this.HTTPGet(this.mCopyRequest + uuid,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r, 'response to metax.copy() is not ok');
                 return r;
         }
@@ -302,15 +305,15 @@ class Metax {
                 const r = await this.HTTPPost(
                         this.mShareRequest + `&id=${uuid}key=${public_key}`,
                         `key=${public_key}`, mime, this.mAccessToken)
-                .catch( e => {
-                        throw Error(`share(${uuid}) resulted` +
-                               `in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`share(${uuid}) resulted` +
+                                        `in error:\n ${e}`);
+                        });
                 console.assert(
-                                r.share_uuid === uuid,
-                                `metax.share(${uuid}...) returned a `+
-                                `different uuid=${uuid}`
-                              );
+                        r.share_uuid === uuid,
+                        `metax.share(${uuid}...) returned a ` +
+                        `different uuid=${uuid}`
+                );
                 return r;
         }
 
@@ -320,21 +323,21 @@ class Metax {
          * @param public_key - encripted key
          * @param iv - initialization vector
          */
-        async accept_share(uuid, public_key, iv,  mime) {
-                console.assert( this.isValidUUID(uuid), `metax.accept_share() +
+        async accept_share(uuid, public_key, iv, mime) {
+                console.assert(this.isValidUUID(uuid), `metax.accept_share() +
                                 is passed an invalid uuid=${uuid}`);
                 const p = `key=${public_key}&iv=${iv}`
                 const r = await this.HTTPPost(
                         this.mAcceptShareRequest + `&id=${uuid}`, p, mime,
                         this.mAccessToken)
-                .catch( e => {
-                        throw Error(`accept_share(${uuid}) resulted` +
-                                `in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`accept_share(${uuid}) resulted` +
+                                        `in error:\n ${e}`);
+                        });
                 console.assert(
-                                r.share === "accepted",
-                                `metax.accept_share is not accepted`
-                              );
+                        r.share === "accepted",
+                        `metax.accept_share is not accepted`
+                );
                 return 'success';
         }
 
@@ -348,8 +351,8 @@ class Metax {
          * @param subject - subject of the email
          * @param message - content of the email
          * @param mime - mime type for sending request
-	 * @param server - server of sending email
-	 * @param port - port of sending email
+         * @param server - server of sending email
+         * @param port - port of sending email
          */
         async send_email(to, cc, bcc, from, subject, message, mime, server, port = 587, password = '') {
                 const password_url = password == '' ?
@@ -358,16 +361,16 @@ class Metax {
                           &subject=${subject}&message=${message}\
                           &server=${server}&port=${port}${password_url}`;
                 const r = await this.HTTPPost(
-                                this.mSendEmailRequest + p, p, mime,
-                                this.mAccessToken)
-                .catch( e => {
-                        throw Error(`send_email(${to}) resulted in` +
-                                `error:\n ${e}`);
-                });
+                        this.mSendEmailRequest + p, p, mime,
+                        this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`send_email(${to}) resulted in` +
+                                        `error:\n ${e}`);
+                        });
                 console.assert(
-                                r.success === 1,
-                                `metax.send_email function isfailed`
-                              );
+                        r.success === 1,
+                        `metax.send_email function isfailed`
+                );
                 return 'success';
         }
 
@@ -376,15 +379,15 @@ class Metax {
          * @param data - any data which need to be send to peer
          * @param public_key - receiver's pulic key
          */
-        async sendto_by_key(public_key, data, mime='application/json') {
+        async sendto_by_key(public_key, data, mime = 'application/json') {
                 const k = encodeURIComponent(public_key);
                 const d = encodeURIComponent(data);
                 const r = await this.HTTPPost(this.mSendToRequest,
-                    `key=${k}&data=${d}`, mime, this.mAccessToken)
-                .catch( e => {
-                        throw Error(`sendto_by_key(${data}) resulted in` +
-                                `error:\n ${e}`);
-                });
+                        `key=${k}&data=${d}`, mime, this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`sendto_by_key(${data}) resulted in` +
+                                        `error:\n ${e}`);
+                        });
                 return r;
         }
 
@@ -395,11 +398,11 @@ class Metax {
          */
         async get_online_peers() {
                 const r = await this.HTTPGet(this.mGetOnlinePeersRequest,
-                                this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${this.mGetOnlinePeersRequest})`+
-                                ` resulted in error:\n ${e}`);
-                });
+                        this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${this.mGetOnlinePeersRequest})` +
+                                        ` resulted in error:\n ${e}`);
+                        });
                 const l = await r.json();
                 return l;
         }
@@ -410,22 +413,22 @@ class Metax {
          */
         async delete_from_db(uuid) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.delete_from_db() is passed an invalid +
                         uuid=${uuid}`);
-                await this.HTTPGet( this.mDeleteRequest + `id=${uuid}`,
-                                this.mAccessToken)
-                .then( async r => {
+                await this.HTTPGet(this.mDeleteRequest + `id=${uuid}`,
+                        this.mAccessToken)
+                        .then(async r => {
                                 const q = await r.json();
-                                console.assert( q.uuid === uuid, 
+                                console.assert(q.uuid === uuid,
                                         `metax.delete_from_db(${uuid}...)` +
-                                        `returned a `+ `different uuid=${uuid}`
+                                        `returned a ` + `different uuid=${uuid}`
                                 );
-                })
-                .catch( e => {
-                        throw Error(`delete_from_db(${uuid}) resulted in` +
-                                `error:\n ${e}`);
-                });
+                        })
+                        .catch(e => {
+                                throw Error(`delete_from_db(${uuid}) resulted in` +
+                                        `error:\n ${e}`);
+                        });
                 return 'success';
         }
 
@@ -440,11 +443,11 @@ class Metax {
          */
         async get(uuid) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.get() is passed an invalid uuid = ${uuid}`
                 );
                 const r = await this.HTTPGet(this.mGetRequest + uuid,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.get() is not ok');
                 return r;
         }
@@ -479,13 +482,13 @@ class Metax {
          */
         async registerPublicKeyEvent(cb) {
                 try {
-                         console.assert(this.mPublicKeyEvent);
-                         this.mPublicKeyEvent.push(cb);
+                        console.assert(this.mPublicKeyEvent);
+                        this.mPublicKeyEvent.push(cb);
                 } catch (e) {
                         console.error(`Unable to add Callback: ${e}`);
                 }
         }
-        
+
         /**
          * @sumary Unregister callback to metax events
          * @param {MetaxEventsCallback} cb is the callback to be
@@ -497,7 +500,7 @@ class Metax {
                         this.mOpenChannelEvent.splice(i, 1);
                 }
         }
-        
+
         /**
          * @sumary Register callback to public key events
          * @param {OpenChannelEvent} cb is the callback to be
@@ -510,20 +513,20 @@ class Metax {
                         console.error(`Unable to add Callback: ${e}`);
                 }
         }
-        
+
         /**
          * @sumary Register callback to public key events
          * @param {MetaxEventsCallback} cb is the callback to be
          */
         async registerPublicKeyEvent(cb) {
                 try {
-                         console.assert(this.mPublicKeyEvent);
-                         this.mPublicKeyEvent.push(cb);
+                        console.assert(this.mPublicKeyEvent);
+                        this.mPublicKeyEvent.push(cb);
                 } catch (e) {
                         console.error(`Unable to add Callback: ${e}`);
                 }
         }
-        
+
         /**
          * @sumary Unregister callback to metax events
          * @param {MetaxEventsCallback} cb is the callback to be
@@ -535,20 +538,20 @@ class Metax {
                         this.mPublicKeyEvent.splice(i, 1);
                 }
         }
-        
+
         /**
          * @sumary Register callback to metax events
          * @param {MetaxEventsCallback} cb is the callback to be
          */
         async registerMetaxEvents(cb) {
                 try {
-                         console.assert(this.mEvents);
-                         this.mEvents.push(cb);
+                        console.assert(this.mEvents);
+                        this.mEvents.push(cb);
                 } catch (e) {
                         console.error(`Unable to add Callback: ${e}`);
                 }
         }
-        
+
         /**
          * @sumary Unregister callback to metax events
          * @param {MetaxEventsCallback} cb is the callback to be
@@ -576,24 +579,24 @@ class Metax {
          * @todo Differentiate errors (e.g. no-permission, uuid not found,
          *      network-error, etc).
          */
-        async registerListener(uuid, cb, b) { 
+        async registerListener(uuid, cb, b) {
                 console.assert(this.mListeners);
                 let callbacks = this.mListeners[uuid];
-                if (! callbacks) {
+                if (!callbacks) {
                         let token = this.mListenerToken !== notDefinedYet ?
-                            `&token=${this.mListenerToken}` : "";
+                                `&token=${this.mListenerToken}` : "";
                         const url = this.mRegisterListenerRequest + uuid + token;
                         await this.HTTPGet(url, this.mAccessToken)
-                        .catch(e => { 
-                                throw Error(`metax.HTTPGet(${url}) `+
-                                        `resulted in error:\n ${e}`); 
-                        });
+                                .catch(e => {
+                                        throw Error(`metax.HTTPGet(${url}) ` +
+                                                `resulted in error:\n ${e}`);
+                                });
                         callbacks = this.mListeners[uuid] = [];
                 }
-                console.assert(callbacks.indexOf(cb) === -1, 
+                console.assert(callbacks.indexOf(cb) === -1,
                         `the uuid ${uuid} already has ` +
                         `a registered callback ${cb}`);
-                callbacks.push({"call" : cb, "not_send_me" : b});
+                callbacks.push({ "call": cb, "not_send_me": b });
         }
 
         /**
@@ -604,32 +607,32 @@ class Metax {
          *        unregisterListener callback has succeded. If it fails - the 
          *        anomaly should not be hidden by just unregistering the CB.
          */
-        async unregisterListener(uuid,cb) {
+        async unregisterListener(uuid, cb) {
                 console.assert(this.isValidUUID(uuid), 'unregisterListener ' +
                         `is called with an invalid uuid=${uuid}`);
                 const callbacks = this.mListeners[uuid];
-                console.assert(callbacks, 
+                console.assert(callbacks,
                         'there is no listener registered ' + `for ${uuid}`);
                 console.assert(callbacks.length > 0
                         , `listeners list for ${uuid} found but is empty`);
-                if (callbacks.length === 1) { 
-                        console.assert(cb === callbacks[0].call, 
-                                `the only registered callback for ${uuid}`+
+                if (callbacks.length === 1) {
+                        console.assert(cb === callbacks[0].call,
+                                `the only registered callback for ${uuid}` +
                                 ` is not ${cb}`);
                         let token = this.mListenerToken !== notDefinedYet ?
-                            `&token=${this.mListenerToken}` : "";
-                        const url = this.mUnregisterListenerRequest+ uuid + token;
-                        await this.HTTPGet(url, this.mAccessToken) 
-                        .catch( e => { 
-                                throw Error(`metax.HTTPGet(${url})`+
-                                            ` resulted in error:\n ${e}`); 
-                        });
-                        delete this.mListeners[uuid]; 
+                                `&token=${this.mListenerToken}` : "";
+                        const url = this.mUnregisterListenerRequest + uuid + token;
+                        await this.HTTPGet(url, this.mAccessToken)
+                                .catch(e => {
+                                        throw Error(`metax.HTTPGet(${url})` +
+                                                ` resulted in error:\n ${e}`);
+                                });
+                        delete this.mListeners[uuid];
                 } else {
                         let p = false;
-                        for(let j in callbacks) {
-                                if(cb == callbacks[j].call) {
-                                        callbacks.splice(j,1);
+                        for (let j in callbacks) {
+                                if (cb == callbacks[j].call) {
+                                        callbacks.splice(j, 1);
                                         p = true;
                                         break;
                                 }
@@ -646,11 +649,11 @@ class Metax {
          */
         async getMetaxInfo() {
                 const r = await this.HTTPGet(this.mGetMetaxInfoRequest,
-                                this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${this.mGetMetaxInfoRequest})`+
-                                ` resulted in error:\n ${e}`);
-                });
+                        this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${this.mGetMetaxInfoRequest})` +
+                                        ` resulted in error:\n ${e}`);
+                        });
                 const i = await r.json();
                 console.assert(
                         "user_public_key" in i &&
@@ -658,7 +661,7 @@ class Metax {
                         "device_public_key" in i &&
                         "device_info_uuid" in i,
                         `error in getting metax info`
-                      );
+                );
                 return i;
         }
 
@@ -674,16 +677,16 @@ class Metax {
                 const url = this.mSetMetaxInfoRequest + uuid;
                 await this.HTTPGet(url, this.mAccessToken)
                         .catch(e => {
-                                throw Error(`metax.HTTPGet(${url}) `+
+                                throw Error(`metax.HTTPGet(${url}) ` +
                                         `resulted in error:\n ${e}`);
-                });
+                        });
         }
 
         /**
          * @private
          * setup member-variables for connection paramters and paths
          */
-        setupConnectionParameters(h,p,e,t,s) {
+        setupConnectionParameters(h, p, e, t, s) {
                 console.assert(metax === this, 'metax must be a singleton');
                 metax.mAccessToken = t;
                 metax.mHost = h;
@@ -691,35 +694,35 @@ class Metax {
                 metax.mEncryption = e ? 1 : 0;
                 metax.mProtocol = s ? 'https' : 'http';
                 metax.mWebsocketProtocol = s ? 'wss' : 'ws';
-                metax.mWebsocketPath = 
+                metax.mWebsocketPath =
                         `${metax.mWebsocketProtocol}://${h}:${p}`;
                 metax.mServicePath = `${metax.mProtocol}://${h}:${p}/`;
-                metax.mSaveRequest = 
-                        metax.mServicePath + 
+                metax.mSaveRequest =
+                        metax.mServicePath +
                         `db/save/node?enc=`;
-                metax.mShareRequest = 
+                metax.mShareRequest =
                         metax.mServicePath + `db/share?`;
-                metax.mSendToRequest = 
+                metax.mSendToRequest =
                         metax.mServicePath + `db/sendto`;
                 metax.mGetOnlinePeersRequest =
                         metax.mServicePath + `config/get_online_peers`;
-                metax.mSendEmailRequest = 
+                metax.mSendEmailRequest =
                         metax.mServicePath + `sendemail?`;
                 metax.mAcceptShareRequest =
                         metax.mServicePath + `db/accept_share?`;
                 metax.mSaveAnyDataRequest =
-                        metax.mServicePath + 
+                        metax.mServicePath +
                         `db/save/data?enc=`;
-                metax.mSavePathRequest = 
-                        metax.mServicePath + 
+                metax.mSavePathRequest =
+                        metax.mServicePath +
                         `db/save/path?enc=${metax.mEncryption}`;
                 metax.mGetUserPublicKeyRequest =
                         metax.mServicePath + `config/get_user_public_key`;
                 metax.mGetUserKeysRequest =
                         metax.mServicePath + `config/get_user_keys`;
-                metax.mDeleteRequest = 
+                metax.mDeleteRequest =
                         metax.mServicePath + `db/delete?`;
-                metax.mSaveDataRequest = 
+                metax.mSaveDataRequest =
                         metax.mServicePath + `db/save/data?`;
                 metax.mRegisterListenerRequest =
                         metax.mServicePath + `db/register_listener?id=`;
@@ -774,18 +777,25 @@ class Metax {
          *
          */
         async createWebsocket() {
-                return new Promise((resolve,reject)  => {
-                        metax.mWebsocket = new WebSocket(metax.mWebsocketPath +
+                return new Promise((resolve, reject) => {
+                        const ws = new WebSocket(metax.mWebsocketPath +
                                 "?token=" + this.mAccessToken);
-                        metax.mWebsocket.onerror = e => reject(e);
-                        metax.mWebsocket.onclose = e => reject(e);
-                        metax.mWebsocket.onopen = e => { 
-                                metax.mWebsocket.onmessage = 
+                        metax.mWebsocket = ws;
+                        ws.onerror = e => {
+                                metax.handleWebSocketError(e);
+                                reject(e);
+                        };
+                        ws.onclose = e => {
+                                metax.handleWebSocketClose(e);
+                                reject(e);
+                        };
+                        ws.onopen = e => {
+                                ws.onmessage =
                                         e => metax.dispatchWebSocketMessage(e, resolve);
-                                metax.mWebsocket.onerror = 
+                                ws.onerror =
                                         e => metax.handleWebSocketError(e);
-                                metax.mWebsocket.onclose = 
-                                        e => metax.handleWebSocketClose(e);  
+                                ws.onclose =
+                                        e => metax.handleWebSocketClose(e);
                         };
                 });
         }
@@ -799,7 +809,7 @@ class Metax {
                         return JSON.parse(e.data);
                 } catch (e) {
                         console.assert(false,
-                                `failed to parse data field of the ` + 
+                                `failed to parse data field of the ` +
                                 `Metax on-update event: ${JSON.stringify(e)}`);
                         throw e;
                 }
@@ -809,16 +819,16 @@ class Metax {
         handleMetaxEvents(e, msg) {
                 const ev = msg['event'];
                 const callbacks = this.mEvents;
-                for ( let cb in callbacks ) {
+                for (let cb in callbacks) {
                         try {
-                                if(! callbacks[cb].not_send_me) {
+                                if (!callbacks[cb].not_send_me) {
                                         callbacks[cb].call(ev);
                                 }
                         } catch (e) {
                                 console.error(`Metax events ` +
-                                                `threw ` +
-                                                `an assertion: ` +
-                                                `${JSON.stringify(e)}`);
+                                        `threw ` +
+                                        `an assertion: ` +
+                                        `${JSON.stringify(e)}`);
                         }
                 }
         }
@@ -826,24 +836,55 @@ class Metax {
         handleGenericProtocol(e) {
                 const callbacks = this.mGenericProtocolListeners;
                 console.assert(callbacks);
-                for ( let cb in callbacks ) {
+                for (let cb in callbacks) {
                         try {
                                 callbacks[cb].call(e);
                         } catch (e) {
                                 console.error(`Metax sync ` +
-                                                `listener threw ` +
-                                                `an assertion: ` +
-                                                `${JSON.stringify(e)}`);
+                                        `listener threw ` +
+                                        `an assertion: ` +
+                                        `${JSON.stringify(e)}`);
                         }
                 }
         }
-        
+
         /*private*/
-        handleConnectionMessage(e, msg, resolve) {
+        async handleConnectionMessage(e, msg, resolve) {
                 console.log(msg)
-                if(msg.event === "connected") {
+                if (msg.event === "connected") {
                         this.mListenerToken = msg.token;
-                        resolve('websocket connected'); 
+                        this.reconnectAttempts = 0; // Reset backoff on success
+                        await this.reRegisterAllListeners();
+                        resolve('websocket connected');
+                }
+        }
+
+        /** @private */
+        async reRegisterAllListeners() {
+                const uuids = Object.keys(this.mListeners);
+                if (uuids.length > 0) {
+                        console.log(`Metax: Re-registering ${uuids.length} listeners...`);
+                        for (const uuid of uuids) {
+                                let token = this.mListenerToken !== notDefinedYet ?
+                                        `&token=${this.mListenerToken}` : "";
+                                const url = this.mRegisterListenerRequest + uuid + token;
+
+                                // 1. Tell server we are listening
+                                await this.HTTPGet(url, this.mAccessToken)
+                                        .then(() => {
+                                                // 2. TRIGGER LOCAL REFRESH (The "Virtual Update")
+                                                // This makes the UI think an update arrived and fetches fresh data
+                                                const callbacks = this.mListeners[uuid];
+                                                if (callbacks) {
+                                                        console.log(`Metax: Triggering virtual update for ${uuid}`);
+                                                        callbacks.forEach(cb => cb.call("update"));
+                                                }
+                                        })
+                                        .catch(e => {
+                                                console.error(`Metax: Failed to re-register listener for ${uuid}: ${e}`);
+                                        });
+                        }
+                        console.log(`Metax: Re-registration complete.`);
                 }
         }
 
@@ -851,41 +892,41 @@ class Metax {
          *  @private
          */
         dispatchWebSocketMessage(e, resolve) {
-            try {
-                let msg = this.parseWebSocketEvent(e);
-                if("event" in msg && "uuid" in msg) {
-                        this.handleDBWebSocketMessage(e, msg);
-                        return;
-                } else if("event" in msg && "token" in msg) {
-                        this.handleConnectionMessage(e, msg, resolve);
-                } else if("event" in msg) {
-                        this.handleMetaxEvents(e, msg);
-                        return;
-                } else if("KeyTransfer" in msg && "public_key" in msg) {
-                        this.handlePublicKeyEvent(e, msg);
-                        return;
-                } else if("open_channel" in msg) {
-                        this.handleOpenChannelEvent(e, msg);
-                        return;
+                try {
+                        let msg = this.parseWebSocketEvent(e);
+                        if ("event" in msg && "uuid" in msg) {
+                                this.handleDBWebSocketMessage(e, msg);
+                                return;
+                        } else if ("event" in msg && "token" in msg) {
+                                this.handleConnectionMessage(e, msg, resolve);
+                        } else if ("event" in msg) {
+                                this.handleMetaxEvents(e, msg);
+                                return;
+                        } else if ("KeyTransfer" in msg && "public_key" in msg) {
+                                this.handlePublicKeyEvent(e, msg);
+                                return;
+                        } else if ("open_channel" in msg) {
+                                this.handleOpenChannelEvent(e, msg);
+                                return;
+                        }
+                } catch (er) {
+                        console.log`Parse failed err=${er}`;
                 }
-            } catch (er) {
-                console.log `Parse failed err=${er}`;
-            }
-            // TODO need to add sentto and test for it
-            this.handleGenericProtocol(e.data)
+                // TODO need to add sentto and test for it
+                this.handleGenericProtocol(e.data)
         }
-        
+
         /**@private */
         handleOpenChannelEvent(e, msg) {
                 const callbacks = this.mOpenChannelEvent;
-                for ( let cb in callbacks ) {
+                for (let cb in callbacks) {
                         try {
                                 callbacks[cb].call(msg);
                         } catch (e) {
                                 console.error(`Open channel Event ` +
-                                                `threw ` +
-                                                `an assertion: ` +
-                                                `${JSON.stringify(e)}`);
+                                        `threw ` +
+                                        `an assertion: ` +
+                                        `${JSON.stringify(e)}`);
                         }
                 }
         }
@@ -893,14 +934,14 @@ class Metax {
         /**@private */
         handlePublicKeyEvent(e, msg) {
                 const callbacks = this.mPublicKeyEvent;
-                for ( let cb in callbacks ) {
+                for (let cb in callbacks) {
                         try {
                                 callbacks[cb].call(msg);
                         } catch (e) {
                                 console.error(`Public Key Event ` +
-                                                `threw ` +
-                                                `an assertion: ` +
-                                                `${JSON.stringify(e)}`);
+                                        `threw ` +
+                                        `an assertion: ` +
+                                        `${JSON.stringify(e)}`);
                         }
                 }
         }
@@ -913,19 +954,19 @@ class Metax {
          */
         handleDBWebSocketMessage(e, msg) {
                 console.assert('event' in msg, 'on-update message ' +
-                               'from Metax should have "event" field');
+                        'from Metax should have "event" field');
                 console.assert('uuid' in msg, 'on-update message ' +
-                               'from Metax should have "uuid" field');
+                        'from Metax should have "uuid" field');
                 const uuid = msg['uuid'];
                 const ev = msg['event'];
                 console.assert(this.isValidUUID(uuid),
                         `received on-update event with invalid uuid=${uuid}`);
                 const callbacks = this.mListeners[uuid];
-                if( !callbacks || callbacks.length < 1) { return; }
+                if (!callbacks || callbacks.length < 1) { return; }
                 for (let j in callbacks) {
                         try {
-                                if(! callbacks[j].not_send_me) {
-                                        callbacks[j].call(uuid,ev);
+                                if (!callbacks[j].not_send_me) {
+                                        callbacks[j].call(uuid, ev);
                                 }
                         } catch (e) {
                                 console.error('metax on-update handler threw' +
@@ -940,9 +981,9 @@ class Metax {
          *  @todo: process error-code and turn into human-readable msg &
          *        links to documentation explaining details of error.
          */
-        handleWebSocketClose(e) { 
-                console.log('Metax websocket connection is closed with '+
-                        `code: ${e.code} and reason: ${e.reason}`); 
+        handleWebSocketClose(e) {
+                console.log('Metax websocket connection is closed with ' +
+                        `code: ${e.code} and reason: ${e.reason}`);
                 this.scheduleReconnect();
         }
 
@@ -962,19 +1003,35 @@ class Metax {
         /**
          * @private
          * Schedule a reconnect during websocket drop
-         * @todo need to do more diagnostics before just reconnecting
          */
         scheduleReconnect() {
-                const ms = 3000;
-                console.log(`scheduling a reconnect in ${ms/1000} seconds`);
-                setTimeout( () => {
-                        this.createWebsocket()
-                        .catch(e => {
-                                console.error("couldn't reconnect:",e)
-                                this.scheduleReconnect();
-                        })
-                }, ms);
-                console.log('scheduling:done');
+                if (this.reconnectTimer) clearTimeout(this.reconnectTimer);
+
+                const now = Date.now();
+                let delay = 0;
+
+                // Reset backoff if we haven't tried for a while (5s)
+                if (now - this.lastConnectionAttempt > 5000) {
+                        this.reconnectAttempts = 0;
+                }
+
+                // Smart backoff progression: instant (0ms), 100ms, 500ms, 1s, 3s max
+                if (this.reconnectAttempts === 0) delay = 0;
+                else if (this.reconnectAttempts === 1) delay = 100;
+                else if (this.reconnectAttempts === 2) delay = 500;
+                else if (this.reconnectAttempts === 3) delay = 1000;
+                else delay = 3000;
+
+                console.log(`Metax: Reconnecting in ${delay}ms (attempt ${this.reconnectAttempts})...`);
+
+                this.reconnectTimer = setTimeout(() => {
+                        this.lastConnectionAttempt = Date.now();
+                        this.reconnectAttempts++;
+                        this.createWebsocket().catch(e => {
+                                // createWebsocket returns a promise that rejects on close/error
+                                // handleWebSocketClose/Error will trigger another scheduleReconnect
+                        });
+                }, delay);
         }
 
         /**
@@ -986,47 +1043,47 @@ class Metax {
          */
         async HTTPGet(url, token) {
                 return fetch(url, {
-                                method: 'GET',
-                                headers: {
-                                'Authorization' : "Metax-Auth " + token 
-                                },
-                        }).then( async r => {
-                                if (!r.ok) {
-                                        throw await r.text();
-                                }
-                                return r;
-                        }).catch( e => {
-                                let msg = ''
-                                try { 
-                                        const r = JSON.parse(e);
-                                        msg = r.error;
-                                } catch{
-                                        msg = `fetch(${url}) resulted in error:\n ${e}`;
-                                }
-                                throw new Error(msg);
-                        });
+                        method: 'GET',
+                        headers: {
+                                'Authorization': "Metax-Auth " + token
+                        },
+                }).then(async r => {
+                        if (!r.ok) {
+                                throw await r.text();
+                        }
+                        return r;
+                }).catch(e => {
+                        let msg = ''
+                        try {
+                                const r = JSON.parse(e);
+                                msg = r.error;
+                        } catch {
+                                msg = `fetch(${url}) resulted in error:\n ${e}`;
+                        }
+                        throw new Error(msg);
+                });
         }
 
         /**
          *  @private
          */
-        async HTTPPost(url,data,mime,token,onProgress, size=0) {
+        async HTTPPost(url, data, mime, token, onProgress, size = 0) {
                 return new Promise((res, rej) => {
                         const request = new XMLHttpRequest();
-                        
+
                         request.upload.addEventListener('progress', function (e) {
                                 if (!onProgress) return
                                 if (e.loaded <= size) {
                                         var percent = Math.round(e.loaded / size * 100);
                                         try {
                                                 onProgress(percent)
-                                        } catch(e) {
+                                        } catch (e) {
                                                 console.error("Error in onProgress callback", e);
                                         }
-                                } 
-                        });   
+                                }
+                        });
 
-                        request.onreadystatechange = function() {
+                        request.onreadystatechange = function () {
                                 if (request.readyState == XMLHttpRequest.DONE) {
                                         if (request.status === 200) {
                                                 const response = JSON.parse(request.responseText);
@@ -1034,7 +1091,7 @@ class Metax {
                                                 return
                                         }
                                         let msg;
-                                        try { 
+                                        try {
                                                 const r = JSON.parse(request.responseText);
                                                 msg = r;
                                         } catch {
@@ -1049,18 +1106,18 @@ class Metax {
                         request.send(data);
                 })
         }
-        
+
         /**
          * @summary Returns user public key
          * @throws Error if the request to Metax server failed.
          */
         async getUserPublicKey() {
                 const r = await this.HTTPGet(this.mGetUserPublicKeyRequest,
-                               this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${this.mGetUserPublicKeyRequest})`
-                                + ` resulted in error:\n ${e}`);
-                });
+                        this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${this.mGetUserPublicKeyRequest})`
+                                        + ` resulted in error:\n ${e}`);
+                        });
                 const i = await r.json();
                 return i;
         }
@@ -1072,18 +1129,18 @@ class Metax {
          */
         async get_user_keys() {
                 const r = await this.HTTPGet(this.mGetUserKeysRequest,
-                               this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${this.mGetUserKeysRequest})`
-                                + ` resulted in error:\n ${e}`);
-                });
+                        this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${this.mGetUserKeysRequest})`
+                                        + ` resulted in error:\n ${e}`);
+                        });
                 const i = await r.json();
                 console.assert(
                         "user_public_key" in i &&
                         "user_private_key" in i &&
-                        "user_json_key" in i ,
+                        "user_json_key" in i,
                         `Error in getting metax user keys`
-                      );
+                );
                 return i;
         }
 
@@ -1094,14 +1151,14 @@ class Metax {
         async startPairing(timeout) {
                 const url = this.mStartPairing + timeout;
                 const r = await this.HTTPGet(url, this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${url})`
-                                + ` resulted in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${url})`
+                                        + ` resulted in error:\n ${e}`);
+                        });
                 const i = await r.json();
                 return i;
         }
-        
+
         /**
          * @summary Starts channel pairing mode
          * @throws Error if the request to Metax server failed.
@@ -1110,13 +1167,13 @@ class Metax {
                 const url = this.mStartChannelPairing + timeout;
                 const r = await this.HTTPPost(url, `key=${public_key}`,
                         "application/json", this.mAccessToken)
-                .catch( e => {
-                        throw Error(`Start channel pairing resulted` +
-                               `in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`Start channel pairing resulted` +
+                                        `in error:\n ${e}`);
+                        });
                 return r;
         }
-        
+
         /**
          * @summary Open Channel request 
          * @throws Error if the request to Metax server failed.
@@ -1127,10 +1184,10 @@ class Metax {
                 const url = this.mOpenChannelRequest + ip;
                 const r = await this.HTTPPost(url, `key=${public_key}`, "application/json",
                         this.mAccessToken)
-                .catch( e => {
-                        throw Error(`open channel resulted` +
-                               `in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`open channel resulted` +
+                                        `in error:\n ${e}`);
+                        });
                 return r;
         }
 
@@ -1141,10 +1198,10 @@ class Metax {
          */
         async cancelPairing() {
                 await this.HTTPGet(this.mCancelPairing, this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${this.mCancelPairing})`
-                                + ` resulted in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${this.mCancelPairing})`
+                                        + ` resulted in error:\n ${e}`);
+                        });
         }
 
         /**
@@ -1154,15 +1211,15 @@ class Metax {
          */
         async getPairingPeers() {
                 const r = await this.HTTPGet(this.mGetPairingPeers,
-                                this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${this.mGetPairingPeers})`
-                                + ` resulted in error:\n ${e}`);
-                });
+                        this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${this.mGetPairingPeers})`
+                                        + ` resulted in error:\n ${e}`);
+                        });
                 const i = await r.json();
                 return i;
         }
-        
+
         /**
          * @summary Requests public key exchange with peer's ip.
          * @param {IP} ip of the server
@@ -1173,10 +1230,10 @@ class Metax {
                 const url = this.mRequestPublicKeyRequest + ip +
                         this.mRequestKeysRequestSecondParameter + code;
                 const r = await this.HTTPGet(url, this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${url})`
-                                + ` resulted in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${url})`
+                                        + ` resulted in error:\n ${e}`);
+                        });
                 const i = await r.json();
                 return i;
         }
@@ -1191,10 +1248,10 @@ class Metax {
                 const url = this.mRequestKeysRequest + ip +
                         this.mRequestKeysRequestSecondParameter + code;
                 const r = await this.HTTPGet(url, this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${url})`
-                                + ` resulted in error:\n ${e}`);
-                });
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${url})`
+                                        + ` resulted in error:\n ${e}`);
+                        });
                 const i = await r.text();
                 return i;
         }
@@ -1206,26 +1263,26 @@ class Metax {
          */
         async regenerate_user_keys() {
                 const r = await this.HTTPGet(this.mRegenerateUserKeysRequest,
-                                this.mAccessToken)
-                .catch( e => {
-                        throw Error(`metax.HTTPGet(${this.mRegenerateUserKeysRequest})`+
-                                ` resulted in error:\n ${e}`);
-                });
+                        this.mAccessToken)
+                        .catch(e => {
+                                throw Error(`metax.HTTPGet(${this.mRegenerateUserKeysRequest})` +
+                                        ` resulted in error:\n ${e}`);
+                        });
                 const l = await r.json();
                 return l;
         }
-        
+
         /**
          * TODO
          */
         async getCollection(uuid, pid, cid, locale) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.getCollection() is passed an invalid uuid = ${uuid}`
                 );
-                const url = `${this.mGetCollectionRequest}${uuid}&property=${pid}&collection=${cid}${locale ? '&locale='+ locale : ''}`;
+                const url = `${this.mGetCollectionRequest}${uuid}&property=${pid}&collection=${cid}${locale ? '&locale=' + locale : ''}`;
                 let r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.getCollection() is not ok');
                 return await r.json();
         }
@@ -1235,12 +1292,12 @@ class Metax {
          */
         async getProperty(uuid, pid, locale) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.getProperty() is passed an invalid uuid = ${uuid}`
                 );
-                const url = `${this.mGetPropertyRequest}${uuid}&property=${pid}${locale ? '&locale='+ locale : ''}`;
+                const url = `${this.mGetPropertyRequest}${uuid}&property=${pid}${locale ? '&locale=' + locale : ''}`;
                 let r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.getProperty() is not ok');
                 r = await r.json();
                 return r.value;
@@ -1250,14 +1307,14 @@ class Metax {
          */
         async getPropertyInEmbeddedObject(uuid, pid, child, locale) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.getProperty() is passed an invalid uuid = ${uuid}`
                 );
-                const url = `${this.mGetPropertyInEmbeddedObjectRequest}${uuid}&property=${pid}${locale ? '&locale='+ locale : ''}`;
+                const url = `${this.mGetPropertyInEmbeddedObjectRequest}${uuid}&property=${pid}${locale ? '&locale=' + locale : ''}`;
                 const r = await this.HTTPPost(url,
-                                JSON.stringify(child),
-                                "application/json",
-                                this.mAccessToken);
+                        JSON.stringify(child),
+                        "application/json",
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.getProperty() is not ok');
                 return r;
         }
@@ -1266,13 +1323,13 @@ class Metax {
          */
         async setProperty(uuid, pid, value, locale) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.setProperty() is passed an invalid uuid = ${uuid}`
                 );
-                const url = `${this.mSetPropertyRequest}${uuid}&property=${pid}${locale ? '&locale='+ locale : ''}`;
+                const url = `${this.mSetPropertyRequest}${uuid}&property=${pid}${locale ? '&locale=' + locale : ''}`;
                 const r = await this.HTTPPost(url,
-                                value,
-                                "text/plain", this.mAccessToken)
+                        value,
+                        "text/plain", this.mAccessToken)
                 return r.value;
         }
         /**
@@ -1280,18 +1337,18 @@ class Metax {
          */
         async setPropertyInEmbeddedObject(uuid, pid, value, child, locale) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.setProperty() is passed an invalid uuid = ${uuid}`
                 );
-                const url = `${this.mSetPropertyInEmbeddedObjectRequest}${uuid}&property=${pid}${locale ? '&locale='+ locale : ''}`;
+                const url = `${this.mSetPropertyInEmbeddedObjectRequest}${uuid}&property=${pid}${locale ? '&locale=' + locale : ''}`;
                 const body = {
                         value: value,
                         child: child
                 }
                 const r = await this.HTTPPost(url,
-                                JSON.stringify(body),
-                                JSON.stringify(child),
-                                this.mAccessToken);
+                        JSON.stringify(body),
+                        JSON.stringify(child),
+                        this.mAccessToken);
                 return r.value;
         }
         /**
@@ -1299,12 +1356,12 @@ class Metax {
          */
         async addElementToCollection(uuid, cid, el) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.addElementToCollection() is passed an invalid uuid = ${uuid}`
                 );
                 const url = `${this.mAddElementToCollectionRequest}${uuid}&collection=${cid}&element=${el}`;
                 const r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.addElementToCollection() is not ok');
                 return r;
         }
@@ -1313,12 +1370,12 @@ class Metax {
          */
         async createElementInCollection(uuid, cid) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.createElementToCollection() is passed an invalid uuid = ${uuid}`
                 );
                 const url = `${this.mCreateElementInCollectionRequest}${uuid}&collection=${cid}`;
                 let r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.createElementInCollection() is not ok');
                 r = await r.json();
                 return r.uuid;
@@ -1328,12 +1385,12 @@ class Metax {
          */
         async createElementInEmbeddedCollection(uuid, cid) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.createElementInEmbeddedCollection() is passed an invalid uuid = ${uuid}`
                 );
                 const url = `${this.mCreateElementInEmbeddedCollectionRequest}${uuid}&collection=${cid}`;
                 let r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.createElementInEmbeddedCollection() is not ok');
                 r = await r.json();
                 return r;
@@ -1343,12 +1400,12 @@ class Metax {
          */
         async deleteElementFromCollection(uuid, cid, el) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.deleteElementFromCollection() is passed an invalid uuid = ${uuid}`
                 );
                 const url = `${this.mDeleteElementFromCollectionRequest}${uuid}&collection=${cid}&element=${el}`;
                 const r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.deleteElementFromCollection() is not ok');
                 return r;
         }
@@ -1357,12 +1414,12 @@ class Metax {
          */
         async deleteElementFromEmbeddedCollection(uuid, cid, index) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.deleteElementFromEmbeddedCollection() is passed an invalid uuid = ${uuid}`
                 );
                 const url = `${this.mDeleteElementFromEmbeddedCollectionRequest}${uuid}&collection=${cid}&index=${index}`;
                 const r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.deleteElementFromEmbeddedCollection() is not ok');
                 return r;
         }
@@ -1371,12 +1428,12 @@ class Metax {
          */
         async wrap(uuid, locale) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.wrap() is passed an invalid uuid = ${uuid}`
                 );
-                const url = `${this.mWrapRequest}${uuid}${locale ? '&locale='+ locale : ''}`;
+                const url = `${this.mWrapRequest}${uuid}${locale ? '&locale=' + locale : ''}`;
                 const r = await this.HTTPGet(url,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.wrap() is not ok');
                 const o = await r.json();
                 return o;
@@ -1386,14 +1443,14 @@ class Metax {
          */
         async createElementInEmbeddedObjectsCollection(uuid, cid, child) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.createElementInEmbeddedObjectsCollection() is passed an invalid uuid = ${uuid}`
                 );
                 const url = `${this.mCreateElementInEmbeddedObjectsCollectionRequest}${uuid}&collection=${cid}`;
                 const r = await this.HTTPPost(url,
-                                JSON.stringify(child),
-                                "application/json",
-                                this.mAccessToken);
+                        JSON.stringify(child),
+                        "application/json",
+                        this.mAccessToken);
                 return r;
         }
         /**
@@ -1401,25 +1458,25 @@ class Metax {
          */
         async deleteElementFromEmbeddedObjectsCollection(uuid, cid, index, child) {
                 console.assert(
-                        this.isValidUUID(uuid), 
+                        this.isValidUUID(uuid),
                         `metax.deleteElementFromObjectsCollection() is passed an invalid uuid = ${uuid}`
                 );
                 const url = `${this.mDeleteElementFromEmbeddedObjectsCollectionRequest}${uuid}&collection=${cid}&index=${index}`;
                 const r = await this.HTTPPost(url,
-                                JSON.stringify(child),
-                                "application/json",
-                                this.mAccessToken);
+                        JSON.stringify(child),
+                        "application/json",
+                        this.mAccessToken);
                 return r;
         }
-        
+
         async getUserID() {
                 let r = await this.HTTPGet(this.mGetUserIDRequest,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.getUserID() is not ok');
                 r = await r.json();
                 return r.user_id;
         }
-        
+
         /**
          * @summary Notify watchers about given uuid update. 
          * @param uuid - must be a valid uuid of existing object in Metax
@@ -1431,13 +1488,13 @@ class Metax {
          * @param locale - locale in which change was done
          * @param old - the old value of property if there is 
          */
-        async notify(uuid, type="property", id, locale, old) {
+        async notify(uuid, type = "property", id, locale, old) {
                 const body = { type, id, locale, old }
                 const r = await this.HTTPPost(this.mNotifyRequest + uuid, JSON.stringify(body), "application/json",
-                                this.mAccessToken);
+                        this.mAccessToken);
                 return r.status
         }
-        
+
         /**
          * @summary translates property value to given locale. 
          * @param uuid - uuid of object which property we need to translate
@@ -1446,7 +1503,7 @@ class Metax {
          */
         async translateProperty(uuid, property, locale) {
                 let r = await this.HTTPGet(`${this.mtranslateRequest}${uuid}&property=${property}&locale=${locale}`,
-                                this.mAccessToken);
+                        this.mAccessToken);
                 console.assert(r && r.ok, 'response to metax.translateProperty() is not ok');
                 r = await r.json();
                 return r.value;

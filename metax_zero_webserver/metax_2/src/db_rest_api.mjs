@@ -283,8 +283,11 @@ function handle_live_view_request(req, res) {
                 }
             };
             ws.onclose = () => {
-                updateStatus('Disconnected - Reconnecting...', 'error');
-                setTimeout(connect, 3000);
+                updateStatus('Disconnected - Reconnecting in 1s...', 'error');
+                setTimeout(connect, 1000);
+            };
+            ws.onerror = () => {
+                ws.close(); // Ensure onclose is triggered
             };
         }
         

@@ -33,8 +33,11 @@ JsonEditorDialog::JsonEditorDialog(QWidget *parent)
     connect(webSocket, QOverload<const QList<QSslError>&>::of(&QWebSocket::sslErrors), this, &JsonEditorDialog::onSslErrors);
     connect(webSocket, &QWebSocket::connected, [this]() {
         qDebug() << "WebSocket connected";
+        reconnectAttempts = 0;  // Reset on successful connection
+        if (reconnectTimer) reconnectTimer->stop();
     });
     connect(webSocket, &QWebSocket::disconnected, this, &JsonEditorDialog::onDisconnected);
+    connect(webSocket, QOverload<QAbstractSocket::SocketError>::of(&QWebSocket::error), this, &JsonEditorDialog::onError);
     
     webSocket->open(QUrl("wss://192.168.11.73:5001"));
 }
@@ -150,6 +153,11 @@ void JsonEditorDialog::onTextMessageReceived(const QString &message)
             QStringList parts = currentUuid.split('#');
             for (const QString &p : parts) registerListener(p);
             for (const QString &d : dependencyUuids) registerListener(d);
+            
+            // TRIGGER REFRESH (The "Virtual Update")
+            // This ensures we have the latest data in case it changed during downtime
+            qDebug() << "Re-connected: Refreshing data for consistency.";
+            parse(currentUuid);
         }
     } else if (obj.contains("event") && obj["event"].toString() == "update") {
         QString uuid = obj["uuid"].toString();
@@ -322,8 +330,63 @@ QJsonObject JsonEditorDialog::getJsonFromEditor()
 
 void JsonEditorDialog::onDisconnected()
 {
-    qDebug() << "WebSocket disconnected. Reconnecting in 3 seconds...";
-    QTimer::singleShot(3000, this, &JsonEditorDialog::reconnect);
+    qDebug() << "WebSocket disconnected. Reconnecting with smart backoff...";
+    
+    // Calculate backoff delay - immediate first time, then exponential
+    int delay = 0;
+    QDateTime now = QDateTime::currentDateTime();
+    
+    // Check if this is a rapid reconnection (< 5 seconds since last attempt)
+    if (lastConnectionAttempt.isValid() && 
+        lastConnectionAttempt.msecsTo(now) < 5000) {
+        reconnectAttempts++;
+        // Exponential backoff: 100ms, 500ms, 1000ms, 3000ms (max)
+        int delays[] = {100, 500, 1000, 3000};
+        int index = qMin(reconnectAttempts - 1, 3);
+        delay = delays[index];
+        qDebug() << "Rapid reconnect detected (attempt" << reconnectAttempts 
+                 << "), using backoff:" << delay << "ms";
+    } else {
+        // First disconnect or after stable connection - reconnect immediately
+        reconnectAttempts = 0;
+        qDebug() << "First disconnect or after stable period - immediate reconnect";
+    }
+    
+    lastConnectionAttempt = now;
+    
+    scheduleReconnect(delay);
+}
+
+void JsonEditorDialog::scheduleReconnect(int delayMs)
+{
+    if (!reconnectTimer) {
+        reconnectTimer = new QTimer(this);
+        reconnectTimer->setSingleShot(true);
+        connect(reconnectTimer, &QTimer::timeout, this, &JsonEditorDialog::reconnect);
+    }
+    
+    if (reconnectTimer->isActive()) {
+        // Already waiting to reconnect
+        return;
+    }
+    
+    qDebug() << "Scheduling reconnect in" << delayMs << "ms";
+    reconnectTimer->start(delayMs);
+}
+
+void JsonEditorDialog::forceDisconnect()
+{
+    qDebug() << "Force disconnect signal received. Closing WebSocket...";
+    webSocket->close();
+}
+
+void JsonEditorDialog::onError(QAbstractSocket::SocketError error)
+{
+    qDebug() << "WebSocket error occurred:" << error << webSocket->errorString();
+    
+    if (webSocket->state() == QAbstractSocket::UnconnectedState) {
+        scheduleReconnect(2000); // Wait a bit longer on error
+    }
 }
 
 void JsonEditorDialog::setServerUrl(const QString &url)
@@ -342,10 +405,19 @@ void JsonEditorDialog::setServerUrl(const QString &url)
 
 void JsonEditorDialog::reconnect()
 {
+    if (webSocket->isValid()) return;
+    
     qDebug() << "Attempting to reconnect...";
     QString wsUrl = baseUrl;
     wsUrl.replace("https://", "wss://");
     wsUrl.replace("http://", "ws://");
+    webSocket->abort(); // Ensure it's clean
     webSocket->open(QUrl(wsUrl));
 }
 
+
+void JsonEditorDialog::loadUuid(const QString &uuid)
+{
+    uuidInput->setText(uuid);
+    parse(uuid);
+}
