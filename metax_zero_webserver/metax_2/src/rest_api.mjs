@@ -85,13 +85,20 @@ function handle_http_server_error(e) {
 }
 
 function route_incoming_request(req, res) {
-	//res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-	//res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+	res.setHeader('Access-Control-Allow-Headers', '*');
+
+	if (req.method === 'OPTIONS') {
+		res.writeHead(200);
+		res.end();
+		return;
+	}
+
 	if (!req.headers[":path"]) req.headers[":path"] = req.url;
 	if (!req.headers[":scheme"]) req.headers[":scheme"] = "https";
 	if (!req.headers[":method"]) req.headers[":method"] = req.method;
-	//res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-	//res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+
 	let req_path = req.headers[":path"].split("?")[0];
 	console.log(`received new request from ${req.socket.remoteAddress},`,
 		`request path: ${req.headers[":path"]}`);

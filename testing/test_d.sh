@@ -27,17 +27,14 @@ cleanup() {
 
 trap cleanup EXIT
 
-echo -e "${CYAN}Starting Metax Server...${NC}"
+echo -e "${CYAN}Starting Metax & Greenhosting Stack...${NC}"
 pushd "$SERVER_DIR" > /dev/null
-source ./start.conf
-pushd ./metax_2/ > /dev/null
-node ../../rest_api_stable.mjs storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
+./start_server.sh &
 SERVER_PID=$!
 popd > /dev/null
-popd > /dev/null
 
-sleep 3
-echo -e "${GREEN}✓ Server running (PID: $SERVER_PID)${NC}"
+sleep 8 # Wait for both servers to fully initialize
+echo -e "${GREEN}✓ Server stack running (PID: $SERVER_PID)${NC}"
 
 echo -e "${CYAN}Starting JsonEditor Instance 1 (Left)...${NC}"
 $APP_BIN --x 50 --y 100 --width 900 --height 800 --uuid "$DEFAULT_UUID" &
@@ -80,13 +77,12 @@ while true; do
             ;;
         r|R)
             if [ -z "$SERVER_PID" ]; then
-                echo -e "${GREEN}Restarting Server...${NC}"
-                pushd "$SERVER_DIR/metax_2" > /dev/null
-                source ../start.conf
-                node ../../rest_api_stable.mjs storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
+                echo -e "${GREEN}Restarting Server Stack...${NC}"
+                pushd "$SERVER_DIR" > /dev/null
+                ./start_server.sh &
                 SERVER_PID=$!
                 popd > /dev/null
-                echo -e "${GREEN}✓ Server started.${NC}"
+                echo -e "${GREEN}✓ Server stack started.${NC}"
             else
                 echo -e "${YELLOW}Server is already running.${NC}"
             fi

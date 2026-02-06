@@ -8,8 +8,12 @@ source ./start.conf
 
 #start metax
 pushd ./metax_2/
-npm start storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT 
+npm start storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
 popd
 
-sleep 2 # wait metax starting
+sleep 5 # wait metax starting
 
+#start greenhosting webserver
+pushd ./greenhosting_webserver_2/
+npm start host_metax=localhost:$METAX_PORT sitemap_uuid=$SITEMAP_UUID read_server_port=$READ_PORT write_server_port=$WRITE_PORT key=$SELF_PRIVKEY cert=$SELF_CERT
+popd 
