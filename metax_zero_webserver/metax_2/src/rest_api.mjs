@@ -1,4 +1,4 @@
-//imports from this project
+// 
 import {
 	initialize_db_rest_api
 	, handle_db_request

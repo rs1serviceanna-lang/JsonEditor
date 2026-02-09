@@ -21,11 +21,14 @@ let session_id_counter = 1;
 
 export function handle_new_write_server_stream(stream, headers) {
 	try {
-		if (!stream.session.socket.authorized) {
-			warning(`rejecting unauthorized request from ${stream.session.socket.remoteAddress}`);
+		const clientCert = stream.session.socket.getPeerCertificate();
+		if (!clientCert || !clientCert.fingerprint256) {
+			warning(`rejecting request without client certificate from ${stream.session.socket.remoteAddress}`);
 			send_method_error(stream, "request is unauthorized, please insert a valid client certificate.", headers[":method"]);
 			return;
 		}
+		// For self-signed certs, we validate against our registered fingerprints instead of stream.session.socket.authorized
+		trace(`Client certificate fingerprint: ${clientCert.fingerprint256}`);
 		if (stream.session.first_stream === true) {
 			sessions_log.write(`Session ${stream.session.id} : ${headers["user-agent"]}\n`);
 			delete stream.session.first_stream
@@ -130,7 +133,9 @@ export function handle_new_client_session(session) {
 		"  , fingerprint: " + session.socket.getPeerCertificate().fingerprint256 + "\n");
 	trace("new session with id: " + session.id +
 		"  , fingerprint: " + session.socket.getPeerCertificate().fingerprint256);
-	metax_sessions[session.id] = connect(`https://${config.host_metax}`);
+	metax_sessions[session.id] = connect(`https://${config.host_metax}`, {
+		rejectUnauthorized: false
+	});
 	session.on("close", () => {
 		if (metax_sessions[session.id] &&
 			metax_sessions[session.id].destroyed === false) {

@@ -430,34 +430,38 @@ function sni_callback_read_only(serverName, cb) {
 }
 
 function sni_callback(serverName, cb) {
+        trace("sni_callback received serverName: " + serverName);
         let cert = null
         let key = null
         let ca = "";
         let i = sitemap.websites.findIndex(website => {
                 let index = website.subdomains.findIndex(el => el.name === serverName)
                 if (index !== -1) {
-                        return website;
+                        return true;
                 }
         })
+
+        if (i === -1 && sitemap.websites.length > 0) {
+                trace("serverName not found or missing, falling back to first website: " + sitemap.websites[0].name);
+                i = 0;
+        }
 
         // Always using certs from config
         key = readFileSync(config.key);
         cert = readFileSync(config.cert);
 
         if (i !== -1) {
-                // DISABLING TLS CERT AND KEY from sitemap for prevent TLS certs leak by get request
-                //key = sitemap.websites[i].ssl_private_key;
-                //cert = sitemap.websites[i].ssl_certificate;
+                trace("Found matching website for SNI: " + sitemap.websites[i].name);
                 for (let j = 0; j < sitemap.websites[i].client_certificates.length; j++) {
                         ca += sitemap.websites[i].client_certificates[j]["certificate"];
                 }
-        }// else if (cert === null && key === null) {
-        //        key = readFileSync(config.key);
-        //        cert = readFileSync(config.cert);
-        //}
+                trace("Loaded CA string length: " + ca.length);
+        } else {
+                trace("No matching website found for SNI and no websites available in sitemap.");
+        }
 
         trace("trying new secure connection " + serverName);
-        cb(null, new createSecureContext({
+        cb(null, createSecureContext({
                 cert,
                 key,
                 ca

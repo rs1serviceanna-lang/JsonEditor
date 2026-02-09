@@ -89459,3 +89459,775 @@ Trace 2026-1-29 14:48:45.315 webserver: write server running on port: 5003
 Trace 2026-1-29 14:49:10.385 webserver: handle_sitemap_uuid_update
 Trace 2026-1-29 14:49:10.386 webserver: END handle_sitemap_uuid_update
 Trace 2026-1-29 14:49:10.387 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-3 10:29:7.156 webserver: logger configured.
+Trace 2026-2-3 10:29:7.158 webserver: configure_webserver
+Trace 2026-2-3 10:29:7.158 webserver: END configure_webserver
+Trace 2026-2-3 10:29:7.158 webserver: connecting to host metax.
+Trace 2026-2-3 10:29:7.182 webserver: successfully connected to host metax.
+Trace 2026-2-3 10:29:7.183 webserver: connecting to metax websocket.
+Trace 2026-2-3 10:29:7.195 webserver: successfully connected to metax websocket.
+Trace 2026-2-3 10:29:7.196 webserver: metax websocket token received: c5f012ae-568d-4081-aeaf-e94e989569f1
+Error 2026-2-3 10:29:7.212 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-3 10:29:7.214 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-3 10:29:7.218 webserver: unable to get private key for  Website, defaulting
+Trace 2026-2-3 10:29:7.220 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-3 10:29:7.220 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-3 10:29:7.226 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-3 10:29:7.228 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-3 10:29:7.228 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-3 10:29:7.232 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-3 10:29:7.233 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-3 10:29:7.233 notifier: construct_transporter_package
+Trace 2026-2-3 10:29:7.234 notifier: END construct_transporter_package
+Trace 2026-2-3 10:29:7.234 notifier:  Website doesn't have mailing credentials, skipping
+Trace 2026-2-3 10:29:7.234 notifier: construct_transporter_package
+Trace 2026-2-3 10:29:7.234 notifier: END construct_transporter_package
+Trace 2026-2-3 10:29:7.234 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-3 10:29:7.234 notifier: construct_transporter_package
+Trace 2026-2-3 10:29:7.234 notifier: END construct_transporter_package
+Trace 2026-2-3 10:29:7.234 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-3 10:29:7.234 webserver: starting read-only server
+Trace 2026-2-3 10:29:7.237 webserver: starting write server
+Trace 2026-2-3 10:29:7.239 webserver: read-only server running on port: 5002
+Trace 2026-2-3 10:29:7.239 webserver: write server running on port: 5003
+Trace 2026-2-3 10:30:11.287 webserver: handle_sitemap_uuid_update
+Trace 2026-2-3 10:30:11.291 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-3 10:30:11.292 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-4 12:58:5.964 webserver: logger configured.
+Trace 2026-2-4 12:58:5.965 webserver: configure_webserver
+Trace 2026-2-4 12:58:5.966 webserver: END configure_webserver
+Trace 2026-2-4 12:58:5.966 webserver: connecting to host metax.
+Trace 2026-2-4 12:58:6.22 webserver: successfully connected to host metax.
+Trace 2026-2-4 12:58:6.23 webserver: connecting to metax websocket.
+Trace 2026-2-4 12:58:6.50 webserver: successfully connected to metax websocket.
+Trace 2026-2-4 12:58:6.52 webserver: metax websocket token received: c9e292d2-d75f-4677-add3-6a95fdd95c90
+Error 2026-2-4 12:58:6.77 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-4 12:58:6.83 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-4 12:58:6.99 webserver: unable to get private key for  Website, defaulting
+Trace 2026-2-4 12:58:6.101 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-4 12:58:6.101 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-4 12:58:6.114 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-4 12:58:6.129 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-4 12:58:6.129 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-4 12:58:6.145 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-4 12:58:6.152 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-4 12:58:6.152 notifier: construct_transporter_package
+Trace 2026-2-4 12:58:6.152 notifier: END construct_transporter_package
+Trace 2026-2-4 12:58:6.152 notifier:  Website doesn't have mailing credentials, skipping
+Trace 2026-2-4 12:58:6.152 notifier: construct_transporter_package
+Trace 2026-2-4 12:58:6.152 notifier: END construct_transporter_package
+Trace 2026-2-4 12:58:6.152 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-4 12:58:6.152 notifier: construct_transporter_package
+Trace 2026-2-4 12:58:6.152 notifier: END construct_transporter_package
+Trace 2026-2-4 12:58:6.152 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-4 12:58:6.152 webserver: starting read-only server
+Trace 2026-2-4 12:58:6.158 webserver: starting write server
+Trace 2026-2-4 12:58:6.162 webserver: read-only server running on port: 5002
+Trace 2026-2-4 12:58:6.162 webserver: write server running on port: 5003
+Trace 2026-2-4 12:58:52.654 webserver: handle_sitemap_uuid_update
+Trace 2026-2-4 12:58:52.656 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-4 12:58:52.658 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-4 12:59:26.110 webserver: handle_sitemap_uuid_update
+Trace 2026-2-4 12:59:26.113 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-4 12:59:26.113 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-4 12:59:29.290 webserver: handle_sitemap_uuid_update
+Trace 2026-2-4 12:59:29.292 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-4 12:59:29.292 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-5 17:24:37.732 webserver: logger configured.
+Trace 2026-2-5 17:24:37.733 webserver: configure_webserver
+Trace 2026-2-5 17:24:37.734 webserver: END configure_webserver
+Trace 2026-2-5 17:24:37.734 webserver: connecting to host metax.
+Trace 2026-2-5 17:24:37.759 webserver: successfully connected to host metax.
+Trace 2026-2-5 17:24:37.759 webserver: connecting to metax websocket.
+Trace 2026-2-5 17:24:37.772 webserver: successfully connected to metax websocket.
+Trace 2026-2-5 17:24:37.773 webserver: metax websocket token received: 35d09db5-ade4-4479-8244-60b294f3bb6c
+Error 2026-2-5 17:24:37.786 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-5 17:24:37.789 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-5 17:24:37.798 webserver: unable to get private key for  Website, defaulting
+Trace 2026-2-5 17:24:37.801 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-5 17:24:37.801 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-5 17:24:37.804 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-5 17:24:37.806 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-5 17:24:37.806 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-5 17:24:37.811 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-5 17:24:37.812 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-5 17:24:37.813 notifier: construct_transporter_package
+Trace 2026-2-5 17:24:37.813 notifier: END construct_transporter_package
+Trace 2026-2-5 17:24:37.813 notifier:  Website doesn't have mailing credentials, skipping
+Trace 2026-2-5 17:24:37.813 notifier: construct_transporter_package
+Trace 2026-2-5 17:24:37.813 notifier: END construct_transporter_package
+Trace 2026-2-5 17:24:37.813 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-5 17:24:37.813 notifier: construct_transporter_package
+Trace 2026-2-5 17:24:37.813 notifier: END construct_transporter_package
+Trace 2026-2-5 17:24:37.813 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-5 17:24:37.813 webserver: starting read-only server
+Trace 2026-2-5 17:24:37.816 webserver: starting write server
+Trace 2026-2-5 17:24:37.817 webserver: read-only server running on port: 5002
+Trace 2026-2-5 17:24:37.817 webserver: write server running on port: 5003
+Trace 2026-2-6 14:37:56.938 webserver: logger configured.
+Trace 2026-2-6 14:37:56.939 webserver: configure_webserver
+Trace 2026-2-6 14:37:56.939 webserver: END configure_webserver
+Trace 2026-2-6 14:37:56.940 webserver: connecting to host metax.
+Trace 2026-2-6 14:37:56.965 webserver: successfully connected to host metax.
+Trace 2026-2-6 14:37:56.966 webserver: connecting to metax websocket.
+Trace 2026-2-6 14:37:56.978 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 14:37:56.979 webserver: metax websocket token received: 7e854c58-1fcf-444a-9ec3-8c1143d98298
+Error 2026-2-6 14:37:56.995 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 14:37:56.998 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-6 14:37:57.10 webserver: unable to get private key for  Website, defaulting
+Trace 2026-2-6 14:37:57.12 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 14:37:57.13 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-6 14:37:57.22 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-6 14:37:57.28 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-6 14:37:57.28 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-6 14:37:57.32 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-6 14:37:57.33 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-6 14:37:57.34 notifier: construct_transporter_package
+Trace 2026-2-6 14:37:57.34 notifier: END construct_transporter_package
+Trace 2026-2-6 14:37:57.34 notifier:  Website doesn't have mailing credentials, skipping
+Trace 2026-2-6 14:37:57.34 notifier: construct_transporter_package
+Trace 2026-2-6 14:37:57.34 notifier: END construct_transporter_package
+Trace 2026-2-6 14:37:57.34 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-6 14:37:57.34 notifier: construct_transporter_package
+Trace 2026-2-6 14:37:57.34 notifier: END construct_transporter_package
+Trace 2026-2-6 14:37:57.34 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-6 14:37:57.34 webserver: starting read-only server
+Trace 2026-2-6 14:37:57.37 webserver: starting write server
+Trace 2026-2-6 14:37:57.38 webserver: read-only server running on port: 5002
+Trace 2026-2-6 14:37:57.38 webserver: write server running on port: 5003
+Trace 2026-2-6 14:52:0.827 webserver: logger configured.
+Trace 2026-2-6 14:52:0.829 webserver: configure_webserver
+Trace 2026-2-6 14:52:0.829 webserver: END configure_webserver
+Trace 2026-2-6 14:52:0.829 webserver: connecting to host metax.
+Trace 2026-2-6 14:52:0.853 webserver: successfully connected to host metax.
+Trace 2026-2-6 14:52:0.853 webserver: connecting to metax websocket.
+Trace 2026-2-6 14:52:0.868 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 14:52:0.869 webserver: metax websocket token received: 54895068-51f2-46a1-9f97-53e58bdffabd
+Error 2026-2-6 14:52:0.884 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 14:52:0.887 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-6 14:52:0.892 webserver: unable to get website uuid: SyntaxError: Bad escaped character in JSON at position 1477
+Trace 2026-2-6 14:55:52.733 webserver: logger configured.
+Trace 2026-2-6 14:55:52.735 webserver: configure_webserver
+Trace 2026-2-6 14:55:52.735 webserver: END configure_webserver
+Trace 2026-2-6 14:55:52.735 webserver: connecting to host metax.
+Trace 2026-2-6 14:55:52.755 webserver: successfully connected to host metax.
+Trace 2026-2-6 14:55:52.755 webserver: connecting to metax websocket.
+Trace 2026-2-6 14:55:52.765 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 14:55:52.766 webserver: metax websocket token received: 9d4aa969-1387-4955-b1d1-16e1a15cd985
+Error 2026-2-6 14:55:52.773 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 14:55:52.774 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-6 14:55:52.777 webserver: unable to get private key for Erevan ERP, defaulting
+Error 2026-2-6 14:55:52.779 webserver: unable to get ssl certificate for Anna Blbulyan, skipping
+Trace 2026-2-6 14:55:52.780 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 14:55:52.781 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-6 14:55:52.784 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-6 14:55:52.786 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-6 14:55:52.786 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-6 14:55:52.789 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-6 14:55:52.790 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-6 14:55:52.790 notifier: construct_transporter_package
+Trace 2026-2-6 14:55:52.790 notifier: END construct_transporter_package
+Trace 2026-2-6 14:55:52.790 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 14:55:52.790 notifier: construct_transporter_package
+Trace 2026-2-6 14:55:52.790 notifier: END construct_transporter_package
+Trace 2026-2-6 14:55:52.790 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-6 14:55:52.790 notifier: construct_transporter_package
+Trace 2026-2-6 14:55:52.790 notifier: END construct_transporter_package
+Trace 2026-2-6 14:55:52.790 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-6 14:55:52.790 webserver: starting read-only server
+Trace 2026-2-6 14:55:52.793 webserver: starting write server
+Trace 2026-2-6 14:55:52.794 webserver: read-only server running on port: 5002
+Trace 2026-2-6 14:55:52.794 webserver: write server running on port: 5003
+Trace 2026-2-6 14:58:30.811 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 14:58:30.811 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 14:58:30.811 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 14:58:38.147 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 14:58:38.147 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 14:58:38.147 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 14:59:11.166 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 14:59:11.167 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 14:59:11.167 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 14:59:16.775 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 14:59:16.775 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 14:59:16.775 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 15:2:45.397 webserver: logger configured.
+Trace 2026-2-6 15:2:45.399 webserver: configure_webserver
+Trace 2026-2-6 15:2:45.399 webserver: END configure_webserver
+Trace 2026-2-6 15:2:45.399 webserver: connecting to host metax.
+Trace 2026-2-6 15:2:45.422 webserver: successfully connected to host metax.
+Trace 2026-2-6 15:2:45.423 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:2:45.432 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 15:2:45.433 webserver: metax websocket token received: 9b429b1e-e643-4f4a-9f0d-65442b936671
+Error 2026-2-6 15:2:45.439 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 15:2:45.440 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-6 15:2:45.442 webserver: unable to get private key for Erevan ERP, defaulting
+Error 2026-2-6 15:2:45.443 webserver: unable to get ssl certificate for Anna Blbulyan, skipping
+Trace 2026-2-6 15:2:45.444 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 15:2:45.445 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-6 15:2:45.447 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-6 15:2:45.447 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-6 15:2:45.447 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-6 15:2:45.450 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-6 15:2:45.451 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-6 15:2:55.195 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 15:2:55.196 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 15:2:55.196 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 15:3:36.909 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 15:3:36.911 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 15:3:36.911 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Warning 2026-2-6 15:13:9.20 webserver: metax websocket connection closed. Reconnecting immediately...
+Trace 2026-2-6 15:13:9.20 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:13:9.29 webserver: host metax connection closed. Retrying immediately...
+Trace 2026-2-6 15:13:9.29 webserver: connecting to host metax.
+Error 2026-2-6 15:13:9.32 webserver: metax websocket error: AggregateError. Retrying in 500ms...
+Trace 2026-2-6 15:15:25.482 webserver: logger configured.
+Trace 2026-2-6 15:15:25.483 webserver: configure_webserver
+Trace 2026-2-6 15:15:25.483 webserver: END configure_webserver
+Trace 2026-2-6 15:15:25.484 webserver: connecting to host metax.
+Trace 2026-2-6 15:15:25.508 webserver: successfully connected to host metax.
+Trace 2026-2-6 15:15:25.509 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:15:25.519 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 15:15:25.520 webserver: metax websocket token received: 49736cd7-70f2-4d30-8aff-84c75728b63e
+Error 2026-2-6 15:15:25.528 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 15:15:25.531 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-6 15:15:25.535 webserver: unable to get private key for Erevan ERP, defaulting
+Error 2026-2-6 15:15:25.537 webserver: unable to get ssl certificate for Anna Blbulyan, skipping
+Trace 2026-2-6 15:15:25.539 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 15:15:25.539 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-6 15:15:25.542 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-6 15:15:25.545 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-6 15:15:25.545 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-6 15:15:25.548 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-6 15:15:25.549 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-6 15:15:25.550 notifier: construct_transporter_package
+Trace 2026-2-6 15:15:25.550 notifier: END construct_transporter_package
+Trace 2026-2-6 15:15:25.550 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:15:25.550 notifier: construct_transporter_package
+Trace 2026-2-6 15:15:25.551 notifier: END construct_transporter_package
+Trace 2026-2-6 15:15:25.551 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:15:25.551 notifier: construct_transporter_package
+Trace 2026-2-6 15:15:25.551 notifier: END construct_transporter_package
+Trace 2026-2-6 15:15:25.551 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:15:25.552 webserver: starting read-only server
+Trace 2026-2-6 15:15:25.555 webserver: starting write server
+Trace 2026-2-6 15:15:25.556 webserver: read-only server running on port: 5002
+Trace 2026-2-6 15:15:25.557 webserver: write server running on port: 5003
+Trace 2026-2-6 15:17:11.39 webserver: logger configured.
+Trace 2026-2-6 15:17:11.40 webserver: configure_webserver
+Trace 2026-2-6 15:17:11.40 webserver: END configure_webserver
+Trace 2026-2-6 15:17:11.41 webserver: connecting to host metax.
+Trace 2026-2-6 15:17:11.62 webserver: successfully connected to host metax.
+Trace 2026-2-6 15:17:11.63 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:17:11.75 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 15:17:11.76 webserver: metax websocket token received: bcb26cb1-e992-4284-b47d-d0263299bb24
+Error 2026-2-6 15:17:11.82 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 15:17:11.85 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-6 15:17:11.88 webserver: unable to get private key for Erevan ERP, defaulting
+Error 2026-2-6 15:17:11.90 webserver: unable to get ssl certificate for Anna Blbulyan, skipping
+Trace 2026-2-6 15:17:11.92 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 15:17:11.93 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-6 15:17:11.96 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-6 15:17:11.97 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-6 15:17:11.97 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-6 15:17:11.100 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-6 15:19:25.388 webserver: host metax connection closed. Retrying immediately...
+Trace 2026-2-6 15:19:38.202 webserver: logger configured.
+Trace 2026-2-6 15:19:38.204 webserver: configure_webserver
+Trace 2026-2-6 15:19:38.204 webserver: END configure_webserver
+Trace 2026-2-6 15:19:38.204 webserver: connecting to host metax.
+Trace 2026-2-6 15:19:38.226 webserver: successfully connected to host metax.
+Trace 2026-2-6 15:19:38.226 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:19:38.237 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 15:19:38.238 webserver: metax websocket token received: b87887a5-03f8-4237-a5b3-e2143387de1d
+Error 2026-2-6 15:19:38.246 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 15:19:38.250 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Error 2026-2-6 15:19:38.256 webserver: unable to get private key for Erevan ERP, defaulting
+Error 2026-2-6 15:19:38.257 webserver: unable to get ssl certificate for Anna Blbulyan, skipping
+Trace 2026-2-6 15:19:38.259 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 15:19:38.259 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-6 15:19:38.262 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-6 15:19:38.264 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-6 15:19:38.264 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-6 15:19:38.269 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-6 15:19:38.272 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-6 15:19:38.272 notifier: construct_transporter_package
+Trace 2026-2-6 15:19:38.272 notifier: END construct_transporter_package
+Trace 2026-2-6 15:19:38.273 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:19:38.273 notifier: construct_transporter_package
+Trace 2026-2-6 15:19:38.273 notifier: END construct_transporter_package
+Trace 2026-2-6 15:19:38.273 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:19:38.273 notifier: construct_transporter_package
+Trace 2026-2-6 15:19:38.273 notifier: END construct_transporter_package
+Trace 2026-2-6 15:19:38.273 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:19:38.273 webserver: starting read-only server
+Trace 2026-2-6 15:19:38.278 webserver: starting write server
+Trace 2026-2-6 15:19:38.279 webserver: read-only server running on port: 5002
+Trace 2026-2-6 15:19:38.280 webserver: write server running on port: 5003
+Warning 2026-2-6 15:20:5.58 webserver: metax websocket connection closed. Reconnecting immediately...
+Trace 2026-2-6 15:20:5.58 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:20:5.62 webserver: host metax connection closed. Retrying immediately...
+Trace 2026-2-6 15:20:5.62 webserver: connecting to host metax.
+Error 2026-2-6 15:20:5.66 webserver: metax websocket error: AggregateError. Retrying in 500ms...
+Warning 2026-2-6 15:20:5.66 webserver: metax websocket connection closed. Reconnecting immediately...
+Trace 2026-2-6 15:20:5.66 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:20:12.373 webserver: logger configured.
+Trace 2026-2-6 15:20:12.375 webserver: configure_webserver
+Trace 2026-2-6 15:20:12.375 webserver: END configure_webserver
+Trace 2026-2-6 15:20:12.375 webserver: connecting to host metax.
+Trace 2026-2-6 15:20:12.397 webserver: successfully connected to host metax.
+Trace 2026-2-6 15:20:12.398 webserver: connecting to metax websocket.
+Trace 2026-2-6 15:20:12.406 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 15:20:12.406 webserver: metax websocket token received: 6b0a4765-4db3-491d-a31b-27786b751ce5
+Error 2026-2-6 15:20:12.413 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 15:20:12.415 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 15:20:12.423 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 15:20:12.424 webserver: get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Error 2026-2-6 15:20:12.427 webserver: unable to get private key for hi everyone, defaulting
+Trace 2026-2-6 15:20:12.430 webserver: END get_website for 8b38cdc7-4877-417e-9376-f7ef076ae34b-d832a6b5-3dc7-42d6-80d1-cfe8d79202d2
+Trace 2026-2-6 15:20:12.430 webserver: get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Error 2026-2-6 15:20:12.434 webserver: unable to get private key for New Website, defaulting
+Trace 2026-2-6 15:20:12.435 webserver: END get_website for 527b7368-68b7-43f5-9270-8d837f863728-517d7cb0-5135-4c63-ae97-0217ec18b7eb
+Trace 2026-2-6 15:20:12.436 notifier: construct_transporter_package
+Trace 2026-2-6 15:20:12.436 notifier: END construct_transporter_package
+Trace 2026-2-6 15:20:12.436 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:20:12.436 notifier: construct_transporter_package
+Trace 2026-2-6 15:20:12.436 notifier: END construct_transporter_package
+Trace 2026-2-6 15:20:12.436 notifier: hi everyone doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:20:12.436 notifier: construct_transporter_package
+Trace 2026-2-6 15:20:12.436 notifier: END construct_transporter_package
+Trace 2026-2-6 15:20:12.436 notifier: New Website doesn't have mailing credentials, skipping
+Trace 2026-2-6 15:20:12.436 webserver: starting read-only server
+Trace 2026-2-6 15:20:12.439 webserver: starting write server
+Trace 2026-2-6 15:20:12.440 webserver: read-only server running on port: 5002
+Trace 2026-2-6 15:20:12.440 webserver: write server running on port: 5003
+Trace 2026-2-6 16:6:34.734 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 16:6:34.737 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 16:6:34.738 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 16:6:36.777 webserver: handle_sitemap_uuid_update
+Trace 2026-2-6 16:6:36.777 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-6 16:6:36.781 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 16:9:54.7 webserver: logger configured.
+Trace 2026-2-6 16:9:54.8 webserver: configure_webserver
+Trace 2026-2-6 16:9:54.9 webserver: END configure_webserver
+Trace 2026-2-6 16:9:54.9 webserver: connecting to host metax.
+Trace 2026-2-6 16:9:54.27 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:9:54.28 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:9:54.40 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:9:54.41 webserver: metax websocket token received: c89ac763-32e4-4352-b2b5-b18f38d3727c
+Error 2026-2-6 16:9:54.55 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:9:54.58 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:9:54.70 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:9:54.71 notifier: construct_transporter_package
+Trace 2026-2-6 16:9:54.71 notifier: END construct_transporter_package
+Trace 2026-2-6 16:9:54.71 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 16:9:54.71 webserver: starting read-only server
+Trace 2026-2-6 16:9:54.74 webserver: starting write server
+Trace 2026-2-6 16:9:54.76 webserver: read-only server running on port: 5002
+Trace 2026-2-6 16:9:54.76 webserver: write server running on port: 5003
+Trace 2026-2-6 16:13:41.817 webserver: logger configured.
+Trace 2026-2-6 16:13:41.819 webserver: configure_webserver
+Trace 2026-2-6 16:13:41.819 webserver: END configure_webserver
+Trace 2026-2-6 16:13:41.819 webserver: connecting to host metax.
+Trace 2026-2-6 16:13:41.843 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:13:41.844 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:13:41.857 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:13:41.858 webserver: metax websocket token received: a3c685fc-56db-4a83-835d-b2406fff7576
+Error 2026-2-6 16:13:41.898 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:13:41.914 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:13:41.976 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:13:41.978 notifier: construct_transporter_package
+Trace 2026-2-6 16:13:41.979 notifier: END construct_transporter_package
+Trace 2026-2-6 16:13:41.979 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 16:13:41.981 webserver: starting read-only server
+Trace 2026-2-6 16:13:41.989 webserver: starting write server
+Trace 2026-2-6 16:13:41.991 webserver: read-only server running on port: 5002
+Trace 2026-2-6 16:13:41.991 webserver: write server running on port: 5003
+Trace 2026-2-6 16:17:0.796 router: new session with id: 1  , fingerprint: undefined
+Trace 2026-2-6 16:17:0.798 router: received new stream from 1, path: /db/get
+Trace 2026-2-6 16:17:0.798 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Error 2026-2-6 16:17:0.802 router: Error [ERR_HTTP2_STREAM_CANCEL]: The pending stream has been canceled (caused by: self-signed certificate)
+Error 2026-2-6 16:17:0.802 router: metax error: Error: self-signed certificate
+Trace 2026-2-6 16:17:3.145 router: new session with id: 2  , fingerprint: undefined
+Trace 2026-2-6 16:17:3.146 router: received new stream from 2, path: /db/get
+Trace 2026-2-6 16:17:3.146 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Error 2026-2-6 16:17:3.148 router: Error [ERR_HTTP2_STREAM_CANCEL]: The pending stream has been canceled (caused by: self-signed certificate)
+Error 2026-2-6 16:17:3.148 router: metax error: Error: self-signed certificate
+Trace 2026-2-6 16:17:11.397 router: new session with id: 3  , fingerprint: undefined
+Trace 2026-2-6 16:17:11.398 router: received new stream from 3, path: /db/get
+Trace 2026-2-6 16:17:11.399 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Error 2026-2-6 16:17:11.402 router: Error [ERR_HTTP2_STREAM_CANCEL]: The pending stream has been canceled (caused by: self-signed certificate)
+Error 2026-2-6 16:17:11.402 router: metax error: Error: self-signed certificate
+Trace 2026-2-6 16:17:26.803 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 16:17:26.803 webserver: trying new secure connection localhost
+Trace 2026-2-6 16:17:26.813 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 16:17:26.813 webserver: trying new secure connection localhost
+Trace 2026-2-6 16:17:32.656 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 16:17:32.656 webserver: trying new secure connection localhost
+Trace 2026-2-6 16:17:34.176 router: new session with id: 4  , fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 16:17:34.177 router: received new secure request: 4 path: /db/get
+Trace 2026-2-6 16:17:34.177 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Error 2026-2-6 16:17:34.179 router: Error [ERR_HTTP2_STREAM_CANCEL]: The pending stream has been canceled (caused by: self-signed certificate)
+Error 2026-2-6 16:17:34.179 router: metax error: Error: self-signed certificate
+Trace 2026-2-6 16:18:36.15 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 16:18:36.15 webserver: trying new secure connection localhost
+Trace 2026-2-6 16:18:36.42 router: new session with id: 5  , fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 16:18:36.45 router: received new secure request: 5 path: /db/get
+Trace 2026-2-6 16:18:36.46 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Error 2026-2-6 16:18:36.51 router: Error [ERR_HTTP2_STREAM_CANCEL]: The pending stream has been canceled (caused by: self-signed certificate)
+Error 2026-2-6 16:18:36.51 router: metax error: Error: self-signed certificate
+Trace 2026-2-6 16:21:36.452 webserver: logger configured.
+Trace 2026-2-6 16:21:36.453 webserver: configure_webserver
+Trace 2026-2-6 16:21:36.454 webserver: END configure_webserver
+Trace 2026-2-6 16:21:36.454 webserver: connecting to host metax.
+Trace 2026-2-6 16:21:36.472 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:21:36.473 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:21:36.480 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:21:36.481 webserver: metax websocket token received: 94f2474d-d753-470a-83b1-a85a183ed9b6
+Error 2026-2-6 16:21:36.488 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:21:36.492 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:21:36.501 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:21:36.502 notifier: construct_transporter_package
+Trace 2026-2-6 16:21:36.502 notifier: END construct_transporter_package
+Trace 2026-2-6 16:21:36.502 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 16:21:36.502 webserver: starting read-only server
+Trace 2026-2-6 16:21:36.505 webserver: starting write server
+Trace 2026-2-6 16:21:36.506 webserver: read-only server running on port: 5002
+Trace 2026-2-6 16:21:36.506 webserver: write server running on port: 5003
+Trace 2026-2-6 16:22:23.272 webserver: logger configured.
+Trace 2026-2-6 16:22:23.273 webserver: configure_webserver
+Trace 2026-2-6 16:22:23.274 webserver: END configure_webserver
+Trace 2026-2-6 16:22:23.274 webserver: connecting to host metax.
+Trace 2026-2-6 16:22:23.291 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:22:23.291 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:22:23.300 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:22:23.301 webserver: metax websocket token received: cde64d77-f373-4614-9097-eb17f8851c68
+Error 2026-2-6 16:22:23.309 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:22:23.311 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:22:23.318 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:22:44.252 webserver: logger configured.
+Trace 2026-2-6 16:22:44.254 webserver: configure_webserver
+Trace 2026-2-6 16:22:44.254 webserver: END configure_webserver
+Trace 2026-2-6 16:22:44.254 webserver: connecting to host metax.
+Trace 2026-2-6 16:22:44.275 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:22:44.275 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:22:44.283 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:22:44.284 webserver: metax websocket token received: 90ba7c84-a81a-4b0f-b1c8-87180e934eb4
+Error 2026-2-6 16:22:44.293 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:22:44.295 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:22:44.303 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:23:23.699 webserver: logger configured.
+Trace 2026-2-6 16:23:23.700 webserver: configure_webserver
+Trace 2026-2-6 16:23:23.700 webserver: END configure_webserver
+Trace 2026-2-6 16:23:23.700 webserver: connecting to host metax.
+Trace 2026-2-6 16:23:23.718 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:23:23.718 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:23:23.726 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:23:23.727 webserver: metax websocket token received: 7b520c59-60d3-4cf0-99bf-e8d5cacf2af1
+Error 2026-2-6 16:23:23.735 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:23:23.738 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:23:23.748 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:24:7.625 webserver: logger configured.
+Trace 2026-2-6 16:24:7.626 webserver: configure_webserver
+Trace 2026-2-6 16:24:7.626 webserver: END configure_webserver
+Trace 2026-2-6 16:24:7.626 webserver: connecting to host metax.
+Trace 2026-2-6 16:24:7.646 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:24:7.646 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:24:7.653 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:24:7.654 webserver: metax websocket token received: 2e9e35b4-76c6-47c5-97e6-f50572e811c6
+Error 2026-2-6 16:24:7.661 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:24:7.663 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:24:7.675 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:26:7.160 webserver: logger configured.
+Trace 2026-2-6 16:26:7.161 webserver: configure_webserver
+Trace 2026-2-6 16:26:7.161 webserver: END configure_webserver
+Trace 2026-2-6 16:26:7.161 webserver: connecting to host metax.
+Trace 2026-2-6 16:26:7.184 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:26:7.185 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:26:7.195 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:26:7.196 webserver: metax websocket token received: a9f68e5c-7539-4f52-a52c-0b6aa84e134e
+Error 2026-2-6 16:26:7.204 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:26:7.206 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:26:7.219 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:26:7.219 notifier: construct_transporter_package
+Trace 2026-2-6 16:26:7.220 notifier: END construct_transporter_package
+Trace 2026-2-6 16:26:7.220 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 16:26:7.221 webserver: starting read-only server
+Trace 2026-2-6 16:26:7.224 webserver: starting write server
+Trace 2026-2-6 16:26:7.225 webserver: read-only server running on port: 5002
+Trace 2026-2-6 16:26:7.225 webserver: write server running on port: 5003
+Trace 2026-2-6 16:29:19.452 webserver: logger configured.
+Trace 2026-2-6 16:29:19.453 webserver: configure_webserver
+Trace 2026-2-6 16:29:19.454 webserver: END configure_webserver
+Trace 2026-2-6 16:29:19.454 webserver: connecting to host metax.
+Trace 2026-2-6 16:29:19.472 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:29:19.472 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:29:19.480 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:29:19.481 webserver: metax websocket token received: 03323a7e-6066-4f27-b21b-c8b5a6a3c2c7
+Error 2026-2-6 16:29:19.487 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:29:19.489 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:29:19.499 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:29:19.499 notifier: construct_transporter_package
+Trace 2026-2-6 16:29:19.499 notifier: END construct_transporter_package
+Trace 2026-2-6 16:29:19.500 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 16:29:19.500 webserver: starting read-only server
+Trace 2026-2-6 16:29:19.502 webserver: starting write server
+Trace 2026-2-6 16:29:19.503 webserver: read-only server running on port: 5002
+Trace 2026-2-6 16:29:19.504 webserver: write server running on port: 5003
+Trace 2026-2-6 16:30:11.218 webserver: logger configured.
+Trace 2026-2-6 16:30:11.220 webserver: configure_webserver
+Trace 2026-2-6 16:30:11.220 webserver: END configure_webserver
+Trace 2026-2-6 16:30:11.220 webserver: connecting to host metax.
+Trace 2026-2-6 16:30:11.240 webserver: successfully connected to host metax.
+Trace 2026-2-6 16:30:11.240 webserver: connecting to metax websocket.
+Trace 2026-2-6 16:30:11.248 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 16:30:11.249 webserver: metax websocket token received: f85e547c-9599-4ae4-9372-8ea1c2fe21c2
+Error 2026-2-6 16:30:11.257 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 16:30:11.259 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:30:11.265 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 16:30:11.265 notifier: construct_transporter_package
+Trace 2026-2-6 16:30:11.265 notifier: END construct_transporter_package
+Trace 2026-2-6 16:30:11.265 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 16:30:11.266 webserver: starting read-only server
+Trace 2026-2-6 16:30:11.269 webserver: starting write server
+Trace 2026-2-6 16:30:11.271 webserver: read-only server running on port: 5002
+Trace 2026-2-6 16:30:11.272 webserver: write server running on port: 5003
+Trace 2026-2-6 17:9:43.336 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 17:9:43.336 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-6 17:9:43.336 webserver: Loaded CA string length: 2139
+Trace 2026-2-6 17:9:43.336 webserver: trying new secure connection localhost
+Trace 2026-2-6 17:9:43.345 router: new session with id: 1  , fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 17:9:43.347 router: received new secure request: 1 path: /
+Trace 2026-2-6 17:9:43.347 router: received default request from localhost:5003 with path /
+Trace 2026-2-6 17:9:43.347 router: skipping default request with path /
+Trace 2026-2-6 17:10:47.273 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 17:10:47.273 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-6 17:10:47.273 webserver: Loaded CA string length: 2139
+Trace 2026-2-6 17:10:47.273 webserver: trying new secure connection localhost
+Trace 2026-2-6 17:10:47.279 router: new session with id: 2  , fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 17:10:47.280 router: received new secure request: 2 path: /db/get
+Trace 2026-2-6 17:10:47.281 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-6 17:10:47.287 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-6 17:12:35.401 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 17:12:35.402 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-6 17:12:35.402 webserver: Loaded CA string length: 2139
+Trace 2026-2-6 17:12:35.402 webserver: trying new secure connection localhost
+Trace 2026-2-6 17:12:35.424 router: new session with id: 3  , fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 17:12:35.425 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.426 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-6 17:12:35.433 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-6 17:12:35.493 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.493 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-6 17:12:35.495 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.495 router: processing /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-6 17:12:35.496 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.498 router: processing /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-6 17:12:35.499 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.502 router: processing /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-6 17:12:35.504 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.505 router: processing /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-6 17:12:35.505 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.509 router: processing /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-6 17:12:35.511 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.512 router: processing /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-6 17:12:35.513 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.513 router: processing /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-6 17:12:35.514 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.514 router: processing /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-6 17:12:35.514 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.517 router: processing /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-6 17:12:35.524 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.526 router: processing /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-6 17:12:35.527 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.528 router: processing /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-6 17:12:35.529 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.529 router: processing /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-6 17:12:35.530 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.530 router: processing /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-6 17:12:35.531 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.533 router: processing /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-6 17:12:35.534 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.534 router: processing /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-6 17:12:35.534 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.534 router: processing /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-6 17:12:35.534 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.535 router: processing /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-6 17:12:35.535 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.535 router: processing /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-6 17:12:35.536 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.536 router: processing /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-6 17:12:35.537 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-6 17:12:35.540 router: finished /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-6 17:12:35.541 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.542 router: processing /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-6 17:12:35.542 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.544 router: processing /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-6 17:12:35.544 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.544 router: processing /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-6 17:12:35.544 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.544 router: processing /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-6 17:12:35.565 router: finished /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-6 17:12:35.568 router: finished /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-6 17:12:35.571 router: finished /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-6 17:12:35.571 router: finished /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-6 17:12:35.574 router: finished /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-6 17:12:35.579 router: finished /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-6 17:12:35.580 router: finished /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-6 17:12:35.584 router: finished /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-6 17:12:35.588 router: finished /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-6 17:12:35.590 router: finished /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-6 17:12:35.590 router: finished /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-6 17:12:35.591 router: finished /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-6 17:12:35.593 router: finished /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-6 17:12:35.593 router: finished /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-6 17:12:35.595 router: finished /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-6 17:12:35.602 router: finished /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-6 17:12:35.605 router: finished /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-6 17:12:35.606 router: finished /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-6 17:12:35.606 router: finished /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-6 17:12:35.615 router: finished /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-6 17:12:35.624 router: finished /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-6 17:12:35.633 router: finished /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-6 17:12:35.693 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.693 router: processing /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-6 17:12:35.695 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.695 router: processing /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-6 17:12:35.709 router: finished /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-6 17:12:35.724 router: finished /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-6 17:12:35.755 router: received new secure request: 3 path: /favicon.ico
+Trace 2026-2-6 17:12:35.755 router: received default request from localhost:5003 with path /favicon.ico
+Trace 2026-2-6 17:12:35.755 router: skipping default request with path /favicon.ico
+Trace 2026-2-6 17:12:35.766 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.767 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-6 17:12:35.777 router: received new secure request: 3 path: /config/get_user_id
+Trace 2026-2-6 17:12:35.777 router: processing get_user_id request with path /config/get_user_id
+Trace 2026-2-6 17:12:35.779 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-6 17:12:35.793 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.794 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-6 17:12:35.796 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.797 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-6 17:12:35.797 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.797 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 17:12:35.806 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-6 17:12:35.810 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-6 17:12:35.812 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 17:12:35.815 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 17:12:35.819 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-6 17:12:35.820 webserver: Loaded CA string length: 2139
+Trace 2026-2-6 17:12:35.820 webserver: trying new secure connection localhost
+Trace 2026-2-6 17:12:35.833 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.833 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.840 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.859 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.859 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.863 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.872 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.873 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.876 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.880 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.882 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.885 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.894 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.894 router: processing /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-6 17:12:35.897 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.897 router: processing /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-6 17:12:35.906 router: finished /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-6 17:12:35.907 router: finished /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-6 17:12:35.919 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.919 router: processing /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-6 17:12:35.919 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.919 router: processing /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-6 17:12:35.920 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.920 router: processing /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-6 17:12:35.920 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.920 router: processing /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-6 17:12:35.920 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.920 router: processing /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-6 17:12:35.920 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.920 router: processing /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-6 17:12:35.921 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.921 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-6 17:12:35.921 router: received new secure request: 3 path: /db/register_listener
+Trace 2026-2-6 17:12:35.921 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=c76e3c9e-e7cb-42ef-86e8-e75423def84a
+Trace 2026-2-6 17:12:35.939 router: finished /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-6 17:12:35.941 router: finished /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-6 17:12:35.941 router: finished /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-6 17:12:35.941 router: finished /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-6 17:12:35.942 router: finished /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-6 17:12:35.942 router: finished /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-6 17:12:35.942 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-6 17:12:35.957 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.957 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.962 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.968 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.969 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.972 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.975 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.975 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.979 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:35.988 router: received new secure request: 3 path: /db/get
+Trace 2026-2-6 17:12:35.988 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:12:36.3 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-6 17:28:48.767 webserver: logger configured.
+Trace 2026-2-6 17:28:48.769 webserver: configure_webserver
+Trace 2026-2-6 17:28:48.769 webserver: END configure_webserver
+Trace 2026-2-6 17:28:48.769 webserver: connecting to host metax.
+Trace 2026-2-6 17:28:48.792 webserver: successfully connected to host metax.
+Trace 2026-2-6 17:28:48.792 webserver: connecting to metax websocket.
+Trace 2026-2-6 17:28:48.801 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 17:28:48.802 webserver: metax websocket token received: 40ef7f38-7d8a-4801-bce4-f042ca7577e6
+Error 2026-2-6 17:28:48.810 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 17:28:48.812 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 17:28:48.819 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 17:28:48.819 notifier: construct_transporter_package
+Trace 2026-2-6 17:28:48.819 notifier: END construct_transporter_package
+Trace 2026-2-6 17:28:48.819 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 17:28:48.820 webserver: starting read-only server
+Trace 2026-2-6 17:28:48.823 webserver: starting write server
+Trace 2026-2-6 17:28:48.824 webserver: read-only server running on port: 5002
+Trace 2026-2-6 17:28:48.824 webserver: write server running on port: 5003
+Trace 2026-2-6 17:28:50.748 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 17:28:50.749 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-6 17:28:50.749 webserver: Loaded CA string length: 2139
+Trace 2026-2-6 17:28:50.749 webserver: trying new secure connection localhost
+Trace 2026-2-6 17:28:50.771 router: new session with id: 1  , fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 17:28:50.785 webserver: sni_callback received serverName: localhost
+Trace 2026-2-6 17:28:50.785 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-6 17:28:50.785 webserver: Loaded CA string length: 2139
+Trace 2026-2-6 17:28:50.785 webserver: trying new secure connection localhost
+Trace 2026-2-6 17:28:50.811 router: Client certificate fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 17:28:50.812 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-6 17:28:50.812 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=66a88331-b5b6-454b-be99-c7be78026f05
+Trace 2026-2-6 17:28:50.820 router: Client certificate fingerprint: DD:3A:C1:F6:DD:9C:0B:FD:14:7F:26:71:62:31:02:A0:4F:52:92:BE:5A:D3:67:C4:BA:87:F9:4B:B2:26:90:A0
+Trace 2026-2-6 17:28:50.820 router: received new secure request: 1 path: /db/get
+Trace 2026-2-6 17:28:50.820 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 17:28:50.823 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-6 17:30:20.639 webserver: logger configured.
+Trace 2026-2-6 17:30:20.640 webserver: configure_webserver
+Trace 2026-2-6 17:30:20.640 webserver: END configure_webserver
+Trace 2026-2-6 17:30:20.641 webserver: connecting to host metax.
+Trace 2026-2-6 17:30:20.660 webserver: successfully connected to host metax.
+Trace 2026-2-6 17:30:20.660 webserver: connecting to metax websocket.
+Trace 2026-2-6 17:30:20.667 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 17:30:20.668 webserver: metax websocket token received: e72001e3-5c75-445f-b2a5-c9df5bf0e7dd
+Error 2026-2-6 17:30:20.674 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 17:30:20.676 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 17:30:20.686 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 18:6:7.701 router: received websocket close event for session: 66a88331-b5b6-454b-be99-c7be78026f05
+Trace 2026-2-6 22:3:13.71 webserver: logger configured.
+Trace 2026-2-6 22:3:13.72 webserver: configure_webserver
+Trace 2026-2-6 22:3:13.73 webserver: END configure_webserver
+Trace 2026-2-6 22:3:13.73 webserver: connecting to host metax.
+Trace 2026-2-6 22:3:13.92 webserver: successfully connected to host metax.
+Trace 2026-2-6 22:3:13.92 webserver: connecting to metax websocket.
+Trace 2026-2-6 22:3:13.103 webserver: successfully connected to metax websocket.
+Trace 2026-2-6 22:3:13.104 webserver: metax websocket token received: b9a2e189-e783-4666-88f5-ae63166ae154
+Error 2026-2-6 22:3:13.119 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-6 22:3:13.122 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 22:3:13.135 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-6 22:3:13.135 notifier: construct_transporter_package
+Trace 2026-2-6 22:3:13.135 notifier: END construct_transporter_package
+Trace 2026-2-6 22:3:13.135 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-6 22:3:13.136 webserver: starting read-only server
+Trace 2026-2-6 22:3:13.138 webserver: starting write server
+Trace 2026-2-6 22:3:13.140 webserver: read-only server running on port: 5002
+Trace 2026-2-6 22:3:13.140 webserver: write server running on port: 5003
