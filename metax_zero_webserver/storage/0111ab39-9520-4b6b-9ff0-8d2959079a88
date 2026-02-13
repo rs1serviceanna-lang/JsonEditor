@@ -153,7 +153,7 @@ class Metax {
         async connect(h = 'localhost', p = 8001, e = true, s = false, t = "") {
                 console.assert(metax === this, 'metax must be a singleton');
                 this.setupConnectionParameters(h, p, e, t, s);
-                this.createWebsocket().catch(e => {
+                await this.createWebsocket().catch(e => {
                         console.error("failed to connect websocket", e);
                 })
         }
