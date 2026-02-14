@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Ensure we are running from the script's directory so build artifacts stay here
+cd "$(dirname "$0")"
+
 # 1. Find qmake automatically
 QMAKE_PATH=$(which qmake || true)
 
