@@ -101874,3 +101874,1432 @@ Trace 2026-2-12 12:37:55.835 webserver: connecting to metax websocket.
 Trace 2026-2-12 12:37:55.835 webserver: connecting to host metax.
 Trace 2026-2-12 12:37:55.835 webserver: connecting to metax websocket.
 Trace 2026-2-12 12:37:55.835 webserver: connecting to host metax.
+Trace 2026-2-16 10:36:13.861 webserver: logger configured.
+Trace 2026-2-16 10:36:13.863 webserver: configure_webserver
+Trace 2026-2-16 10:36:13.863 webserver: END configure_webserver
+Trace 2026-2-16 10:36:13.863 webserver: connecting to host metax.
+Trace 2026-2-16 10:36:13.864 webserver: Using mutual TLS with client certificate
+Trace 2026-2-16 10:36:13.896 webserver: successfully connected to host metax.
+Trace 2026-2-16 10:36:13.897 webserver: connecting to metax websocket.
+Trace 2026-2-16 10:36:13.897 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-2-16 10:36:13.919 webserver: successfully connected to metax websocket.
+Trace 2026-2-16 10:36:13.921 webserver: metax websocket token received: 22bfc14a-777f-4937-b165-330c0d3e1b39
+Error 2026-2-16 10:36:13.934 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-16 10:36:13.936 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 10:36:13.951 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 10:36:13.951 notifier: construct_transporter_package
+Trace 2026-2-16 10:36:13.951 notifier: END construct_transporter_package
+Trace 2026-2-16 10:36:13.951 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-16 10:36:13.951 webserver: starting read-only server
+Trace 2026-2-16 10:36:13.954 webserver: starting write server
+Trace 2026-2-16 10:36:13.956 webserver: read-only server running on port: 5002
+Trace 2026-2-16 10:36:13.956 webserver: write server running on port: 5003
+Trace 2026-2-16 10:52:1.761 webserver: handle_sitemap_uuid_update
+Trace 2026-2-16 10:52:1.761 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-16 10:52:1.761 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:7:10.403 webserver: sni_callback received serverName: localhost
+Trace 2026-2-16 11:7:10.403 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-16 11:7:10.403 webserver: Loaded CA string length: 1448
+Trace 2026-2-16 11:7:10.403 webserver: trying new secure connection localhost
+Trace 2026-2-16 11:7:10.410 webserver: sni_callback received serverName: localhost
+Trace 2026-2-16 11:7:10.410 webserver: Found matching website for SNI: Erevan ERP
+Trace 2026-2-16 11:7:10.413 webserver: Loaded CA string length: 1448
+Trace 2026-2-16 11:7:10.413 webserver: trying new secure connection localhost
+Trace 2026-2-16 11:35:1.59 webserver: logger configured.
+Trace 2026-2-16 11:35:1.62 webserver: configure_webserver
+Trace 2026-2-16 11:35:1.62 webserver: END configure_webserver
+Trace 2026-2-16 11:35:1.63 webserver: connecting to host metax.
+Trace 2026-2-16 11:35:1.63 webserver: Using mutual TLS with client certificate
+Trace 2026-2-16 11:35:1.98 webserver: successfully connected to host metax.
+Trace 2026-2-16 11:35:1.99 webserver: connecting to metax websocket.
+Trace 2026-2-16 11:35:1.100 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-2-16 11:35:1.121 webserver: successfully connected to metax websocket.
+Trace 2026-2-16 11:35:1.122 webserver: metax websocket token received: 1bcefd88-43df-434f-9d2f-b87ca382ccd3
+Error 2026-2-16 11:35:1.128 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-16 11:35:1.130 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:35:1.144 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:35:22.199 webserver: logger configured.
+Trace 2026-2-16 11:35:22.201 webserver: configure_webserver
+Trace 2026-2-16 11:35:22.201 webserver: END configure_webserver
+Trace 2026-2-16 11:35:22.201 webserver: connecting to host metax.
+Trace 2026-2-16 11:35:22.202 webserver: Using mutual TLS with client certificate
+Trace 2026-2-16 11:35:22.232 webserver: successfully connected to host metax.
+Trace 2026-2-16 11:35:22.233 webserver: connecting to metax websocket.
+Trace 2026-2-16 11:35:22.233 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-2-16 11:35:22.252 webserver: successfully connected to metax websocket.
+Trace 2026-2-16 11:35:22.253 webserver: metax websocket token received: c960944e-2691-4a1d-aa1f-8d678943c0c7
+Error 2026-2-16 11:35:22.263 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-16 11:35:22.265 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:35:22.273 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:35:22.274 notifier: construct_transporter_package
+Trace 2026-2-16 11:35:22.274 notifier: END construct_transporter_package
+Trace 2026-2-16 11:35:22.274 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-16 11:35:22.274 webserver: starting read-only server
+Trace 2026-2-16 11:35:22.277 webserver: starting write server
+Trace 2026-2-16 11:35:22.278 webserver: read-only server running on port: 5002
+Trace 2026-2-16 11:35:22.278 webserver: write server running on port: 5003
+Trace 2026-2-16 11:36:27.898 router: new session with id: 1  , fingerprint: undefined
+Warning 2026-2-16 11:36:27.900 router: rejecting request without client certificate from ::ffff:192.168.11.73
+Warning 2026-2-16 11:36:27.968 router: rejecting request without client certificate from ::ffff:192.168.11.73
+Trace 2026-2-16 11:37:29.608 webserver: logger configured.
+Trace 2026-2-16 11:37:29.611 webserver: configure_webserver
+Trace 2026-2-16 11:37:29.611 webserver: END configure_webserver
+Trace 2026-2-16 11:37:29.611 webserver: connecting to host metax.
+Trace 2026-2-16 11:37:29.612 webserver: Using mutual TLS with client certificate
+Trace 2026-2-16 11:37:29.637 webserver: successfully connected to host metax.
+Trace 2026-2-16 11:37:29.637 webserver: connecting to metax websocket.
+Trace 2026-2-16 11:37:29.637 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-2-16 11:37:29.651 webserver: successfully connected to metax websocket.
+Trace 2026-2-16 11:37:29.652 webserver: metax websocket token received: 96a88261-cf37-44b9-9c1e-63d628d6f933
+Error 2026-2-16 11:37:29.659 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-16 11:37:29.661 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:37:29.670 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:37:29.671 notifier: construct_transporter_package
+Trace 2026-2-16 11:37:29.671 notifier: END construct_transporter_package
+Trace 2026-2-16 11:37:29.671 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-16 11:37:29.671 webserver: starting read-only server
+Trace 2026-2-16 11:37:29.674 webserver: starting write server
+Trace 2026-2-16 11:37:29.675 webserver: read-only server running on port: 5002
+Trace 2026-2-16 11:37:29.676 webserver: write server running on port: 5003
+Trace 2026-2-16 11:40:11.999 router: new session with id: 1  , fingerprint: undefined
+Trace 2026-2-16 11:40:12.6 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.7 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.7 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:40:12.26 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:40:12.72 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.72 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.73 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:40:12.73 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.73 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.73 router: processing /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:40:12.74 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.74 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.74 router: processing /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:40:12.75 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.75 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.75 router: processing /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:40:12.75 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.75 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.75 router: processing /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:40:12.76 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.76 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.76 router: processing /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:40:12.76 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.76 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.76 router: processing /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:40:12.78 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.80 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.80 router: processing /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:40:12.80 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.81 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.81 router: processing /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:40:12.82 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.83 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.83 router: processing /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:40:12.84 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.85 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.85 router: processing /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:40:12.88 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.88 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.88 router: processing /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:40:12.88 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.89 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.89 router: processing /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:40:12.90 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.91 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.91 router: processing /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:40:12.92 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.92 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.92 router: processing /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:40:12.92 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.92 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.92 router: processing /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:40:12.93 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.93 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.94 router: processing /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:40:12.99 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.99 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.99 router: processing /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:40:12.100 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.101 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.101 router: processing /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:40:12.101 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.102 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.102 router: processing /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:40:12.103 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.103 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.103 router: processing /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:40:12.104 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.104 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.104 router: processing /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:40:12.104 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.104 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.104 router: processing /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:40:12.104 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.105 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.105 router: processing /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:40:12.106 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:40:12.113 router: finished /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:40:12.115 router: finished /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:40:12.119 router: finished /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:40:12.122 router: finished /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:40:12.123 router: finished /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:40:12.125 router: finished /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:40:12.128 router: finished /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:40:12.128 router: finished /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:40:12.128 router: finished /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:40:12.128 router: finished /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:40:12.128 router: finished /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:40:12.128 router: finished /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:40:12.129 router: finished /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:40:12.135 router: finished /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:40:12.136 router: finished /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:40:12.145 router: finished /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:40:12.145 router: finished /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:40:12.146 router: finished /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:40:12.146 router: finished /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:40:12.155 router: finished /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:40:12.161 router: finished /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:40:12.176 router: finished /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:40:12.186 router: finished /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:40:12.232 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.232 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.233 router: processing /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:40:12.235 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.236 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.236 router: processing /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:40:12.242 router: finished /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:40:12.247 router: finished /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:40:12.275 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.275 router: received new secure request: 1 path: /favicon.ico
+Trace 2026-2-16 11:40:12.276 router: received default request from 192.168.11.73:5003 with path /favicon.ico
+Trace 2026-2-16 11:40:12.276 router: skipping default request with path /favicon.ico
+Trace 2026-2-16 11:40:12.309 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.312 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.313 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:40:12.313 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.313 router: received new secure request: 1 path: /config/get_user_id
+Trace 2026-2-16 11:40:12.313 router: processing get_user_id request with path /config/get_user_id
+Error 2026-2-16 11:40:12.314 router: TypeError: Cannot read properties of undefined (reading 'toString')
+Trace 2026-2-16 11:40:12.314 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.314 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.314 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:40:12.315 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.315 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:40:12.315 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:40:12.320 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:40:12.320 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:40:12.321 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:40:12.330 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:40:12.331 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:41:22.184 webserver: logger configured.
+Trace 2026-2-16 11:41:22.186 webserver: configure_webserver
+Trace 2026-2-16 11:41:22.186 webserver: END configure_webserver
+Trace 2026-2-16 11:41:22.186 webserver: connecting to host metax.
+Trace 2026-2-16 11:41:22.187 webserver: Using mutual TLS with client certificate
+Trace 2026-2-16 11:41:22.223 webserver: successfully connected to host metax.
+Trace 2026-2-16 11:41:22.223 webserver: connecting to metax websocket.
+Trace 2026-2-16 11:41:22.223 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-2-16 11:41:22.243 webserver: successfully connected to metax websocket.
+Trace 2026-2-16 11:41:22.244 webserver: metax websocket token received: fd34098e-b3bf-4d7c-8833-578bf3f04658
+Error 2026-2-16 11:41:22.252 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+Trace 2026-2-16 11:41:22.254 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:41:22.265 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-2-16 11:41:22.266 notifier: construct_transporter_package
+Trace 2026-2-16 11:41:22.266 notifier: END construct_transporter_package
+Trace 2026-2-16 11:41:22.267 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-2-16 11:41:22.267 webserver: starting read-only server
+Trace 2026-2-16 11:41:22.269 webserver: starting write server
+Trace 2026-2-16 11:41:22.271 webserver: read-only server running on port: 5002
+Trace 2026-2-16 11:41:22.271 webserver: write server running on port: 5003
+Trace 2026-2-16 11:41:24.150 router: new session with id: 1  , fingerprint: undefined
+Trace 2026-2-16 11:42:5.176 router: received websocket close event for session: dcd588b8-684e-472e-af8b-016a5c5f304f
+Trace 2026-2-16 11:42:5.177 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.178 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.178 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:42:5.182 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:42:5.207 router: received websocket close event for session: a8c1d494-d0c1-49f4-a2ce-445a467dd223
+Trace 2026-2-16 11:42:5.241 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.241 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.242 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:42:5.242 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.242 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.242 router: processing /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:42:5.243 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.243 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.243 router: processing /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:42:5.243 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.243 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.243 router: processing /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:42:5.244 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.244 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.244 router: processing /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:42:5.244 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.244 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.244 router: processing /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:42:5.245 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.245 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.246 router: processing /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:42:5.246 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.246 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.246 router: processing /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:42:5.247 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.247 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.247 router: processing /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:42:5.247 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.247 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.247 router: processing /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:42:5.248 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.248 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.248 router: processing /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:42:5.248 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.248 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.248 router: processing /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:42:5.248 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.248 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.248 router: processing /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:42:5.248 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.248 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.248 router: processing /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:42:5.249 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.249 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.249 router: processing /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:42:5.249 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.249 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.250 router: processing /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:42:5.251 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.251 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.251 router: processing /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:42:5.253 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.253 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.253 router: processing /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:42:5.255 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.256 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.257 router: processing /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:42:5.258 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.258 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.259 router: processing /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:42:5.260 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.260 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.260 router: processing /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:42:5.260 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.260 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.260 router: processing /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:42:5.260 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.260 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.260 router: processing /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:42:5.261 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.261 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.261 router: processing /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:42:5.268 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:42:5.281 router: finished /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:42:5.285 router: finished /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:42:5.287 router: finished /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:42:5.288 router: finished /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:42:5.289 router: finished /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:42:5.294 router: finished /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:42:5.295 router: finished /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:42:5.296 router: finished /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:42:5.298 router: finished /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:42:5.299 router: finished /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:42:5.299 router: finished /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:42:5.300 router: finished /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:42:5.303 router: finished /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:42:5.303 router: finished /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:42:5.304 router: finished /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:42:5.307 router: finished /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:42:5.309 router: finished /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:42:5.309 router: finished /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:42:5.309 router: finished /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:42:5.318 router: finished /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:42:5.322 router: finished /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:42:5.330 router: finished /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:42:5.337 router: finished /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:42:5.404 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.405 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.405 router: processing /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:42:5.407 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.408 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.408 router: processing /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:42:5.416 router: finished /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:42:5.423 router: finished /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:42:5.458 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.458 router: received new secure request: 1 path: /favicon.ico
+Trace 2026-2-16 11:42:5.459 router: received default request from 192.168.11.73:5003 with path /favicon.ico
+Trace 2026-2-16 11:42:5.460 router: skipping default request with path /favicon.ico
+Trace 2026-2-16 11:42:5.479 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.479 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.479 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:42:5.486 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:42:5.497 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.498 router: received new secure request: 1 path: /config/get_user_id
+Trace 2026-2-16 11:42:5.498 router: processing get_user_id request with path /config/get_user_id
+Trace 2026-2-16 11:42:5.511 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.512 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.512 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:42:5.512 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.512 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:5.512 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:42:5.519 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:42:5.520 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:42:5.522 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:5.523 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:17.938 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:17.938 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:17.938 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:42:17.941 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:42:17.952 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:17.952 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:17.953 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.954 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.966 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:17.966 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:17.966 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.971 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.973 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:17.974 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:17.974 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.976 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.981 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:17.982 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:17.982 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.988 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:17.997 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:17.997 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:17.998 router: processing /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:42:18.0 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.0 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.0 router: processing /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:42:18.3 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.3 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.3 router: processing /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:42:18.4 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.4 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.4 router: processing /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:42:18.4 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.4 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.4 router: processing /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:42:18.9 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.9 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.9 router: processing /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:42:18.9 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.9 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.9 router: processing /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:42:18.10 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.10 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.10 router: processing /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:42:18.10 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.10 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.10 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:42:18.10 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.16 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:42:18.17 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=59e520fa-168e-4a23-91d7-c9147f7e2320
+Trace 2026-2-16 11:42:18.18 router: finished /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:42:18.21 router: finished /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:42:18.22 router: finished /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:42:18.22 router: finished /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:42:18.22 router: finished /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:42:18.34 router: finished /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:42:18.34 router: finished /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:42:18.36 router: finished /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:42:18.37 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:42:18.55 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.55 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.55 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:18.58 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:18.59 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.59 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.59 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:18.71 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:18.73 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.73 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.73 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:18.74 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:18.74 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:18.74 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:18.86 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:18.86 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:25.663 router: received websocket close event for session: 59e520fa-168e-4a23-91d7-c9147f7e2320
+Trace 2026-2-16 11:42:25.665 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.665 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.665 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:42:25.669 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:42:25.684 router: received websocket close event for session: d31b687a-a20e-4ef2-b081-f16d7f215b41
+Trace 2026-2-16 11:42:25.704 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.704 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:42:25.704 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=d31b687a-a20e-4ef2-b081-f16d7f215b41
+Trace 2026-2-16 11:42:25.724 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.724 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.724 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:42:25.725 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.726 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.727 router: processing /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:42:25.728 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.728 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.728 router: processing /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:42:25.728 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.728 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.728 router: processing /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:42:25.729 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.729 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.729 router: processing /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:42:25.729 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.729 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.729 router: processing /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:42:25.729 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.729 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.729 router: processing /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:42:25.729 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.729 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.730 router: processing /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:42:25.730 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.730 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.730 router: processing /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:42:25.730 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.730 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.731 router: processing /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:42:25.731 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.731 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.731 router: processing /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:42:25.732 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.732 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.732 router: processing /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:42:25.732 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.732 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.732 router: processing /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:42:25.732 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.733 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.737 router: processing /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:42:25.737 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.737 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.737 router: processing /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:42:25.739 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.740 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.740 router: processing /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:42:25.740 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.743 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.744 router: processing /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:42:25.746 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.746 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.746 router: processing /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:42:25.747 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.747 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.747 router: processing /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:42:25.747 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.747 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.747 router: processing /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:42:25.747 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.747 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.747 router: processing /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:42:25.747 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.748 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.748 router: processing /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:42:25.748 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.748 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.748 router: processing /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:42:25.751 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.754 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.755 router: processing /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:42:25.755 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:42:25.792 router: finished /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:42:25.793 router: finished /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:42:25.793 router: finished /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:42:25.793 router: finished /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:42:25.794 router: finished /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:42:25.794 router: finished /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:42:25.794 router: finished /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:42:25.794 router: finished /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:42:25.795 router: finished /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:42:25.795 router: finished /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:42:25.796 router: finished /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:42:25.799 router: finished /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:42:25.800 router: finished /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:42:25.800 router: finished /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:42:25.800 router: finished /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:42:25.802 router: finished /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:42:25.803 router: finished /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:42:25.803 router: finished /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:42:25.803 router: finished /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:42:25.805 router: finished /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:42:25.816 router: finished /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:42:25.818 router: finished /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:42:25.822 router: finished /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:42:25.874 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.874 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.874 router: processing /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:42:25.877 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.877 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.877 router: processing /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:42:25.886 router: finished /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:42:25.903 router: finished /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:42:25.928 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.929 router: received new secure request: 1 path: /favicon.ico
+Trace 2026-2-16 11:42:25.929 router: received default request from 192.168.11.73:5003 with path /favicon.ico
+Trace 2026-2-16 11:42:25.929 router: skipping default request with path /favicon.ico
+Trace 2026-2-16 11:42:25.961 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.961 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.961 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:42:25.964 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.965 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.965 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:42:25.965 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.965 router: received new secure request: 1 path: /config/get_user_id
+Trace 2026-2-16 11:42:25.965 router: processing get_user_id request with path /config/get_user_id
+Trace 2026-2-16 11:42:25.965 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.965 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.965 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:42:25.966 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.966 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.966 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:42:25.983 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:42:25.991 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:42:25.991 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:42:25.992 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:42:25.994 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:25.995 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:25.996 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.2 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.12 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.13 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.13 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.14 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.14 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.14 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.19 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.19 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.28 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.28 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.28 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.33 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.71 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.71 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.71 router: processing /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:42:26.74 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.75 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.75 router: processing /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:42:26.77 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.77 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.77 router: processing /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:42:26.80 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.80 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.80 router: processing /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:42:26.81 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.81 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.81 router: processing /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:42:26.81 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.81 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.81 router: processing /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:42:26.81 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.81 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.81 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:42:26.81 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.81 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.81 router: processing /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:42:26.86 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.86 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.86 router: processing /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:42:26.87 router: finished /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:42:26.88 router: finished /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:42:26.88 router: finished /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:42:26.88 router: finished /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:42:26.93 router: finished /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:42:26.94 router: finished /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:42:26.95 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:42:26.95 router: finished /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:42:26.95 router: finished /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:42:26.96 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.96 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:42:26.96 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=a18ffe87-263f-4ef8-81c8-9038c6a0d742
+Trace 2026-2-16 11:42:26.123 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.124 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.124 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.124 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.125 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.125 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.134 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.135 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.136 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.136 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:42:26.136 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:42:26.136 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.139 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.143 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.146 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:26.149 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:42:42.738 router: received websocket close event for session: a18ffe87-263f-4ef8-81c8-9038c6a0d742
+Trace 2026-2-16 11:43:2.630 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.630 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.630 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:43:2.634 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:43:2.680 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.680 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.680 router: processing /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:43:2.682 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.682 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.682 router: processing /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:43:2.683 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.684 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.686 router: processing /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:43:2.686 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.690 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.690 router: processing /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:43:2.691 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.691 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.691 router: processing /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:43:2.691 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.692 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.692 router: processing /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:43:2.693 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.693 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.693 router: processing /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:43:2.696 router: finished /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:43:2.696 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.696 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.696 router: processing /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:43:2.697 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.697 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.697 router: processing /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:43:2.697 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.697 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.697 router: processing /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:43:2.697 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.697 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.697 router: processing /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:43:2.697 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.697 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.697 router: processing /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:43:2.698 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.698 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.698 router: processing /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:43:2.698 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.698 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.698 router: processing /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:43:2.703 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.703 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.703 router: processing /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:43:2.703 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.703 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.703 router: processing /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:43:2.703 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.704 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.704 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:43:2.704 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.704 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.704 router: processing /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:43:2.704 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.704 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.704 router: processing /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:43:2.705 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.705 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.705 router: processing /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:43:2.705 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.705 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.705 router: processing /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:43:2.713 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.713 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.713 router: processing /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:43:2.713 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.713 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.713 router: processing /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:43:2.714 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.714 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.714 router: processing /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:43:2.736 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:43:2.737 router: finished /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:43:2.737 router: finished /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:43:2.739 router: finished /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:43:2.739 router: finished /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:43:2.739 router: finished /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:43:2.740 router: finished /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:43:2.744 router: finished /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:43:2.746 router: finished /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:43:2.754 router: finished /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:43:2.754 router: finished /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:43:2.754 router: finished /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:43:2.757 router: finished /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:43:2.762 router: finished /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:43:2.765 router: finished /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:43:2.767 router: finished /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:43:2.806 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.806 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.806 router: processing /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:43:2.807 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.807 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.807 router: processing /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:43:2.812 router: finished /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:43:2.815 router: finished /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:43:2.840 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.841 router: received new secure request: 1 path: /favicon.ico
+Trace 2026-2-16 11:43:2.841 router: received default request from 192.168.11.73:5003 with path /favicon.ico
+Trace 2026-2-16 11:43:2.841 router: skipping default request with path /favicon.ico
+Trace 2026-2-16 11:43:2.858 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.858 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.858 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:43:2.860 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.861 router: received new secure request: 1 path: /config/get_user_id
+Trace 2026-2-16 11:43:2.861 router: processing get_user_id request with path /config/get_user_id
+Trace 2026-2-16 11:43:2.862 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:43:2.875 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.876 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.876 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:43:2.878 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.878 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.878 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:43:2.881 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:2.881 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:2.884 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:43:2.884 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:43:11.623 router: received websocket close event for session: e50e4745-90a5-4940-bac5-6340cdef34e1
+Trace 2026-2-16 11:43:11.625 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.625 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.626 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:43:11.627 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:43:11.667 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.667 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.667 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:43:11.671 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.672 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.672 router: processing /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:43:11.674 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.675 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.675 router: processing /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:43:11.675 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.676 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.676 router: processing /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:43:11.676 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.677 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.678 router: processing /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:43:11.678 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:43:11.681 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.681 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.681 router: processing /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:43:11.682 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.682 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.682 router: processing /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:43:11.682 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.682 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.682 router: processing /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:43:11.682 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.683 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.683 router: processing /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:43:11.683 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.683 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.684 router: processing /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:43:11.684 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.686 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.686 router: processing /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:43:11.686 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.686 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.686 router: processing /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:43:11.687 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.687 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.687 router: processing /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:43:11.687 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.687 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.687 router: processing /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:43:11.688 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.688 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.688 router: processing /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:43:11.688 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.688 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.688 router: processing /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:43:11.689 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.689 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.689 router: processing /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:43:11.689 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.689 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.689 router: processing /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:43:11.689 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.689 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.689 router: processing /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:43:11.690 router: finished /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:43:11.690 router: finished /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:43:11.690 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.690 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.690 router: processing /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:43:11.691 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.691 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.691 router: processing /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:43:11.695 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.698 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.698 router: processing /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:43:11.699 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.699 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.699 router: processing /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:43:11.699 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.699 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.699 router: processing /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:43:11.712 router: finished /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:43:11.719 router: finished /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:43:11.722 router: finished /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:43:11.724 router: finished /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:43:11.725 router: finished /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:43:11.726 router: finished /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:43:11.727 router: finished /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:43:11.727 router: finished /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:43:11.728 router: finished /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:43:11.728 router: finished /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:43:11.728 router: finished /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:43:11.728 router: finished /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:43:11.728 router: finished /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:43:11.733 router: finished /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:43:11.734 router: finished /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:43:11.735 router: finished /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:43:11.735 router: finished /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:43:11.739 router: finished /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:43:11.742 router: finished /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:43:11.746 router: finished /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:43:11.748 router: finished /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:43:11.790 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.790 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.790 router: processing /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:43:11.791 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.791 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.791 router: processing /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:43:11.797 router: finished /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:43:11.801 router: finished /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:43:11.831 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.832 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.832 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:43:11.832 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.832 router: received new secure request: 1 path: /config/get_user_id
+Trace 2026-2-16 11:43:11.832 router: processing get_user_id request with path /config/get_user_id
+Trace 2026-2-16 11:43:11.834 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:43:11.849 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.849 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.849 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:43:11.850 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.850 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.850 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:43:11.850 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:11.850 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:11.859 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:43:11.860 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:43:19.570 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:19.571 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:19.571 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:19.573 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:20.929 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.929 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.929 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.930 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.938 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.938 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.938 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.940 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.940 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.940 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.942 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.942 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.946 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.946 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.946 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.948 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:20.963 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.963 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.963 router: processing /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:43:20.964 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.964 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.964 router: processing /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:43:20.964 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.964 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.964 router: processing /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:43:20.964 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.964 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.964 router: processing /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:43:20.965 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.965 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.965 router: processing /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:43:20.976 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.976 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:43:20.976 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:43:20.977 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.977 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.977 router: processing /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:43:20.978 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.978 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.978 router: processing /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:43:20.978 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.978 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.978 router: processing /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:43:20.978 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.978 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.978 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:20.979 router: finished /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:43:20.979 router: finished /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:43:20.979 router: finished /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:43:20.979 router: finished /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:43:20.979 router: finished /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:43:20.982 router: finished /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:43:20.982 router: finished /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:43:20.982 router: finished /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:43:20.982 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:20.996 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:20.998 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:20.998 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:21.3 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:21.3 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:21.3 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:21.5 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:21.5 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:21.5 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:21.7 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:21.7 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:21.7 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:21.8 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:21.13 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:21.14 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:21.15 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.50 webserver: handle_sitemap_uuid_update
+Trace 2026-2-16 11:43:40.50 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-16 11:43:40.50 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:40.50 router: sending update_message for uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 to token: 388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:43:40.55 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.56 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:40.56 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:40.58 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:40.64 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.64 router: received new secure request: 1 path: /db/unregister_listener
+Trace 2026-2-16 11:43:40.64 router: processing unregister_listener request with path /db/unregister_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:43:40.69 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.69 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:40.69 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:40.74 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:40.80 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.80 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:40.80 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.83 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.86 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.86 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:40.86 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.91 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.91 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:40.91 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.91 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.91 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:40.91 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.96 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.97 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.97 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:40.111 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:40.111 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:43:40.111 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:43:45.257 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.257 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.257 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:43:45.258 router: stream aborted for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:43:45.258 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:43:45.310 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.310 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.310 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:43:45.310 router: stream aborted for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:43:45.310 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:43:45.410 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.410 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.410 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:43:45.411 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.411 router: received new secure request: 1 path: /config/get_user_id
+Trace 2026-2-16 11:43:45.411 router: processing get_user_id request with path /config/get_user_id
+Trace 2026-2-16 11:43:45.424 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:43:45.442 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.443 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.443 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:45.445 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.446 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.446 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:43:45.447 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.449 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.456 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:43:45.461 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:45.463 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:43:45.464 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:43:45.475 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.476 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.476 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.481 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.489 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.489 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.489 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.492 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.498 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.498 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.498 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.501 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.515 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.516 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.516 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.518 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.544 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.546 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.547 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:45.547 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.547 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:43:45.548 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=316e436a-3c7a-448a-a736-5cc7b21afb81
+Trace 2026-2-16 11:43:45.548 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.548 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.548 router: processing /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:43:45.552 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.552 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.552 router: processing /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:43:45.556 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:45.557 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.558 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.559 router: processing /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:43:45.559 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.561 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.561 router: processing /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:43:45.562 router: finished /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:43:45.563 router: finished /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:43:45.568 router: finished /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:43:45.569 router: finished /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:43:45.587 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.588 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.589 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.589 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.589 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.589 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.590 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.590 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.590 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.590 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:45.590 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:45.590 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.595 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.596 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.596 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:45.596 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.471 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.472 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.472 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.474 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.483 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.483 router: received new secure request: 1 path: /db/save/node
+Trace 2026-2-16 11:43:48.483 router: processing /db/save request with path /db/save/node?enc=0&id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:48.486 webserver: handle_sitemap_uuid_update
+Trace 2026-2-16 11:43:48.486 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-16 11:43:48.486 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:48.486 router: sending update_message for uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 to token: 388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:43:48.486 router: sending update_message for uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 to token: 316e436a-3c7a-448a-a736-5cc7b21afb81
+Trace 2026-2-16 11:43:48.486 router: finished /db/save request for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:48.499 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.499 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.499 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:48.500 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.500 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.500 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:48.518 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:48.522 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:43:48.535 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.535 router: received new secure request: 1 path: /db/unregister_listener
+Trace 2026-2-16 11:43:48.535 router: processing unregister_listener request with path /db/unregister_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:43:48.543 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.543 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.544 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:48.546 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.546 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.546 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.548 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.548 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.548 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.552 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:43:48.553 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.553 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.554 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.554 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.554 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.556 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.556 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:43:48.556 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.558 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:43:48.559 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:43:48.559 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:43:48.559 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:43:48.565 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:31.890 router: new session with id: 2  , fingerprint: undefined
+Trace 2026-2-16 11:44:31.892 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.892 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.892 router: processing /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:44:31.903 router: finished /db/get for fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+Trace 2026-2-16 11:44:31.929 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.929 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.929 router: processing /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:44:31.930 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.930 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.930 router: processing /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:44:31.930 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.930 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.930 router: processing /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:44:31.933 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.933 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.933 router: processing /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:44:31.934 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.934 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.934 router: processing /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:44:31.935 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.935 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.935 router: processing /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:44:31.935 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.935 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.935 router: processing /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:44:31.936 router: finished /db/get for 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+Trace 2026-2-16 11:44:31.936 router: finished /db/get for 8c387c93-89fb-482f-9fab-4cfa6291ae33
+Trace 2026-2-16 11:44:31.937 router: finished /db/get for ccfdc674-e74e-4650-b53c-48a19ecc6fca
+Trace 2026-2-16 11:44:31.938 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.938 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.938 router: processing /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:44:31.939 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.939 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.939 router: processing /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:44:31.940 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.940 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.940 router: processing /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:44:31.940 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.941 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.943 router: processing /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:44:31.943 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.943 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.943 router: processing /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:44:31.944 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.944 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.944 router: processing /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:44:31.945 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.946 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.946 router: processing /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:44:31.946 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.947 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.947 router: processing /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:44:31.948 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.948 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.948 router: processing /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:44:31.949 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.949 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.949 router: processing /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:44:31.949 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.949 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.949 router: processing /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:44:31.950 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.950 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.950 router: processing /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:44:31.950 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.950 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.950 router: processing /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:44:31.951 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.951 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.951 router: processing /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:44:31.953 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.954 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.954 router: processing /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:44:31.955 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.955 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.956 router: processing /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:44:31.956 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:31.956 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:31.957 router: processing /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:44:31.964 router: finished /db/get for 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+Trace 2026-2-16 11:44:31.966 router: finished /db/get for 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+Trace 2026-2-16 11:44:31.967 router: finished /db/get for 07e21faa-16fa-490d-9bb9-c354d9e5945c
+Trace 2026-2-16 11:44:31.968 router: finished /db/get for dcfd3472-3695-4998-9587-a2a523f43624
+Trace 2026-2-16 11:44:31.968 router: finished /db/get for 4604d385-951e-4571-b185-f70b1490cf1d
+Trace 2026-2-16 11:44:31.969 router: finished /db/get for 1507b837-c085-4238-a5c9-a999d55b2182
+Trace 2026-2-16 11:44:31.970 router: finished /db/get for 2a5dcdea-212d-4eea-aa7f-137649640137
+Trace 2026-2-16 11:44:31.972 router: finished /db/get for def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+Trace 2026-2-16 11:44:31.972 router: finished /db/get for 7a8e9535-4388-420a-bcd9-3a284f65f184
+Trace 2026-2-16 11:44:31.973 router: finished /db/get for 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+Trace 2026-2-16 11:44:31.973 router: finished /db/get for f4fb8115-bcc9-43d9-a241-75212827a646
+Trace 2026-2-16 11:44:31.974 router: finished /db/get for 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+Trace 2026-2-16 11:44:31.975 router: finished /db/get for 8bfd0aba-552f-4783-8262-6f092476c051
+Trace 2026-2-16 11:44:31.976 router: finished /db/get for f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+Trace 2026-2-16 11:44:31.977 router: finished /db/get for 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+Trace 2026-2-16 11:44:31.978 router: finished /db/get for 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+Trace 2026-2-16 11:44:31.978 router: finished /db/get for 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+Trace 2026-2-16 11:44:31.979 router: finished /db/get for 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+Trace 2026-2-16 11:44:31.981 router: finished /db/get for cad8c048-9be7-41f6-a7c6-98d8a4997560
+Trace 2026-2-16 11:44:31.982 router: finished /db/get for baf314ba-ad36-4094-b55f-d370140d269c
+Trace 2026-2-16 11:44:31.988 router: finished /db/get for 4b98df48-81c4-456f-a788-e3496d699475
+Trace 2026-2-16 11:44:32.43 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.43 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.43 router: processing /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:44:32.44 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.44 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.44 router: processing /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:44:32.47 router: finished /db/get for 0111ab39-9520-4b6b-9ff0-8d2959079a88
+Trace 2026-2-16 11:44:32.52 router: finished /db/get for 09431fbd-3295-4805-a888-ac2041b70184
+Trace 2026-2-16 11:44:32.92 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.92 router: received new secure request: 2 path: /favicon.ico
+Trace 2026-2-16 11:44:32.92 router: received default request from 192.168.11.73:5003 with path /favicon.ico
+Trace 2026-2-16 11:44:32.92 router: skipping default request with path /favicon.ico
+Trace 2026-2-16 11:44:32.166 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.166 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.166 router: processing /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:44:32.167 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.167 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.167 router: processing /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:44:32.170 router: finished /db/get for 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+Trace 2026-2-16 11:44:32.170 router: finished /db/get for 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+Trace 2026-2-16 11:44:32.189 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.189 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.190 router: processing /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:44:32.190 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.190 router: received new secure request: 2 path: /config/get_user_id
+Trace 2026-2-16 11:44:32.190 router: processing get_user_id request with path /config/get_user_id
+Trace 2026-2-16 11:44:32.191 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.192 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.192 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:32.193 router: finished /db/get for aea62f74-9622-4c9c-93cf-dcd707e11e43
+Trace 2026-2-16 11:44:32.194 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:32.206 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.207 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.207 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.210 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.221 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.222 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.222 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.223 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.227 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.227 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.227 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.231 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.239 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.240 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.240 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.241 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.258 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.258 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.258 router: processing /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:44:32.258 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.258 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.258 router: processing /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:44:32.259 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.259 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.259 router: processing /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:44:32.259 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.259 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.259 router: processing /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:44:32.259 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.259 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.259 router: processing /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:44:32.259 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.259 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.259 router: processing /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:44:32.260 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.260 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.260 router: processing /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:44:32.260 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.260 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.260 router: processing /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:44:32.260 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.260 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.260 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:44:32.261 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.261 router: received new secure request: 2 path: /db/register_listener
+Trace 2026-2-16 11:44:32.261 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=be9789e7-d83f-4216-8ab6-c7739b34dfd1
+Trace 2026-2-16 11:44:32.273 router: finished /db/get for 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+Trace 2026-2-16 11:44:32.276 router: finished /db/get for 479359a9-684c-4eb4-8d6a-f5dc2567f167
+Trace 2026-2-16 11:44:32.276 router: finished /db/get for 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+Trace 2026-2-16 11:44:32.277 router: finished /db/get for fb038286-9fcc-448f-87d9-84a2070eec33
+Trace 2026-2-16 11:44:32.280 router: finished /db/get for 71b30d14-59f8-482d-993d-c913e8737f9e
+Trace 2026-2-16 11:44:32.280 router: finished /db/get for a480317b-b7fa-4b81-8f19-ccb9224f3604
+Trace 2026-2-16 11:44:32.280 router: finished /db/get for 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+Trace 2026-2-16 11:44:32.280 router: finished /db/get for 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+Trace 2026-2-16 11:44:32.281 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:44:32.308 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.309 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.309 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.311 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.318 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.319 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.319 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.319 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.320 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.320 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.326 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.326 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.326 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:32.326 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:32.326 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:32.328 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.528 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.528 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:42.528 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.531 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.544 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.544 router: received new secure request: 2 path: /db/save/node
+Trace 2026-2-16 11:44:42.544 router: processing /db/save request with path /db/save/node?enc=0&id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.546 webserver: handle_sitemap_uuid_update
+Trace 2026-2-16 11:44:42.546 webserver: END handle_sitemap_uuid_update
+Trace 2026-2-16 11:44:42.546 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.546 router: sending update_message for uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 to token: 316e436a-3c7a-448a-a736-5cc7b21afb81
+Trace 2026-2-16 11:44:42.546 router: sending update_message for uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 to token: 388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:44:42.546 router: sending update_message for uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 to token: be9789e7-d83f-4216-8ab6-c7739b34dfd1
+Trace 2026-2-16 11:44:42.546 router: finished /db/save request for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.555 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.556 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.557 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.558 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.559 router: received new secure request: 2 path: /db/get
+Trace 2026-2-16 11:44:42.559 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.560 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.562 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.562 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.566 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.568 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.569 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-2-16 11:44:42.582 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.582 router: received new secure request: 1 path: /db/unregister_listener
+Trace 2026-2-16 11:44:42.583 router: processing unregister_listener request with path /db/unregister_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=316e436a-3c7a-448a-a736-5cc7b21afb81
+Trace 2026-2-16 11:44:42.593 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.595 router: received new secure request: 1 path: /db/unregister_listener
+Trace 2026-2-16 11:44:42.595 router: processing unregister_listener request with path /db/unregister_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=388fb514-c9b7-42c8-bded-7e6e287c7c6d
+Trace 2026-2-16 11:44:42.595 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.596 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.596 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Error 2026-2-16 11:44:42.601 router: error in unregister listener: {"error":"no listener register for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 in this session."}
+Trace 2026-2-16 11:44:42.610 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:44:42.613 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.614 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.615 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.615 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.615 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.615 router: processing /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:44:42.615 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.616 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.616 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.616 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.617 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.620 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.625 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.625 router: finished /db/get for 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+Trace 2026-2-16 11:44:42.625 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.625 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.630 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.630 router: received new secure request: 1 path: /db/register_listener
+Trace 2026-2-16 11:44:42.630 router: processing register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=316e436a-3c7a-448a-a736-5cc7b21afb81
+Trace 2026-2-16 11:44:42.632 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.633 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.633 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.633 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.633 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.633 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.645 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.645 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.645 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.645 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.646 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.646 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.649 router: Client certificate fingerprint: undefined
+Trace 2026-2-16 11:44:42.649 router: received new secure request: 1 path: /db/get
+Trace 2026-2-16 11:44:42.649 router: processing /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.671 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.673 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.673 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.673 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:42.674 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-2-16 11:44:59.839 router: received websocket close event for session: be9789e7-d83f-4216-8ab6-c7739b34dfd1
+Trace 2026-2-16 11:44:59.872 router: received websocket close event for session: 67a7f562-7d55-42d4-94b8-2dcd943217c7

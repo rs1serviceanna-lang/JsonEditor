@@ -44,12 +44,16 @@ int main(int argc, char *argv[])
     parser.addOption(serverOption);
     QCommandLineOption uuidOption("uuid", "Initial UUID to load", "uuid");
     parser.addOption(uuidOption);
+    QCommandLineOption certOption("cert", "Client Certificate Path", "file");
+    parser.addOption(certOption);
+    QCommandLineOption keyOption("key", "Client Key Path", "file");
+    parser.addOption(keyOption);
     
     parser.process(app);
 
     JsonEditorDialog dialog;
     
-    // Connect the signal notifier to the dialog's forceDisconnect
+    // Connect to signal notifier
     QObject::connect(&sn, &QSocketNotifier::activated, [&dialog]() {
         char a;
         ::read(sig_pipe[1], &a, 1);
@@ -58,6 +62,10 @@ int main(int argc, char *argv[])
 
     // Register UNIX signal handler
     ::signal(SIGUSR1, signalHandler);
+
+    if (parser.isSet(certOption) && parser.isSet(keyOption)) {
+        dialog.setClientCertificate(parser.value(certOption), parser.value(keyOption));
+    }
 
     if (parser.isSet(serverOption)) {
         dialog.setServerUrl(parser.value(serverOption));

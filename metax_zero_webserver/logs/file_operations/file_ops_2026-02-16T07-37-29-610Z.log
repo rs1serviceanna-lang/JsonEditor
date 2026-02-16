@@ -1,0 +1,335 @@
+================================================================================
+FILE OPERATIONS LOG
+Started: 2026-02-16T07:37:29.610Z
+================================================================================
+
+[2026-02-16T07:40:12.026Z] READ
+  Log ID: 480da157-dc79-48f8-9084-62cff7154a06
+  UUID: fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/html
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.076Z] READ
+  Log ID: 58a1e724-6d43-49f2-a098-a4e9a27c4764
+  UUID: 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.085Z] READ
+  Log ID: ab2b6cfb-8168-405a-a9d8-acf5c0493c71
+  UUID: 8c387c93-89fb-482f-9fab-4cfa6291ae33
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.086Z] READ
+  Log ID: 59d5ca18-3082-40db-94da-5011686169f2
+  UUID: ccfdc674-e74e-4650-b53c-48a19ecc6fca
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.086Z] READ
+  Log ID: 3e1ef005-9221-467d-bda2-feae8a001902
+  UUID: 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.094Z] READ
+  Log ID: 2fee484d-8b1a-44e2-a96e-88ffa9dd26ea
+  UUID: 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.094Z] READ
+  Log ID: 2762e072-f7c6-4794-9d7f-b1bfac67299f
+  UUID: 1507b837-c085-4238-a5c9-a999d55b2182
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.094Z] READ
+  Log ID: 54b1deb2-b371-4f4b-a214-41618364bc2e
+  UUID: 4b98df48-81c4-456f-a788-e3496d699475
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.094Z] READ
+  Log ID: a1e56e5c-5af0-45de-90aa-88536e4f2b71
+  UUID: 2a5dcdea-212d-4eea-aa7f-137649640137
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.095Z] READ
+  Log ID: 2522e371-ca06-453b-95cf-3b06fdb7fff1
+  UUID: dcfd3472-3695-4998-9587-a2a523f43624
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.105Z] READ
+  Log ID: 1f41b673-06c8-4126-8d11-e88b87142b6a
+  UUID: 4604d385-951e-4571-b185-f70b1490cf1d
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.107Z] READ
+  Log ID: f2fbf780-d024-4f02-b066-1a968e7d86cf
+  UUID: 07e21faa-16fa-490d-9bb9-c354d9e5945c
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.107Z] READ
+  Log ID: c4609d45-54ff-4751-bcae-5bf5ea528575
+  UUID: baf314ba-ad36-4094-b55f-d370140d269c
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.107Z] READ
+  Log ID: b4d2f914-8630-4bec-9d52-ded74c19e9a1
+  UUID: 7a8e9535-4388-420a-bcd9-3a284f65f184
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.108Z] READ
+  Log ID: 73541f96-22ad-4652-9caa-b7669935db81
+  UUID: 8bfd0aba-552f-4783-8262-6f092476c051
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.108Z] READ
+  Log ID: 6ba0dcd0-c8d9-4822-8acd-5f0f86052f74
+  UUID: 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.108Z] READ
+  Log ID: f0adb050-e5f5-4f11-80dc-a2bc1727021d
+  UUID: 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.108Z] READ
+  Log ID: fcfc84a7-01bb-4ecb-959b-a1ef22f7cfd7
+  UUID: f4fb8115-bcc9-43d9-a241-75212827a646
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.112Z] READ
+  Log ID: 240106b0-23e6-48e7-86f7-e62ba994c197
+  UUID: f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.112Z] READ
+  Log ID: 547c7236-5892-4a9c-877b-bfbd3a69dd6d
+  UUID: cad8c048-9be7-41f6-a7c6-98d8a4997560
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.112Z] READ
+  Log ID: 029be5dc-c915-4384-b26b-b79c587d1644
+  UUID: def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.112Z] READ
+  Log ID: 69b93a88-2f4b-49e4-b1c3-4ebaf602c670
+  UUID: 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.112Z] READ
+  Log ID: 1afb6943-7594-4124-a5b3-3ccc0ad3af79
+  UUID: 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.113Z] READ
+  Log ID: 06d51753-12a1-4098-a938-82ffaa2ab176
+  UUID: 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.113Z] READ
+  Log ID: 24d84187-d76c-4e41-bb19-a404d4a7e28e
+  UUID: 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.237Z] READ
+  Log ID: 061615b4-797d-4e5b-95ec-94a805c82fff
+  UUID: 09431fbd-3295-4805-a888-ac2041b70184
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.240Z] READ
+  Log ID: 4872e5bc-2726-4d96-98d7-f1faadc19d33
+  UUID: 0111ab39-9520-4b6b-9ff0-8d2959079a88
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.319Z] READ
+  Log ID: daa14217-dd87-400d-8227-88e3cd31ee13
+  UUID: aea62f74-9622-4c9c-93cf-dcd707e11e43
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.319Z] READ
+  Log ID: 20f49781-c2c2-43da-b0da-1319ef69e468
+  UUID: 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-02-16T07:40:12.319Z] READ
+  Log ID: c8a54cb1-0a38-4627-834f-84247fcb15e1
+  UUID: 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+  User: anonymous
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+

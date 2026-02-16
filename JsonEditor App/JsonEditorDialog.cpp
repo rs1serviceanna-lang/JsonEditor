@@ -5,10 +5,56 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QSslCertificate>
+#include <QSslKey>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QFont>
+
+void JsonEditorDialog::setClientCertificate(const QString &certPath, const QString &keyPath)
+{
+    clientCertPath = certPath;
+    clientKeyPath = keyPath;
+    setupSslConfiguration();
+}
+
+void JsonEditorDialog::setupSslConfiguration()
+{
+    if (clientCertPath.isEmpty() || clientKeyPath.isEmpty()) return;
+
+    QFile keyFile(clientKeyPath);
+    if (!keyFile.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to open client key:" << clientKeyPath;
+        return;
+    }
+    QSslKey key(&keyFile, QSsl::Rsa, QSsl::Pem, QSsl::PrivateKey);
+    keyFile.close();
+
+    QFile certFile(clientCertPath);
+    if (!certFile.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to open client cert:" << clientCertPath;
+        return;
+    }
+    QSslCertificate cert(&certFile);
+    certFile.close();
+
+    if (key.isNull() || cert.isNull()) {
+        qWarning() << "Invalid client key or certificate loaded";
+        return;
+    }
+
+    QSslConfiguration sslConfig = QSslConfiguration::defaultConfiguration();
+    sslConfig.setPrivateKey(key);
+    sslConfig.setLocalCertificate(cert);
+    QSslConfiguration::setDefaultConfiguration(sslConfig);
+    
+    qDebug() << "Applied client certificate:" << clientCertPath;
+    
+    // Update WebSocket config if it exists
+    if (webSocket) {
+        webSocket->setSslConfiguration(sslConfig);
+    }
+}
 
 JsonEditorDialog::JsonEditorDialog(QWidget *parent)
     : QDialog(parent)

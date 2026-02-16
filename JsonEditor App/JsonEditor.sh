@@ -48,7 +48,14 @@ popd > /dev/null
 echo "Waiting for server to initialize..."
 sleep 5
 
-echo "Starting JsonEditor..."
-# Run the application in the foreground so the script waits for it.
-# When the application is closed, the script will exit and the trap will clean up the server.
-$APP_BIN --server "https://localhost:$METAX_PORT" --uuid "$DEFAULT_UUID"
+# Check for client certificates
+CERT_PATH="$SERVER_DIR/certs/localhost/Mani.crt"
+KEY_PATH="$SERVER_DIR/certs/localhost/Mani.key"
+
+if [ -f "$CERT_PATH" ] && [ -f "$KEY_PATH" ]; then
+    echo "Using client certificate: $CERT_PATH"
+    $APP_BIN --server "https://localhost:$METAX_PORT" --uuid "$DEFAULT_UUID" --cert "$CERT_PATH" --key "$KEY_PATH"
+else
+    echo "Warning: Client certificates not found, attempting connection without them."
+    $APP_BIN --server "https://localhost:$METAX_PORT" --uuid "$DEFAULT_UUID"
+fi

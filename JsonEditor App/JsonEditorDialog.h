@@ -80,6 +80,12 @@ private:
 public:
     void setServerUrl(const QString &url);
     void loadUuid(const QString &uuid);
+    void setClientCertificate(const QString &certPath, const QString &keyPath);
+    
+private:
+    QString clientCertPath;
+    QString clientKeyPath;
+    void setupSslConfiguration();
 };
 
 #endif // JSONEDITORDIALOG_H

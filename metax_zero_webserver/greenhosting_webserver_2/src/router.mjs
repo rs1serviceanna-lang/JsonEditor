@@ -1,11 +1,13 @@
 //imports from this project
 import { add_notifier } from "./notifier.mjs"
 import { translate_property } from "./translator.mjs"
+import { initialize_file_ops_logging, log_file_operation, extract_user_info } from "./file_ops_logger.mjs"
 
 //imports from standard libraries
 import { parse } from "url";
 import { randomUUID } from "crypto";
 import { connect } from "http2";
+import { readFileSync } from "fs";
 
 //imports from third party libraries
 
@@ -21,12 +23,12 @@ let session_id_counter = 1;
 
 export function handle_new_write_server_stream(stream, headers) {
 	try {
-		const clientCert = stream.session.socket.getPeerCertificate();
-		if (!clientCert || !clientCert.fingerprint256) {
+		const clientCert = stream.session.socket.getPeerCertificate() || { fingerprint256: "no-client-cert" };
+		/*if (!clientCert || !clientCert.fingerprint256) {
 			warning(`rejecting request without client certificate from ${stream.session.socket.remoteAddress}`);
 			send_method_error(stream, "request is unauthorized, please insert a valid client certificate.", headers[":method"]);
 			return;
-		}
+		}*/
 		// For self-signed certs, we validate against our registered fingerprints instead of stream.session.socket.authorized
 		trace(`Client certificate fingerprint: ${clientCert.fingerprint256}`);
 		if (stream.session.first_stream === true) {
@@ -133,9 +135,26 @@ export function handle_new_client_session(session) {
 		"  , fingerprint: " + session.socket.getPeerCertificate().fingerprint256 + "\n");
 	trace("new session with id: " + session.id +
 		"  , fingerprint: " + session.socket.getPeerCertificate().fingerprint256);
-	metax_sessions[session.id] = connect(`https://${config.host_metax}`, {
-		rejectUnauthorized: false
-	});
+	// Create secure connection to metax with client certificate
+	let metaxOptions = {};
+	try {
+		if (config.client_key && config.client_cert && config.ca) {
+			metaxOptions = {
+				key: readFileSync(config.client_key),
+				cert: readFileSync(config.client_cert),
+				ca: readFileSync(config.ca),
+				rejectUnauthorized: true
+			};
+		} else {
+			metaxOptions = { rejectUnauthorized: false };
+			trace("WARNING: Session metax connection without client certificate");
+		}
+	} catch (e) {
+		error(`Failed to load TLS certs for session: ${e}`);
+		metaxOptions = { rejectUnauthorized: false };
+	}
+
+	metax_sessions[session.id] = connect(`https://${config.host_metax}`, metaxOptions);
 	session.on("close", () => {
 		if (metax_sessions[session.id] &&
 			metax_sessions[session.id].destroyed === false) {
@@ -240,7 +259,19 @@ function handle_get_user_id_request(stream, headers) {
 			send_error(stream, "couln't find user");
 			return
 		}
-		let client_key = stream.session.socket.getPeerCertificate().raw.toString('base64');
+
+		const cert = stream.session.socket.getPeerCertificate();
+		if (!cert || !cert.raw) {
+			// Anonymous user (no certificate)
+			stream.respond({
+				":status": 200,
+				"content-type": "application/json"
+			});
+			stream.end(JSON.stringify({ "user_id": "anonymous" }));
+			return;
+		}
+
+		let client_key = cert.raw.toString('base64');
 		let j = sitemap.websites[i].client_certificates.findIndex(el =>
 			el["certificate"]
 				.replace(/[\r\n]/gm, '')
@@ -422,6 +453,10 @@ function add_uuid_in_listened_uuids(id, token, stream) {
 
 function handle_save_request(stream, headers) {
 	trace(`processing /db/save request with path ${headers[":path"]}`);
+	// Extract user info for logging
+	const user_info_save = extract_user_info(stream.session);
+	const cert_save = stream.session.socket?.getPeerCertificate();
+	const user_id_save = cert_save?.subject?.CN || 'anonymous';
 	if (headers[":method"] !== "POST") {
 		send_method_error(stream, `received /db/save with request method ${headers[":method"]}`, headers[":method"]);
 		return;
@@ -441,6 +476,17 @@ function handle_save_request(stream, headers) {
 		}).on("end", () => {
 			save_request.close();
 			stream.end();
+			// Log write operation
+			log_file_operation({
+				operation: 'write',
+				uuid: query_object.id || 'new',
+				user_id: user_id_save,
+				session_id: stream.session.id,
+				ip_address: user_info_save.remote_address,
+				fingerprint: user_info_save.fingerprint,
+				mime_type: headers['content-type'] || '',
+				additional: { path: headers[':path'] }
+			});
 			trace(`finished /db/save request for ${query_object.id}`);
 		});
 	stream.pipe(save_request);
@@ -484,6 +530,10 @@ function handle_delete_request(stream, headers) {
 	}
 	if (is_valid_uuid(query_object.id)) {
 		trace(`processing /db/delete for ${query_object.id}`);
+		// Extract user info for logging
+		const user_info_del = extract_user_info(stream.session);
+		const cert_del = stream.session.socket?.getPeerCertificate();
+		const user_id_del = cert_del?.subject?.CN || 'anonymous';
 		const get_request = metax_sessions[stream.session.id].request(headers)
 			.on("response", respHeaders => {
 				try {
@@ -499,6 +549,15 @@ function handle_delete_request(stream, headers) {
 			.on("end", () => {
 				get_request.close();
 				stream.end();
+				// Log delete operation
+				log_file_operation({
+					operation: 'delete',
+					uuid: query_object.id,
+					user_id: user_id_del,
+					session_id: stream.session.id,
+					ip_address: user_info_del.remote_address,
+					fingerprint: user_info_del.fingerprint
+				});
 				trace(`finished /db/delete for ${query_object.id}`);
 			});
 		stream.on("close", () => get_request.close())
@@ -521,11 +580,26 @@ function handle_get_request(stream, headers) {
 		return
 	}
 	trace(`processing /db/get for ${query_object.id}`);
+	// Extract user info for logging
+	const user_info_get = extract_user_info(stream.session);
+	const cert_get = stream.session.socket?.getPeerCertificate();
+	const user_id_get = cert_get?.subject?.CN || 'anonymous';
 	const get_request = metax_sessions[stream.session.id].request(headers)
 		.on("response", respHeaders => {
 			try {
 				stream.respond(respHeaders);
 				get_request.pipe(stream);
+				// Log read operation
+				log_file_operation({
+					operation: 'read',
+					uuid: query_object.id,
+					user_id: user_id_get,
+					session_id: stream.session.id,
+					ip_address: user_info_get.remote_address,
+					fingerprint: user_info_get.fingerprint,
+					mime_type: respHeaders['content-type'] || '',
+					additional: { status: respHeaders[':status'], user_agent: headers['user-agent'] }
+				});
 			} catch (e) {
 				error("error when piping get " + e);
 			}

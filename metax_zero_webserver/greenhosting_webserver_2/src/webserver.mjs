@@ -10,6 +10,7 @@ import {
         , trigger_all_client_updates
 } from "./router.mjs";
 import { init_notifier_transporters } from "./notifier.mjs";
+import { initialize_file_ops_logging } from "./file_ops_logger.mjs";
 
 //imports from standard libraries
 import {
@@ -125,6 +126,7 @@ async function main() {
         const log = await logger.configure(logger_options);
         if (log.status === "success") {
                 trace("logger configured.");
+                initialize_file_ops_logging();  // Initialize file operations audit log
                 configure_webserver();
                 await connect_to_host_metax();
                 await connect_to_host_metax_websocket();
@@ -142,9 +144,29 @@ function connect_to_host_metax() {
         return new Promise((resolve, reject) => {
                 const _connect = () => {
                         trace("connecting to host metax.");
-                        metax = connect(`https://${config.host_metax}`, {
-                                rejectUnauthorized: false
-                        });
+
+                        // Load client certificate and CA for mutual TLS
+                        let tlsOptions = {};
+                        try {
+                                if (config.client_key && config.client_cert && config.ca) {
+                                        tlsOptions = {
+                                                key: readFileSync(config.client_key),
+                                                cert: readFileSync(config.client_cert),
+                                                ca: readFileSync(config.ca),
+                                                rejectUnauthorized: true  // SECURE: validate server certificate
+                                        };
+                                        trace("Using mutual TLS with client certificate");
+                                } else {
+                                        // Fallback for backward compatibility (should not be used in production)
+                                        tlsOptions = { rejectUnauthorized: false };
+                                        trace("WARNING: Connecting without client certificate validation");
+                                }
+                        } catch (e) {
+                                error("Failed to load TLS certificates: " + e);
+                                tlsOptions = { rejectUnauthorized: false };
+                        }
+
+                        metax = connect(`https://${config.host_metax}`, tlsOptions);
                         metax.on("error", e => {
                                 error('failed to connect to host metax: ' + e + '. Retrying in 500ms...');
                                 setTimeout(_connect, 500);
@@ -212,9 +234,28 @@ function connect_to_host_metax_websocket() {
         return new Promise((resolve, reject) => {
                 const _connect = () => {
                         trace("connecting to metax websocket.");
-                        const metax_wss = new WebSocket(`wss://${config.host_metax}`, {
-                                rejectUnauthorized: false
-                        });
+
+                        // Load client certificate and CA for mutual TLS (WebSocket)
+                        let wssOptions = {};
+                        try {
+                                if (config.client_key && config.client_cert && config.ca) {
+                                        wssOptions = {
+                                                key: readFileSync(config.client_key),
+                                                cert: readFileSync(config.client_cert),
+                                                ca: readFileSync(config.ca),
+                                                rejectUnauthorized: true
+                                        };
+                                        trace("Using mutual TLS for WebSocket with client certificate");
+                                } else {
+                                        wssOptions = { rejectUnauthorized: false };
+                                        trace("WARNING: WebSocket connecting without client certificate validation");
+                                }
+                        } catch (e) {
+                                error("Failed to load TLS certificates for WebSocket: " + e);
+                                wssOptions = { rejectUnauthorized: false };
+                        }
+
+                        const metax_wss = new WebSocket(`wss://${config.host_metax}`, wssOptions);
 
                         metax_wss.on("error", (e) => {
                                 error("metax websocket error: " + e + ". Retrying in 500ms...");
@@ -306,9 +347,7 @@ function start_write_server(port) {
                 SNICallback: sni_callback,
                 key: readFileSync(config.key),
                 cert: readFileSync(config.cert),
-                allowHTTP1: true,
-                requestCert: true,
-                rejectUnauthorized: true
+                allowHTTP1: true
         });
         /*http_server.on('secureConnection', (socket) => {
                 const cert = socket.getPeerCertificate();

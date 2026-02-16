@@ -60,10 +60,23 @@ function configure_metax() {
 
 function start_server() {
 	assert(!isNaN(parseInt(config.port)), "port must be a number.");
+
+	// Load CA certificate for client verification (localhost communication only)
+	let ca;
+	try {
+		ca = readFileSync(config.ca || '../certs/localhost/ca.crt');
+		console.log("Loaded CA certificate for client authentication");
+	} catch (e) {
+		console.warn("Warning: Could not load CA certificate for client auth, continuing without client verification");
+	}
+
 	const http_server = createSecureServer({
 		peerMaxConcurrentStreams: 1000,
 		key: readFileSync(config.key),
 		cert: readFileSync(config.cert),
+		ca: ca,
+		requestCert: !!ca,  // Request client certificate if CA is available
+		rejectUnauthorized: !!ca,  // Reject connections without valid client cert
 		allowHTTP1: true
 	}, route_incoming_request);
 	http_server.on("error", handle_http_server_error)
@@ -85,6 +98,20 @@ function handle_http_server_error(e) {
 }
 
 function route_incoming_request(req, res) {
+	// SECURITY: Only allow connections from localhost
+	const remoteAddr = req.socket.remoteAddress;
+	const isLocalhost = remoteAddr === '127.0.0.1' ||
+		remoteAddr === '::1' ||
+		remoteAddr === '::ffff:127.0.0.1' ||
+		remoteAddr === 'localhost';
+
+	if (!isLocalhost) {
+		console.error(`Rejected non-localhost connection attempt from ${remoteAddr}`);
+		res.writeHead(403, { "content-type": "application/json" });
+		res.end('{"error":"Access denied. Only localhost connections allowed."}');
+		return;
+	}
+
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 	res.setHeader('Access-Control-Allow-Headers', '*');
