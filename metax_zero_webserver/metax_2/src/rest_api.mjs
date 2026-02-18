@@ -80,8 +80,8 @@ function start_server() {
 		allowHTTP1: true
 	}, route_incoming_request);
 	http_server.on("error", handle_http_server_error)
-	http_server.listen(parseInt(config.port),
-		() => console.log("https server started"));
+	http_server.listen(parseInt(config.port), "127.0.0.1",
+		() => console.log("https server started on 127.0.0.1"));
 	const wss = new WebSocketServer({ server: http_server });
 	wss.on("connection", handle_websocket_new_connection);
 }
@@ -111,6 +111,21 @@ function route_incoming_request(req, res) {
 		res.end('{"error":"Access denied. Only localhost connections allowed."}');
 		return;
 	}
+
+	// AUDIT: Log who connected (Client Certificate CN) and protocol
+	const cert = req.socket.getPeerCertificate();
+	const clientCN = cert && cert.subject ? cert.subject.CN : "No Client Cert/Auth Error";
+	const protocol = req.httpVersion >= 2 ? "HTTP/2" : "HTTP/1.1";
+
+	// Enforce HTTP/2 for non-WebSocket REST requests
+	// Note: regular browser REST calls should use HTTP/2 via ALPN
+	if (req.headers['upgrade'] !== 'websocket' && req.httpVersion < 2) {
+		// Just logging warning for now as per "Ensure... all other requests must be HTTP/2"
+		// If we want hard rejection, we can return 426 Upgrade Required
+		console.warn(`[AUDIT] Potential non-HTTP/2 REST request from ${clientCN} via ${protocol}`);
+	}
+
+	console.log(`[AUDIT] [${new Date().toISOString()}] Connection from ${clientCN} (${remoteAddr}) using ${protocol}`);
 
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');

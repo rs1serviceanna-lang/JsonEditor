@@ -23,16 +23,23 @@ let session_id_counter = 1;
 
 export function handle_new_write_server_stream(stream, headers) {
 	try {
-		const clientCert = stream.session.socket.getPeerCertificate() || { fingerprint256: "no-client-cert" };
-		/*if (!clientCert || !clientCert.fingerprint256) {
+		const clientCert = stream.session.socket.getPeerCertificate();
+		if (!clientCert || !clientCert.fingerprint256) {
 			warning(`rejecting request without client certificate from ${stream.session.socket.remoteAddress}`);
 			send_method_error(stream, "request is unauthorized, please insert a valid client certificate.", headers[":method"]);
 			return;
-		}*/
-		// For self-signed certs, we validate against our registered fingerprints instead of stream.session.socket.authorized
-		trace(`Client certificate fingerprint: ${clientCert.fingerprint256}`);
+		}
+
+		// AUDIT: Extract who connected (Client Certificate CN) 
+		const clientCN = clientCert.subject ? clientCert.subject.CN : "Unknown CN";
+		const protocol = stream.session.alpnProtocol || "HTTP/1.1";
+
+		if (protocol !== "h2" && headers['upgrade'] !== 'websocket') {
+			console.warn(`[AUDIT] Non-HTTP/2 request detected from ${clientCN} via ${protocol}`);
+		}
+
 		if (stream.session.first_stream === true) {
-			sessions_log.write(`Session ${stream.session.id} : ${headers["user-agent"]}\n`);
+			sessions_log.write(`Session ${stream.session.id} from ${clientCN} (${stream.session.socket.remoteAddress}) : ${headers["user-agent"]} via ${protocol}\n`);
 			delete stream.session.first_stream
 		}
 		if (headers[":path"] === undefined) {
@@ -94,6 +101,20 @@ export function handle_new_write_server_stream(stream, headers) {
 
 export function handle_new_read_only_stream(stream, headers) {
 	try {
+		const clientCert = stream.session.socket.getPeerCertificate();
+		if (!clientCert || !clientCert.fingerprint256) {
+			warning(`rejecting read request without client certificate from ${stream.session.socket.remoteAddress}`);
+			send_method_error(stream, "request is unauthorized, please insert a valid client certificate.", headers[":method"]);
+			return;
+		}
+
+		const clientCN = clientCert.subject ? clientCert.subject.CN : "Unknown CN";
+		const protocol = stream.session.alpnProtocol || "HTTP/1.1";
+
+		if (protocol !== "h2" && headers['upgrade'] !== 'websocket') {
+			console.warn(`[AUDIT] Non-HTTP/2 read request detected from ${clientCN} via ${protocol}`);
+		}
+
 		if (headers[":method"] === "HEAD") {
 			send_method_error(stream, null, headers[":method"]);
 			return;
@@ -618,18 +639,23 @@ function handle_get_request(stream, headers) {
 	})
 }
 
+// router.mjs / handle_default_request
 function handle_default_request(stream, headers) {
 	const req_path = parse(headers[":path"], true).pathname;
 	trace("received default request from " + headers[":authority"] + " with path " + req_path);
-	if (headers[":method"] !== "GET") {
-		send_method_error(stream, `received request wrong method: ${headers[":method"]}.`, headers[":method"]);
-		return
+
+	// Եթե path-ը արդեն /db/get կամ /db/save, ուղիղ մատուցել
+	if (req_path.startsWith("/db/")) {
+		handle_get_request(stream, headers);  // եթե GET է
+		return;
 	}
+
+	// Երկար առաջի fallback (sitemap) մնացակա
 	for (let i = 0; i < sitemap.websites.length; i++) {
 		const subdomain = sitemap.websites[i].subdomains.find(s => s.name === headers[":authority"]);
-		if (subdomain === undefined) { continue }
+		if (!subdomain) continue;
 		const path = subdomain.paths.find(p => p.name === req_path);
-		if (path === undefined || !is_valid_uuid(path.destination_uuid)) {
+		if (!path || !is_valid_uuid(path.destination_uuid)) {
 			send_error(stream, "request not handled yet.");
 			return;
 		}
@@ -654,6 +680,7 @@ function handle_default_request(stream, headers) {
 	trace("skipping default request with path " + req_path);
 	send_error(stream, "request not handled yet.");
 }
+
 
 function handle_notify_request(stream, headers) {
 	const query_object = parse(headers[":path"], true).query;

@@ -20,3 +20,18 @@ new session: ::ffff:192.168.11.73  , session id: 1  , fingerprint: undefined
 Session 1 : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
 new session: ::ffff:192.168.11.218  , session id: 2  , fingerprint: undefined
 Session 2 : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+new session: ::ffff:192.168.11.73  , session id: 3  , fingerprint: undefined
+Session 3 : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+new session: ::ffff:127.0.0.1  , session id: 1  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+new session: ::ffff:127.0.0.1  , session id: 2  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+Session 2 : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+new session: ::ffff:127.0.0.1  , session id: 3  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+new session: ::ffff:127.0.0.1  , session id: 1  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+new session: ::ffff:127.0.0.1  , session id: 2  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+new session: ::ffff:127.0.0.1  , session id: 3  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+Session 3 from Mani (::ffff:127.0.0.1) : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 via h2
+new session: ::ffff:127.0.0.1  , session id: 4  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+new session: ::ffff:127.0.0.1  , session id: 5  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+new session: ::ffff:127.0.0.1  , session id: 6  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55
+Session 6 from Mani (::ffff:127.0.0.1) : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 via h2
+new session: ::ffff:127.0.0.1  , session id: 7  , fingerprint: 48:2C:88:05:D8:79:4B:A8:EF:A3:E0:02:D0:7D:1D:F4:80:13:B8:26:76:D0:5F:62:A8:0F:2A:C4:2A:5D:2D:55

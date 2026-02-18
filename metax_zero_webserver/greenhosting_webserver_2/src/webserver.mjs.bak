@@ -328,10 +328,7 @@ function start_read_only_server(port) {
                 SNICallback: sni_callback_read_only,
                 key: readFileSync(config.key),
                 cert: readFileSync(config.cert),
-                ca: config.ca ? readFileSync(config.ca, "utf8") : undefined,
-                allowHTTP1: true,
-                requestCert: true,
-                rejectUnauthorized: true
+                allowHTTP1: true
         });
         http_server.on("session", handle_new_client_session);
         http_server.on("stream", handle_new_read_only_stream);
@@ -350,17 +347,16 @@ function start_write_server(port) {
                 SNICallback: sni_callback,
                 key: readFileSync(config.key),
                 cert: readFileSync(config.cert),
-                ca: config.ca ? readFileSync(config.ca, "utf8") : undefined,
                 allowHTTP1: true,
                 requestCert: true,
                 rejectUnauthorized: true
         });
-        http_server.on('secureConnection', (socket) => {
+        /*http_server.on('secureConnection', (socket) => {
                 const cert = socket.getPeerCertificate();
                 if (cert && cert.subject) {
-                        trace(`New secure connection to ${socket.servername} from ${cert.subject.CN} (${socket.remoteAddress})`);
+                        trace(`trying new secure connection to ${socket.servername} from ${cert.subject.CN}`)
                 }
-        });
+        });*/
         http_server.on("stream", handle_new_write_server_stream);
         http_server.on("session", handle_new_client_session);
         http_server.on("error", handle_http_server_error);
@@ -467,11 +463,10 @@ function sni_callback_read_only(serverName, cb) {
         //        cert = readFileSync(config.cert);
         //}
 
-        const global_ca = config.ca ? readFileSync(config.ca, "utf8") : "";
         cb(null, new createSecureContext({
                 cert,
                 key,
-                ca: ca + (ca.length > 0 && global_ca.length > 0 ? "\n" : "") + global_ca
+                ca
         }));
 }
 
@@ -506,11 +501,10 @@ function sni_callback(serverName, cb) {
                 trace("No matching website found for SNI and no websites available in sitemap.");
         }
 
-        const global_ca = config.ca ? readFileSync(config.ca, "utf8") : "";
         trace("trying new secure connection " + serverName);
         cb(null, createSecureContext({
                 cert,
                 key,
-                ca: ca + (ca.length > 0 && global_ca.length > 0 ? "\n" : "") + global_ca
+                ca
         }));
 }
