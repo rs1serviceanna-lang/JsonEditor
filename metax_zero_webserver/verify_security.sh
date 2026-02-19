@@ -34,14 +34,14 @@ else
     ALL_CERTS_EXIST=1
 fi
 
-if [ -f "$CERT_DIR/metax-server.crt" ] && [ -f "$CERT_DIR/metax-server.key" ]; then
+if [ -f "$CERT_DIR/metax_localhost_server.crt" ] && [ -f "$CERT_DIR/metax_localhost_server.key" ]; then
     print_status 0 "Metax server certificates found"
 else
     print_status 1 "Metax server certificates missing"
     ALL_CERTS_EXIST=1
 fi
 
-if [ -f "$CERT_DIR/webserver-client.crt" ] && [ -f "$CERT_DIR/webserver-client.key" ]; then
+if [ -f "$CERT_DIR/greenhosting_client.crt" ] && [ -f "$CERT_DIR/greenhosting_client.key" ]; then
     print_status 0 "Webserver client certificates found"
 else
     print_status 1 "Webserver client certificates missing"
@@ -55,9 +55,9 @@ if [ $ALL_CERTS_EXIST -eq 0 ]; then
     print_info "CA Certificate:"
     openssl x509 -in "$CERT_DIR/ca.crt" -noout -subject -dates 2>/dev/null | sed 's/^/    /'
     print_info "Metax Server Certificate:"
-    openssl x509 -in "$CERT_DIR/metax-server.crt" -noout -subject -dates 2>/dev/null | sed 's/^/    /'
+    openssl x509 -in "$CERT_DIR/metax_localhost_server.crt" -noout -subject -dates 2>/dev/null | sed 's/^/    /'
     print_info "Webserver Client Certificate:"
-    openssl x509 -in "$CERT_DIR/webserver-client.crt" -noout -subject -dates 2>/dev/null | sed 's/^/    /'
+    openssl x509 -in "$CERT_DIR/greenhosting_client.crt" -noout -subject -dates 2>/dev/null | sed 's/^/    /'
 fi
 
 echo ""

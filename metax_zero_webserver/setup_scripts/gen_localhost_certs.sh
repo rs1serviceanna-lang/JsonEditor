@@ -21,10 +21,10 @@ openssl req -new -x509 -days 3650 -key "$CERT_DIR/ca.key" -out "$CERT_DIR/ca.crt
 
 echo "Generating Metax server certificate for localhost..."
 # Generate server private key
-openssl genrsa -out "$CERT_DIR/metax-server.key" 4096
+openssl genrsa -out "$CERT_DIR/metax_localhost_server.key" 4096
 
 # Generate server CSR
-openssl req -new -key "$CERT_DIR/metax-server.key" -out "$CERT_DIR/metax-server.csr" \
+openssl req -new -key "$CERT_DIR/metax_localhost_server.key" -out "$CERT_DIR/metax_localhost_server.csr" \
   -subj "/C=AM/ST=Yerevan/L=Yerevan/O=MetaxLocal/OU=MetaxServer/CN=localhost"
 
 # Create server extensions file
@@ -34,16 +34,16 @@ extendedKeyUsage = serverAuth
 EOF
 
 # Sign server certificate with CA
-openssl x509 -req -in "$CERT_DIR/metax-server.csr" -CA "$CERT_DIR/ca.crt" \
-  -CAkey "$CERT_DIR/ca.key" -CAcreateserial -out "$CERT_DIR/metax-server.crt" \
+openssl x509 -req -in "$CERT_DIR/metax_localhost_server.csr" -CA "$CERT_DIR/ca.crt" \
+  -CAkey "$CERT_DIR/ca.key" -CAcreateserial -out "$CERT_DIR/metax_localhost_server.crt" \
   -days 3650 -extfile "$CERT_DIR/server-ext.cnf"
 
 echo "Generating webserver client certificate..."
 # Generate client private key
-openssl genrsa -out "$CERT_DIR/webserver-client.key" 4096
+openssl genrsa -out "$CERT_DIR/greenhosting_client.key" 4096
 
 # Generate client CSR
-openssl req -new -key "$CERT_DIR/webserver-client.key" -out "$CERT_DIR/webserver-client.csr" \
+openssl req -new -key "$CERT_DIR/greenhosting_client.key" -out "$CERT_DIR/greenhosting_client.csr" \
   -subj "/C=AM/ST=Yerevan/L=Yerevan/O=MetaxLocal/OU=Webserver/CN=webserver-client"
 
 # Create client extensions file
@@ -52,8 +52,8 @@ extendedKeyUsage = clientAuth
 EOF
 
 # Sign client certificate with CA
-openssl x509 -req -in "$CERT_DIR/webserver-client.csr" -CA "$CERT_DIR/ca.crt" \
-  -CAkey "$CERT_DIR/ca.key" -CAcreateserial -out "$CERT_DIR/webserver-client.crt" \
+openssl x509 -req -in "$CERT_DIR/greenhosting_client.csr" -CA "$CERT_DIR/ca.crt" \
+  -CAkey "$CERT_DIR/ca.key" -CAcreateserial -out "$CERT_DIR/greenhosting_client.crt" \
   -days 3650 -extfile "$CERT_DIR/client-ext.cnf"
 
 # Clean up CSR and extension files
@@ -63,5 +63,5 @@ echo "Localhost certificates generated successfully in $CERT_DIR/"
 echo ""
 echo "Generated files:"
 echo "  CA: ca.crt, ca.key"
-echo "  Metax Server: metax-server.crt, metax-server.key"
-echo "  Webserver Client: webserver-client.crt, webserver-client.key"
+echo "  Metax Server: metax_localhost_server.crt, metax_localhost_server.key"
+echo "  Webserver Client: greenhosting_client.crt, greenhosting_client.key"
