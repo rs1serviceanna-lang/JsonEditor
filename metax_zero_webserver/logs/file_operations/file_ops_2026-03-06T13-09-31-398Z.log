@@ -1,0 +1,2822 @@
+================================================================================
+FILE OPERATIONS LOG
+Started: 2026-03-06T13:09:31.399Z
+================================================================================
+
+[2026-03-06T13:09:52.248Z] READ
+  Log ID: 6adcccfe-0351-4c20-8146-da4425b8f635
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:09:52.256Z] READ
+  Log ID: f4c9fc66-57dd-4a0b-bb3e-d00e3d85cdf6
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:09:52.257Z] READ
+  Log ID: 8e918c47-941e-485e-bf12-586b80a01ae6
+  UUID: 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.504Z] READ
+  Log ID: ab4e642b-ad1b-4381-9aa1-b4bc329ee6b7
+  UUID: fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/html
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.523Z] READ
+  Log ID: c66d2032-8c5e-4086-a31a-239b0c338056
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.558Z] READ
+  Log ID: 38aff9ae-9f24-4740-bced-0c7811eddc23
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.614Z] READ
+  Log ID: 45411b26-475f-4ba4-9623-b4447bbdced4
+  UUID: 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.620Z] READ
+  Log ID: 7be21f28-0f36-4f72-ad02-9f3cf67cb97f
+  UUID: 8c387c93-89fb-482f-9fab-4cfa6291ae33
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.621Z] READ
+  Log ID: d2baa5c6-b42d-4bfc-8031-b64f74541000
+  UUID: ccfdc674-e74e-4650-b53c-48a19ecc6fca
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.621Z] READ
+  Log ID: f1462c6d-5209-4b93-b64a-a856963dfaa4
+  UUID: 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.621Z] READ
+  Log ID: 34944c42-3700-43a7-8bf7-56a2330acc2f
+  UUID: 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.621Z] READ
+  Log ID: 12c6daee-7e3f-49f3-874c-ff1be852944c
+  UUID: 1507b837-c085-4238-a5c9-a999d55b2182
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.621Z] READ
+  Log ID: 570d3a40-7757-459e-af23-9b72c2bbf99a
+  UUID: 2a5dcdea-212d-4eea-aa7f-137649640137
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.621Z] READ
+  Log ID: bb6cf4ca-ba2b-46a5-9297-69e73d065785
+  UUID: dcfd3472-3695-4998-9587-a2a523f43624
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.622Z] READ
+  Log ID: c96058ac-d8c4-4e6f-b90e-05e0a3aa55d7
+  UUID: 4b98df48-81c4-456f-a788-e3496d699475
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.622Z] READ
+  Log ID: c9fe288b-feb3-4a0f-8edc-a0299d36eaa4
+  UUID: 4604d385-951e-4571-b185-f70b1490cf1d
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.630Z] READ
+  Log ID: 8d9cd238-337d-4509-b250-768d96b7eac0
+  UUID: 07e21faa-16fa-490d-9bb9-c354d9e5945c
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.632Z] READ
+  Log ID: 62a62f16-d358-4315-b956-bbe35bf576a9
+  UUID: baf314ba-ad36-4094-b55f-d370140d269c
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.632Z] READ
+  Log ID: 90be66ee-cd92-457c-bbc4-dedf0db0de5f
+  UUID: 7a8e9535-4388-420a-bcd9-3a284f65f184
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.632Z] READ
+  Log ID: 1ab481c5-e86c-45bd-b089-98a59eebf3b8
+  UUID: 8bfd0aba-552f-4783-8262-6f092476c051
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.632Z] READ
+  Log ID: 992679b7-0746-4860-be1a-d7ff6bf3e4b3
+  UUID: 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.632Z] READ
+  Log ID: 2ef41e8a-b8e0-4727-9e44-c0b9391a7f8e
+  UUID: 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.632Z] READ
+  Log ID: 18223ba9-a39f-41c1-86e5-459d3e4d90d1
+  UUID: f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.633Z] READ
+  Log ID: 5b99d218-30b1-4849-9834-0e32d3c7f46b
+  UUID: f4fb8115-bcc9-43d9-a241-75212827a646
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.633Z] READ
+  Log ID: 8b0bf97f-4cc2-49d7-8237-de3f0a4741da
+  UUID: def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.633Z] READ
+  Log ID: 74c0ca30-f1b4-4b42-82dd-414d73a5fff3
+  UUID: cad8c048-9be7-41f6-a7c6-98d8a4997560
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.633Z] READ
+  Log ID: 2e7b6b9c-a282-4600-af87-08ae0a273e86
+  UUID: 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.633Z] READ
+  Log ID: 8950503d-2f50-4f3c-a466-624b1ecae7a4
+  UUID: 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.633Z] READ
+  Log ID: c47a0207-4464-4e0f-a698-a10e3afb1d60
+  UUID: 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.633Z] READ
+  Log ID: fded6619-1fbf-40b4-bd23-5688006791e0
+  UUID: 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.736Z] READ
+  Log ID: b336a69d-a817-4533-8475-570a2286c421
+  UUID: 0111ab39-9520-4b6b-9ff0-8d2959079a88
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.737Z] READ
+  Log ID: ac2cb4fe-c180-4b8c-b30e-43396462192d
+  UUID: 09431fbd-3295-4805-a888-ac2041b70184
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.810Z] READ
+  Log ID: f199409e-76c1-491b-b446-217cfd1e08fe
+  UUID: aea62f74-9622-4c9c-93cf-dcd707e11e43
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.824Z] READ
+  Log ID: 342fec3c-a679-4162-bd12-3f5ec1ede818
+  UUID: 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.830Z] READ
+  Log ID: 67f327be-a473-4eae-b3cf-0afd40c91672
+  UUID: 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.830Z] READ
+  Log ID: 20aaa8c7-a200-4c1c-bece-51bad3ad3060
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.853Z] READ
+  Log ID: eb662dad-0d2a-41a0-9321-a792acc992e1
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.864Z] READ
+  Log ID: 85925381-8565-4643-830b-e0ee4d225fac
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.880Z] READ
+  Log ID: 6ac8a056-47da-4b1c-af63-c46093236f1b
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.892Z] READ
+  Log ID: c5d96ac6-01f8-4684-b30c-38600cf4af9f
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.920Z] READ
+  Log ID: c79d5d83-007d-4a4f-a139-a64626a1fd0a
+  UUID: 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/svg+xml
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.920Z] READ
+  Log ID: 7598340c-d683-4723-85b8-13a384e68170
+  UUID: 479359a9-684c-4eb4-8d6a-f5dc2567f167
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/svg+xml
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.934Z] READ
+  Log ID: 26740865-5f26-4910-9229-27fb5fb0ebb3
+  UUID: 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/png
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.942Z] READ
+  Log ID: b4a2fede-ffff-47b9-ade4-07128bd945b7
+  UUID: fb038286-9fcc-448f-87d9-84a2070eec33
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/png
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.948Z] READ
+  Log ID: cfbe4ec1-9217-4603-9eee-7a495e29496a
+  UUID: 71b30d14-59f8-482d-993d-c913e8737f9e
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.955Z] READ
+  Log ID: 4718c077-6823-4722-83f2-d063b4f6e5df
+  UUID: a480317b-b7fa-4b81-8f19-ccb9224f3604
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.955Z] READ
+  Log ID: 07fdbca1-d3a5-44fa-8315-78f313c47c47
+  UUID: 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.955Z] READ
+  Log ID: f4a175bd-24a0-4408-84d7-586dde0dd102
+  UUID: 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.955Z] READ
+  Log ID: 98d6f30f-0002-44af-8de9-48ddc15cfffa
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.989Z] READ
+  Log ID: 04efa06f-f749-41fd-a74a-615f09a3ee40
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.990Z] READ
+  Log ID: 33a10300-8b94-4624-969a-75650469cb98
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.996Z] READ
+  Log ID: 0a325570-ba6e-4899-b39a-fa463e5ab2bd
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:10:24.998Z] READ
+  Log ID: 11c4d6a9-ded4-4e6c-9af5-a8f2babe144d
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 2
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.449Z] READ
+  Log ID: 277ce92a-a786-4fe1-bd85-7b783202f8e4
+  UUID: fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/html
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.532Z] READ
+  Log ID: 79b4bae0-1b33-484b-8c09-19cfab6ef518
+  UUID: 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.533Z] READ
+  Log ID: f03cb09c-5186-4829-9e5f-039f1108e603
+  UUID: 8c387c93-89fb-482f-9fab-4cfa6291ae33
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.533Z] READ
+  Log ID: 264139bc-cead-406b-a5fd-17183b20a45d
+  UUID: ccfdc674-e74e-4650-b53c-48a19ecc6fca
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.533Z] READ
+  Log ID: 3884df8f-c528-4bab-87b5-bcaf197998ac
+  UUID: 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.533Z] READ
+  Log ID: cbeda8ba-beb5-46dc-8c93-6d9e609fcb3b
+  UUID: 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.533Z] READ
+  Log ID: 2141ff2c-a4b5-4543-b0fd-066a3bdb7581
+  UUID: 1507b837-c085-4238-a5c9-a999d55b2182
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.533Z] READ
+  Log ID: 94fe538b-ecb9-4dd8-8725-69e578385803
+  UUID: 4b98df48-81c4-456f-a788-e3496d699475
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.544Z] READ
+  Log ID: a14f8942-6fd8-40c6-8b1a-675665e773a3
+  UUID: 2a5dcdea-212d-4eea-aa7f-137649640137
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.544Z] READ
+  Log ID: 8cf5ee0b-c7fc-4ad0-8a08-5a4b6b4e30b9
+  UUID: dcfd3472-3695-4998-9587-a2a523f43624
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.545Z] READ
+  Log ID: a50b6a6e-3c4a-4ec2-bdce-8f4a83e1948d
+  UUID: 4604d385-951e-4571-b185-f70b1490cf1d
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.545Z] READ
+  Log ID: 801da510-7b8d-4f7d-9eca-efeb0a44ab16
+  UUID: 07e21faa-16fa-490d-9bb9-c354d9e5945c
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.545Z] READ
+  Log ID: a9258dd9-adcb-49bc-9145-66ce76135e8d
+  UUID: baf314ba-ad36-4094-b55f-d370140d269c
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.545Z] READ
+  Log ID: 6179c2c8-c45d-4b21-853e-d4ab21837e41
+  UUID: 7a8e9535-4388-420a-bcd9-3a284f65f184
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.545Z] READ
+  Log ID: 173bafbe-0c76-47a4-b0aa-1097f1612e92
+  UUID: 8bfd0aba-552f-4783-8262-6f092476c051
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.545Z] READ
+  Log ID: 8e9fafb8-2fc7-49e4-80cf-1b877226d42a
+  UUID: 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: bc840d0e-d219-477f-90f6-b9ee3f2a4478
+  UUID: 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: 4bec5937-6217-41c7-91ac-b7845f42fc4e
+  UUID: f4fb8115-bcc9-43d9-a241-75212827a646
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: 6332fbc8-e653-4688-801f-8830d623f563
+  UUID: f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: ae911bc6-5eaf-492a-be7c-5f58a982923a
+  UUID: cad8c048-9be7-41f6-a7c6-98d8a4997560
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: 2b372776-0d2d-41c0-815d-2551f29d7a6b
+  UUID: def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: 5a1ecc1a-1204-44b2-ba0a-9c8efd993b9e
+  UUID: 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: b05f8676-07ff-4075-b753-80dcc4cdd832
+  UUID: 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: fe484b36-0aef-4130-ab2a-f9d52e2063a2
+  UUID: 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.547Z] READ
+  Log ID: 9d8faf2f-7f7c-41c3-bb34-4db30b01d327
+  UUID: 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.637Z] READ
+  Log ID: 296bca40-7c8d-4352-9a80-87465b68e21b
+  UUID: 09431fbd-3295-4805-a888-ac2041b70184
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.639Z] READ
+  Log ID: fd973440-eafd-4dfe-8f54-7140eec323b3
+  UUID: 0111ab39-9520-4b6b-9ff0-8d2959079a88
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.715Z] READ
+  Log ID: 28437b09-e99d-4173-969e-945b1a05ba28
+  UUID: aea62f74-9622-4c9c-93cf-dcd707e11e43
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.719Z] READ
+  Log ID: 0a338e55-c77b-45ea-8104-a166d616379c
+  UUID: 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.724Z] READ
+  Log ID: cb6b5189-0784-40f4-89c1-ec35e3748c7a
+  UUID: 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.727Z] READ
+  Log ID: a4bf41bf-186f-45b3-ab00-ea89217bb5ac
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.742Z] READ
+  Log ID: 31afbbf4-b518-4fa3-b167-85e355a759a2
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.757Z] READ
+  Log ID: 48ec1332-9a0c-461e-8e61-60a7c9c950fa
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.759Z] READ
+  Log ID: b1b62107-e9d9-4618-9b99-506d16692cbf
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.773Z] READ
+  Log ID: 72be5349-26b5-4ecc-8b61-728bea2d6a07
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.798Z] READ
+  Log ID: 318438c8-00b6-469b-aadc-87c628bf1d22
+  UUID: 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/svg+xml
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.806Z] READ
+  Log ID: 31be69ea-e910-4750-860d-c353246e3f8f
+  UUID: 479359a9-684c-4eb4-8d6a-f5dc2567f167
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/svg+xml
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.806Z] READ
+  Log ID: 78412a80-c5ca-4917-a62e-5d04a48c45f1
+  UUID: 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/png
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.806Z] READ
+  Log ID: 94e88865-4fcf-4a3f-a2fb-14154a0e2e16
+  UUID: fb038286-9fcc-448f-87d9-84a2070eec33
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/png
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.806Z] READ
+  Log ID: 5fe8d272-7555-4db8-bc9c-bfd796ffefcb
+  UUID: 71b30d14-59f8-482d-993d-c913e8737f9e
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.806Z] READ
+  Log ID: 1e9f1daa-28b4-46db-b99d-c717bbdc82c2
+  UUID: a480317b-b7fa-4b81-8f19-ccb9224f3604
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.815Z] READ
+  Log ID: e421f3c3-7c63-4f77-b359-4c752320543c
+  UUID: 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.815Z] READ
+  Log ID: dc4b6828-b644-45bc-8bcc-0f337456cea4
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.815Z] READ
+  Log ID: 0c3bec5a-af82-4826-ab66-b53bb4c47168
+  UUID: 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.842Z] READ
+  Log ID: 033acf77-8732-460c-aa8d-125ea4e12c5a
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.842Z] READ
+  Log ID: 305803de-8be7-46c6-9bb2-c8a591ad4249
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.846Z] READ
+  Log ID: dafdc663-4be8-44ef-bcb8-01ad89bbeb2e
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:11:40.855Z] READ
+  Log ID: fda0b7b8-383b-4ef3-858a-b7e08f005719
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.013Z] READ
+  Log ID: e5fbf9d8-dda4-4996-8301-ee411be4f511
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.038Z] WRITE
+  Log ID: f23e73bb-952c-41a9-92f5-8914f906390e
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    path: "/db/save/node?enc=0&id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311"
+
+[2026-03-06T13:13:05.047Z] READ
+  Log ID: 2d3737ab-6c30-4a7a-958c-eac7f301ac70
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.052Z] READ
+  Log ID: e3cec5b8-0f71-4953-93fd-24b620b347e4
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.087Z] READ
+  Log ID: 0ebe5065-3def-4a19-bc19-529a7c6bbe5f
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 400
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.091Z] READ
+  Log ID: f87ca6e1-f035-4e77-9764-0effab483cd4
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.091Z] READ
+  Log ID: e994ef9f-519c-461f-aad1-f9c8de9fb544
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.091Z] READ
+  Log ID: 0521c9a6-f6b6-463a-93c2-2ab50720dfab
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.092Z] READ
+  Log ID: 9f2b51e9-f09f-45b7-8e30-8e5d4dc9e6aa
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:05.092Z] READ
+  Log ID: 774a4e2c-59d5-4aab-8bf3-8871379d13ef
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:07.968Z] READ
+  Log ID: 5164717b-bb57-4e2d-a098-fb862b4a0871
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:07.988Z] WRITE
+  Log ID: c7ba734f-fd9f-43d0-90c7-7dd1a3b168c6
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    path: "/db/save/node?enc=0&id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311"
+
+[2026-03-06T13:13:07.997Z] READ
+  Log ID: 7852df23-d33b-4ca1-be5b-51b252540ea8
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:08.007Z] READ
+  Log ID: 04d444e5-7423-4888-9300-5506577e4fea
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:08.013Z] READ
+  Log ID: 3f6ccbf5-a8d8-4057-8546-b68e915588f8
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:08.066Z] READ
+  Log ID: 80752328-a5f3-4d58-be99-4cc571bec1d0
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:08.079Z] READ
+  Log ID: 32d6e761-5997-4205-8f69-8cf6bcf80936
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:08.092Z] READ
+  Log ID: 608755d3-a6e1-4f7d-aadd-cc5e7a2c00b2
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:08.092Z] READ
+  Log ID: 60122f8f-18b5-4813-9df7-77312b9ab3fa
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:08.092Z] READ
+  Log ID: aed5828b-a13b-4718-b181-4f63743621a3
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.154Z] READ
+  Log ID: 3cfdd517-2074-4a46-aee9-7112da1ed13f
+  UUID: aea62f74-9622-4c9c-93cf-dcd707e11e43
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.165Z] READ
+  Log ID: 81581d4f-eb13-4165-b1e0-dd0153a8cca9
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.168Z] READ
+  Log ID: 09251c4a-4257-402a-8584-7d9592226da5
+  UUID: 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.168Z] READ
+  Log ID: 8b812379-c7ca-4f4c-b79b-7639df40403e
+  UUID: 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.181Z] READ
+  Log ID: 579f0dae-0d0d-4885-8ba4-3015defec0aa
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.193Z] READ
+  Log ID: 22ed0673-65f1-4fe8-9451-17e6f09d14a4
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.194Z] READ
+  Log ID: 5d601d7f-3ecc-49a9-8fe5-1dc6a849ece6
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.208Z] READ
+  Log ID: 6b894419-376a-4efe-b08a-3b0bc7e70e12
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.224Z] READ
+  Log ID: f811e1bb-ec4f-406a-a393-1fce82032ecd
+  UUID: 479359a9-684c-4eb4-8d6a-f5dc2567f167
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/svg+xml
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.229Z] READ
+  Log ID: befaf11d-33d2-4e7e-bc91-cc30d02c674f
+  UUID: 71b30d14-59f8-482d-993d-c913e8737f9e
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.237Z] READ
+  Log ID: d358155e-9151-432e-b10a-3577501e733b
+  UUID: a480317b-b7fa-4b81-8f19-ccb9224f3604
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.243Z] READ
+  Log ID: 0ec903da-984a-4139-bc46-0d3ce9eb84b2
+  UUID: 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.256Z] READ
+  Log ID: 7f8963dc-8a30-44e1-acc0-bfcc56f7e2ab
+  UUID: 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.256Z] READ
+  Log ID: 98681ebb-cacc-4399-9afb-59c223460eb9
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.295Z] READ
+  Log ID: 4b1a9790-c814-4995-962f-0ca88255c387
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.296Z] READ
+  Log ID: f73f5046-4004-48dc-88e8-ae2fdcb6c5eb
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.296Z] READ
+  Log ID: 03bddb66-e33b-437b-8d07-bdc21d980e62
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:10.322Z] READ
+  Log ID: 57cdf82c-444c-4765-affb-bebe850278f9
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.580Z] READ
+  Log ID: 3ed892aa-47f3-4863-97f9-299d8ae92ada
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.589Z] WRITE
+  Log ID: e35941cd-c9f8-4de2-b436-d12ae8507f9b
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    path: "/db/save/node?enc=0&id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311"
+
+[2026-03-06T13:13:14.601Z] READ
+  Log ID: e267e342-2802-40de-9b11-87d8d57698e8
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.608Z] READ
+  Log ID: 952fd28e-a456-4764-8808-a41bcc5c6835
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.610Z] READ
+  Log ID: 91a91e8d-1a3c-4774-b827-41fef32e8780
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.610Z] READ
+  Log ID: 056afe64-b5bd-4a58-be41-cb8bd6d4cb50
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.667Z] READ
+  Log ID: 83148450-604c-4e25-b330-a97d341e2c40
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.668Z] READ
+  Log ID: 48323123-8fa2-464f-8126-4bc4abdb3fa2
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.668Z] READ
+  Log ID: 74cf5aea-9b18-4e51-af1b-39c2a5d01ddb
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.678Z] READ
+  Log ID: cde04fd1-7023-449c-a328-ab2d8babcd60
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.680Z] READ
+  Log ID: 1094b93d-107b-4a06-a979-34104c04f8b2
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.683Z] READ
+  Log ID: de3593e0-cce9-4f4d-a688-4b4145d9dba5
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.683Z] READ
+  Log ID: 1be688ca-ef5e-4380-b55f-7ff5f9521e91
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.684Z] READ
+  Log ID: f3c244e5-2510-405a-a60d-4da899a1eb29
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.690Z] READ
+  Log ID: ed2cb7a4-6e05-41f5-81cb-d66ed2287576
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:14.690Z] READ
+  Log ID: 5ff20807-ac55-4ddd-be58-de62ed9caa3a
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.735Z] READ
+  Log ID: e8b0399e-d2b5-46c3-8334-6b391f9068c2
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.748Z] WRITE
+  Log ID: aa35c660-4740-4e30-817b-4730688363f6
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    path: "/db/save/node?enc=0&id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311"
+
+[2026-03-06T13:13:17.761Z] READ
+  Log ID: cc43b0f8-172e-4b14-8787-7fc424ca10f0
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.761Z] READ
+  Log ID: 3f3e525e-1f65-4241-8c3c-96a21c072409
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.777Z] READ
+  Log ID: 53f2dd8f-d63a-4c6f-8e12-86cf2815de9a
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.783Z] READ
+  Log ID: bab732b2-338f-4fba-88b7-549f84f0101e
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.802Z] READ
+  Log ID: b853cdbc-0e2d-4f32-bc20-8e1adf98fc09
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.809Z] READ
+  Log ID: d1ae3de3-26b0-4fd1-9d0d-20a6298e9bf8
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.831Z] READ
+  Log ID: aaf192ef-a4c7-4d9c-bd22-f7278287cfd3
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.836Z] READ
+  Log ID: 3a2f56c7-8f08-4463-a894-b035612a19f3
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.836Z] READ
+  Log ID: 74085548-be17-4c2e-ad2e-f046fbc1e8b6
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.861Z] READ
+  Log ID: 87afd550-6901-41bf-b3bd-65533485fc13
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.874Z] READ
+  Log ID: 11f13161-d9b2-4e17-b55b-df0941487443
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.878Z] READ
+  Log ID: 75b89568-2b0e-4fbc-98fd-4b37f23d43e4
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.878Z] READ
+  Log ID: 3d7fb60e-4681-4d62-86d8-69ced3375267
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:17.878Z] READ
+  Log ID: 2cb697f5-133d-46ee-975d-0f9413e40317
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.759Z] READ
+  Log ID: e27ff4b9-c742-453a-b35b-b61438e0443a
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.771Z] WRITE
+  Log ID: 5dda8622-9e1f-4e2a-9262-655145b26458
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    path: "/db/save/node?enc=0&id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311"
+
+[2026-03-06T13:13:20.790Z] READ
+  Log ID: d1fa2334-37e7-49b5-ba39-76cca6c4121c
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.791Z] READ
+  Log ID: 0f2468d3-787d-456e-892f-e955dfeb3bdf
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.791Z] READ
+  Log ID: b7ec6358-26fb-494d-bc4c-3312e5445152
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.791Z] READ
+  Log ID: 8e48c074-34bd-49a3-8e78-7398a8358051
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.824Z] READ
+  Log ID: 480b6db0-1731-408a-b7b3-addd5c034f31
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.828Z] READ
+  Log ID: 2866969e-2373-4375-b531-2a6791608764
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.840Z] READ
+  Log ID: 2ccd2da1-7a94-4204-82e1-0810f24ae297
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.840Z] READ
+  Log ID: a498d8a6-872d-4b09-9150-b369949b3f60
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.840Z] READ
+  Log ID: 7aed4cd5-2f22-4fd6-b4a9-5cf167652bbf
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 1
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.854Z] READ
+  Log ID: 11ba95fa-a04a-4c45-8926-db12fec26ea8
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.854Z] READ
+  Log ID: 71802bb7-3885-4f3a-814f-002e800f7462
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.854Z] READ
+  Log ID: 7d0142f3-7a50-4ebd-b090-0c32eb455c26
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.854Z] READ
+  Log ID: 83c18188-b8ab-424f-a1e6-17cc4bb480a7
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:20.854Z] READ
+  Log ID: bb2f217e-2105-4c2d-9d15-05b18be2fd9b
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.350Z] READ
+  Log ID: d8208a8d-4f53-46da-b58d-9302eefed48f
+  UUID: fbe1aafb-6fb9-43ff-a5c7-6fd4690e58d8
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/html
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.391Z] READ
+  Log ID: 0b167e3a-9022-4e13-9b22-dd77caf67577
+  UUID: 4b98df48-81c4-456f-a788-e3496d699475
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.427Z] READ
+  Log ID: 043d55d6-91ec-473b-8ecd-d6565684aa92
+  UUID: 2a5dcdea-212d-4eea-aa7f-137649640137
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.431Z] READ
+  Log ID: 2092eb3e-2559-4d90-bc3b-49bcdef2b00c
+  UUID: dcfd3472-3695-4998-9587-a2a523f43624
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.433Z] READ
+  Log ID: 7468d6e0-45d1-4802-b476-49c429a21060
+  UUID: 4604d385-951e-4571-b185-f70b1490cf1d
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.433Z] READ
+  Log ID: f9b7b0ab-73d8-43c4-a952-b1d1043cc727
+  UUID: 07e21faa-16fa-490d-9bb9-c354d9e5945c
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.433Z] READ
+  Log ID: 2139129a-3ba5-42d3-9f71-3cf8d468a2b6
+  UUID: baf314ba-ad36-4094-b55f-d370140d269c
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.433Z] READ
+  Log ID: 737e6b13-2dbc-49d8-b573-00380134e17b
+  UUID: 7a8e9535-4388-420a-bcd9-3a284f65f184
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.433Z] READ
+  Log ID: 34b634c9-be58-4d91-b7b9-472541627bc2
+  UUID: 8bfd0aba-552f-4783-8262-6f092476c051
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.434Z] READ
+  Log ID: 7a74e297-c7c5-4942-a8e9-c3bfdb33c113
+  UUID: 4531ca39-79ad-4baa-8188-4a8b9a5d7152
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.434Z] READ
+  Log ID: 47efea50-9dce-4e12-aa6e-194833ab12df
+  UUID: 4d86b776-4fc8-469d-893b-2a4ccd40b7f6
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.435Z] READ
+  Log ID: 55710cbe-80f3-4f17-8469-eda4e7c22429
+  UUID: f4fb8115-bcc9-43d9-a241-75212827a646
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.435Z] READ
+  Log ID: 6c19e1a2-5f03-493b-9507-64bb8dfd1c1b
+  UUID: f7aea108-c579-4002-8a14-1493e9e30d8b-50de1559-aa3e-4e3c-b552-8075083cdaa7
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.435Z] READ
+  Log ID: b5648170-0460-4511-9371-e8cb1a726285
+  UUID: cad8c048-9be7-41f6-a7c6-98d8a4997560
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.435Z] READ
+  Log ID: adf159ae-c2a9-44f9-8d80-54c92c0cb495
+  UUID: 6d6e6080-539f-4243-b7c0-68d856da6a18-816c1508-4f79-4d02-9e56-6ac0585397ab
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.435Z] READ
+  Log ID: 82be048b-11d5-4661-9c14-61e339145146
+  UUID: 52c73c88-1448-4be5-b934-9542e89cfe9c-4830d135-ae16-4928-b39e-c4a26551d370
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.441Z] READ
+  Log ID: f192d8de-d01b-4a8f-9c6a-e0e440a0be43
+  UUID: 71cd38b5-a0a9-494c-b82c-b1565d8a36de
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.442Z] READ
+  Log ID: 0d67ac91-232f-496e-a496-44cf31e88493
+  UUID: 8c387c93-89fb-482f-9fab-4cfa6291ae33
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.442Z] READ
+  Log ID: f9942a26-446e-49ab-9d1f-6266ba2cf997
+  UUID: ccfdc674-e74e-4650-b53c-48a19ecc6fca
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.442Z] READ
+  Log ID: abeda883-35ba-4757-9eb7-6492aff89450
+  UUID: 2dd6c42b-d7ca-4e31-931c-7301c229c05e
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.442Z] READ
+  Log ID: 9dc51c34-3729-45f9-b312-c0b03c8e23e5
+  UUID: 424edc8a-08ed-4ba7-a806-b30c37a2fd48
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.443Z] READ
+  Log ID: 84cb7e5a-2f34-49f4-b241-629298683353
+  UUID: 1507b837-c085-4238-a5c9-a999d55b2182
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.443Z] READ
+  Log ID: f655bfa1-d4a2-4658-a377-2a86bdb14a19
+  UUID: def2ab9d-4ec4-40fa-b24e-bd364eb154f6-4083bc63-1ce0-41c9-9564-02b3f52284c8
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.443Z] READ
+  Log ID: a85eaa70-3ae2-4afb-8481-3bc61d0bf34b
+  UUID: 696cbb28-5107-4bfd-8793-2de22393f456-ada56f7d-7b5d-4387-9537-39e3831899d8
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.443Z] READ
+  Log ID: 808333ff-d2ef-4ec5-a120-b441af85cfba
+  UUID: 7c78a005-8a0a-411f-a7c9-7f4044302c27-e555fd12-6732-4b17-b92a-39afef352408
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.559Z] READ
+  Log ID: f7390b12-1d2a-48bd-80b3-5809b166a53f
+  UUID: 09431fbd-3295-4805-a888-ac2041b70184
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.560Z] READ
+  Log ID: 94807cb6-4312-42b3-a59d-0c45c4e945bd
+  UUID: 0111ab39-9520-4b6b-9ff0-8d2959079a88
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/javascript
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.641Z] READ
+  Log ID: 48c63def-5de4-47d7-89b2-7ff40667f0a7
+  UUID: aea62f74-9622-4c9c-93cf-dcd707e11e43
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.651Z] READ
+  Log ID: b0d8c8ad-8212-4576-b571-f7844eddc624
+  UUID: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.651Z] READ
+  Log ID: dbae368b-591c-4db4-9a42-0f8fa14d1da8
+  UUID: 40bedcf0-bf66-46c5-906f-43a785dcb9cf
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.651Z] READ
+  Log ID: 9a4cde17-2061-4b94-8730-e33c67f46d0b
+  UUID: 0b1e4be4-0242-4af9-a8fd-224ae5d26d24
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: text/css
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.673Z] READ
+  Log ID: 2eafa722-bf11-49ed-ac21-d893213a6da8
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.681Z] READ
+  Log ID: ed564565-d307-4feb-945e-f959b314fa53
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.684Z] READ
+  Log ID: 82f228b4-0444-4d0b-8d39-55a541bf08be
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.694Z] READ
+  Log ID: 2d18bfe5-814e-4da5-86f2-730b3b9464bd
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.714Z] READ
+  Log ID: 73bf5797-b559-4490-98f5-961c42004828
+  UUID: 1a7fc787-32ac-4962-9d7f-1ea0407591bf
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/svg+xml
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.714Z] READ
+  Log ID: 4502ca67-aec1-48a2-9c2f-1aa3e071d946
+  UUID: 479359a9-684c-4eb4-8d6a-f5dc2567f167
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/svg+xml
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.714Z] READ
+  Log ID: ccac0cbe-b12e-4d51-b67c-f336931fa6bb
+  UUID: 04bd32a8-fa20-4bb7-a971-ec03e1af1a83
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/png
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.719Z] READ
+  Log ID: 61d6145b-7228-4529-a1e4-87eb22a11552
+  UUID: 71b30d14-59f8-482d-993d-c913e8737f9e
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.719Z] READ
+  Log ID: 0de9ad2f-5396-4ea3-a108-314730484a1a
+  UUID: a480317b-b7fa-4b81-8f19-ccb9224f3604
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.720Z] READ
+  Log ID: 98101cb6-f35e-4f27-8edf-0caffa6f1df1
+  UUID: 585f3fef-7246-4612-8f24-b98d1a9ae8b7
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.726Z] READ
+  Log ID: 3c5b682e-8199-4ea8-a7ab-553764af5946
+  UUID: 96ec3148-fcf1-4a38-b303-0f8ad2b95137
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.728Z] READ
+  Log ID: 2a948bda-e7e5-407e-a247-0fe1fd95fbf6
+  UUID: fb038286-9fcc-448f-87d9-84a2070eec33
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: image/png
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.741Z] READ
+  Log ID: 1b699df4-c3a5-43f8-b034-fea77ecbf1fb
+  UUID: 275f15a1-6954-479f-a8a2-9749d9ed4d86-1a98e761-7615-4af0-beb1-868593bfba2b
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.756Z] READ
+  Log ID: 6ed607c5-82d6-4950-9742-290900bc3e5b
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.766Z] READ
+  Log ID: 39f15096-2825-480c-9c88-5f0e92705a62
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.767Z] READ
+  Log ID: 7626a917-c70e-409d-8399-e97621f49151
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+[2026-03-06T13:13:39.767Z] READ
+  Log ID: e8ed303d-49d0-42c0-bba3-356d071bf84d
+  UUID: 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+  User: Mani
+  Session: 3
+  IP: ::ffff:192.168.11.73
+  Fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+  MIME Type: application/json
+  Additional Info:
+    status: 200
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+
+
+================================================================================

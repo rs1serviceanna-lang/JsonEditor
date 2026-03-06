@@ -1,0 +1,94 @@
+~/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/metax_2 ~/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver
+~/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver
+
+> metax@1.0.0 start
+> node src/rest_api.mjs storage=../storage/ port=5001 key=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/localhost/metax_localhost_server.key cert=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/localhost/metax_localhost_server.crt ca=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/localhost/ca.crt
+
+metax configured.
+db initialized
+Loaded CA certificate for client authentication
+https server started on 127.0.0.1
+~/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/greenhosting_webserver_2 ~/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver
+
+> greenhosting_webserver@1.0.0 start
+> node src/webserver.mjs host_metax=localhost:5001 sitemap_uuid=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311 read_server_port=5002 write_server_port=5003 key=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/metax.key cert=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/metax.crt client_key=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/localhost/greenhosting_client.key client_cert=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/localhost/greenhosting_client.crt ca=/home/service1/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver/certs/localhost/ca.crt
+
+Trace 2026-3-3 10:39:12.473 webserver: logger configured.
+
+File operations logging initialized: ../logs/file_operations/file_ops_2026-03-03T06-39-12-474Z.log
+Trace 2026-3-3 10:39:12.474 webserver: configure_webserver
+
+Trace 2026-3-3 10:39:12.474 webserver: END configure_webserver
+
+Trace 2026-3-3 10:39:12.474 webserver: connecting to host metax.
+
+Trace 2026-3-3 10:39:12.475 webserver: Using mutual TLS with client certificate
+
+Trace 2026-3-3 10:39:12.499 webserver: successfully connected to host metax.
+
+Trace 2026-3-3 10:39:12.500 webserver: connecting to metax websocket.
+
+Trace 2026-3-3 10:39:12.500 webserver: Using mutual TLS for WebSocket with client certificate
+
+Trace 2026-3-3 10:39:12.516 webserver: successfully connected to metax websocket.
+
+Trace 2026-3-3 10:39:12.517 webserver: metax websocket token received: e58890d4-a139-494c-8dc4-3e3d18582481
+
+[AUDIT] [2026-03-03T06:39:12.519Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/get?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+handling db request request path: /db/get?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+received get request with path /db/get?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+finish handling get request for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+[AUDIT] [2026-03-03T06:39:12.526Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/get?id=undefined
+handling db request request path: /db/get?id=undefined
+received get request with path /db/get?id=undefined
+Error 2026-3-3 10:39:12.527 webserver: unable to get sitemap permission requests object: {"error":"invalid uuid."}
+
+[AUDIT] [2026-03-03T06:39:12.528Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=e58890d4-a139-494c-8dc4-3e3d18582481
+handling db request request path: /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=e58890d4-a139-494c-8dc4-3e3d18582481
+received register_listener request with path /db/register_listener?id=5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311&token=e58890d4-a139-494c-8dc4-3e3d18582481
+Trace 2026-3-3 10:39:12.529 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+
+[AUDIT] [2026-03-03T06:39:12.530Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/get?id=4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+handling db request request path: /db/get?id=4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+received get request with path /db/get?id=4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+finish handling get request for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+[AUDIT] [2026-03-03T06:39:12.532Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/get?id=22222222-2222-2222-2222-222222222222
+handling db request request path: /db/get?id=22222222-2222-2222-2222-222222222222
+received get request with path /db/get?id=22222222-2222-2222-2222-222222222222
+finish handling get request for 22222222-2222-2222-2222-222222222222
+[AUDIT] [2026-03-03T06:39:12.534Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/get?id=11111111-1111-1111-1111-111111111111
+handling db request request path: /db/get?id=11111111-1111-1111-1111-111111111111
+received get request with path /db/get?id=11111111-1111-1111-1111-111111111111
+finish handling get request for 11111111-1111-1111-1111-111111111111
+[AUDIT] [2026-03-03T06:39:12.535Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/get?id=11111111-1111-1111-1111-111111111111
+handling db request request path: /db/get?id=11111111-1111-1111-1111-111111111111
+received get request with path /db/get?id=11111111-1111-1111-1111-111111111111
+finish handling get request for 11111111-1111-1111-1111-111111111111
+[AUDIT] [2026-03-03T06:39:12.537Z] Connection from webserver-client (127.0.0.1) using HTTP/2
+received new request from 127.0.0.1, request path: /db/register_listener?id=4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a&token=e58890d4-a139-494c-8dc4-3e3d18582481
+handling db request request path: /db/register_listener?id=4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a&token=e58890d4-a139-494c-8dc4-3e3d18582481
+received register_listener request with path /db/register_listener?id=4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a&token=e58890d4-a139-494c-8dc4-3e3d18582481
+Trace 2026-3-3 10:39:12.538 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+
+Trace 2026-3-3 10:39:12.538 notifier: construct_transporter_package
+
+Trace 2026-3-3 10:39:12.538 notifier: END construct_transporter_package
+
+Trace 2026-3-3 10:39:12.538 notifier: Erevan ERP doesn't have mailing credentials, skipping
+
+Trace 2026-3-3 10:39:12.538 webserver: starting read-only server
+
+Trace 2026-3-3 10:39:12.540 webserver: starting write server
+
+Trace 2026-3-3 10:39:12.541 webserver: read-only server running on port: 5002
+
+Trace 2026-3-3 10:39:12.541 webserver: write server running on port: 5003
+
+~/Documents/Նախագծեր/JsonEditor (with Metax)/metax_zero_webserver

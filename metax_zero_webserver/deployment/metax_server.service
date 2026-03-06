@@ -1,0 +1,19 @@
+[Unit]
+Description="cyberhayq.am metax webserver vostan"
+Documentation=https://cyberhayq.am
+After=network.target sshd.service
+
+[Service]
+Type=simple
+User=service1
+Group=service1
+WorkingDirectory=/home/service1/Documents/JsonEditor\ with\ Metax/metax_zero_webserver
+Environment=NODE_OPTIONS=--tls-cipher-list='TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256'
+StandardOutput=file:/home/service1/Documents/JsonEditor\ with\ Metax/metax_zero_webserver/logs/systemd_out.log
+StandardError=file:/home/service1/Documents/JsonEditor\ with\ Metax/metax_zero_webserver/logs/systemd_err.log
+# ExecStart points to the organized script location
+ExecStart=/bin/bash "/home/service1/Documents/JsonEditor with Metax/metax_zero_webserver/scripts/start_server.sh"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

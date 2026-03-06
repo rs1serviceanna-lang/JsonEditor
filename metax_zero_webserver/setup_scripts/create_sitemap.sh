@@ -18,7 +18,7 @@ echo "Generated Sitemap UUID: $SITEMAP_UUID"
 # Files to process
 ORIGINAL_FILE="sitemap_file"
 CONTRACT_FILE="sitemap_file.contract"
-CONF_FILE="../start.conf"
+CONF_FILE="../scripts/start.conf"
 
 # New file names
 NEW_FILE="${SITEMAP_UUID}"

@@ -1,4 +1,10 @@
 {
+  "name": "metax-webserver",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bash scripts/start_server.sh",
+    "verify": "bash scripts/verify_security.sh"
+  },
   "dependencies": {
     "nodemailer": "^7.0.11",
     "ws": "^8.18.3"
