@@ -1,10 +1,18 @@
 {
-  "name": "metax-webserver",
+  "name": "metax-project",
   "version": "1.0.0",
+  "description": "Metax Data Server and Greenhosting Webserver consolidated",
+  "private": true,
   "scripts": {
-    "start": "bash scripts/start_server.sh",
-    "verify": "bash scripts/verify_security.sh"
+    "start-all": "bash scripts/start_server.sh",
+    "start:metax": "node metax_2/src/rest_api.mjs",
+    "start:webserver": "node greenhosting_webserver_2/src/webserver.mjs",
+    "verify": "bash scripts/verify_security.sh",
+    "test:metax": "node metax_2/tests/test_functionality.mjs",
+    "test:webserver": "node greenhosting_webserver_2/tests/test_functionality.mjs"
   },
+  "author": "Raffi Knyazyan",
+  "license": "ISC",
   "dependencies": {
     "nodemailer": "^7.0.11",
     "ws": "^8.18.3"

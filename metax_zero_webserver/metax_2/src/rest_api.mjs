@@ -17,9 +17,9 @@ import { WebSocketServer } from "ws";
 const config = {};
 
 process.on('uncaughtException', (err, origin) => {
-	console.log(new Date(), "Uncaught exception", err, origin)
+	console.log(new Date(), "Uncaught exception", err, origin);
 	process.exit(-1);
-})
+});
 
 global.wss_clients = {};
 global.listened_uuids = {};
@@ -30,12 +30,12 @@ global.assert = (c, m) => {
 		console.error("Assertion violation: ", m);
 		process.exit(-1);
 	}
-}
-
+};
 global.is_valid_uuid = (u) => {
+	if (typeof u !== 'string') return false;
 	return /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u) ||
 		/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}-[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u);
-}
+};
 
 main();
 

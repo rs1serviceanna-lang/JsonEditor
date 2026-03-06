@@ -25,20 +25,27 @@ import { WebSocketServer, WebSocket } from "ws";
 
 process.on('uncaughtException', (err) => {
         console.log(Date.now(), "Uncaught exception", err);
-})
+});
+
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const ROOT_DIR = join(__dirname, '../../');
 
 const config = {};
 const logger_options = {
         file_channel: {
                 usage: true,
                 rotation: 10,
-                path: "../logs/webserver/greenhosting_webserver.log"
+                path: join(ROOT_DIR, "logs/webserver/greenhosting_webserver.log")
         },
         console_channel: { usage: true },
         pattern: "%p %Y-%m-%d %H:%M:%S.%i %s: %t"
 };
 
-global.sessions_log = createWriteStream("../logs/webserver_session.log",
+global.sessions_log = createWriteStream(join(ROOT_DIR, "logs/webserver_session.log"),
         { 'flags': 'a', 'encoding': "utf8" });
 
 const website_uuids = [];
@@ -49,12 +56,12 @@ global.assert = (c, m) => {
                 error("Assertion violation: " + m);
                 process.exit(-1);
         }
-}
-
+};
 global.is_valid_uuid = (u) => {
+        if (typeof u !== 'string') return false;
         return /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u) ||
                 /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}-[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u);
-}
+};
 
 global.http_get = (path) => {
         return new Promise((resolve, reject) => {

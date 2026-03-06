@@ -29,7 +29,7 @@ trap cleanup EXIT
 
 echo -e "${CYAN}Starting Metax & Greenhosting Stack...${NC}"
 pushd "$SERVER_DIR" > /dev/null
-./start_server.sh &
+bash scripts/start_server.sh &
 SERVER_PID=$!
 popd > /dev/null
 
@@ -79,7 +79,7 @@ while true; do
             if [ -z "$SERVER_PID" ]; then
                 echo -e "${GREEN}Restarting Server Stack...${NC}"
                 pushd "$SERVER_DIR" > /dev/null
-                ./start_server.sh &
+                bash scripts/start_server.sh &
                 SERVER_PID=$!
                 popd > /dev/null
                 echo -e "${GREEN}✓ Server stack started.${NC}"
