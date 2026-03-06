@@ -62,15 +62,30 @@ function configure_metax() {
 
 function start_server() {
 	assert(!isNaN(parseInt(config.port)), "port must be a number.");
+
+	console.log(`[DEBUG] Starting server on port ${config.port} (0.0.0.0)`);
+	console.log(`[DEBUG] Key: ${config.key}`);
+	console.log(`[DEBUG] Cert: ${config.cert}`);
+
 	const http_server = createSecureServer({
 		peerMaxConcurrentStreams: 1000,
 		key: readFileSync(config.key),
 		cert: readFileSync(config.cert),
-		allowHTTP1: true
+		allowHTTP1: true,
+		requestCert: false,        // DISABLED for troubleshooting
+		rejectUnauthorized: false   // DISABLED for troubleshooting
 	}, route_incoming_request);
-	http_server.on("error", handle_http_server_error)
-	http_server.listen(parseInt(config.port),
-		() => console.log("https server started"));
+
+	http_server.on("error", (e) => {
+		console.error("[FATAL] Server error:", e.code, e.message);
+		handle_http_server_error(e);
+	});
+
+	http_server.listen(parseInt(config.port), "0.0.0.0", () => {
+		console.log(`[SUCCESS] HTTPS server listening on 0.0.0.0:${config.port}`);
+		console.log(`[INFO] Access it at: https://localhost:${config.port} or https://YOUR_IP:${config.port}`);
+	});
+
 	const wss = new WebSocketServer({ server: http_server });
 	wss.on("connection", handle_websocket_new_connection);
 }

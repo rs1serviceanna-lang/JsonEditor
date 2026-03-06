@@ -22,8 +22,11 @@ fi
 cleanup() {
     echo ""
     echo "Stopping processes..."
-    if [ -n "$SERVER_PID" ]; then
-        kill "$SERVER_PID" 2>/dev/null || true
+    if [ -n "$METAX_PID" ]; then
+        kill "$METAX_PID" 2>/dev/null || true
+    fi
+    if [ -n "$WEBSERVER_PID" ]; then
+        kill "$WEBSERVER_PID" 2>/dev/null || true
     fi
     echo "Done."
 }
@@ -31,24 +34,33 @@ cleanup() {
 # Trap cleanup on exit
 trap cleanup EXIT
 
-echo "Starting Metax Zero Webserver (Stable Version)..."
+# Load configuration
 pushd "$SERVER_DIR" > /dev/null
-source ./start.conf
+source ./scripts/start.conf
+
+# Step 1: Start Metax (data server) on port 5001 with localhost mTLS
+echo "Starting Metax server on port $METAX_PORT..."
 pushd ./metax_2/ > /dev/null
-echo "Starting Node server..."
-# Note: we are in metax_zero_webserver/metax_2/
-# We need to access rest_api_stable.mjs which is in JsonEditor App/
-# Path from metax_2 to Root is ../../
-# So ../../JsonEditor App/rest_api_stable.mjs
-node "../../JsonEditor App/rest_api_stable.mjs" storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
-SERVER_PID=$!
-popd > /dev/null
+npm start "storage=../storage/" "port=$METAX_PORT" "key=$LOCALHOST_METAX_KEY" "cert=$LOCALHOST_METAX_CERT" "ca=$LOCALHOST_CA" &
+METAX_PID=$!
 popd > /dev/null
 
-echo "Waiting for server to initialize..."
+echo "Waiting for Metax to initialize..."
 sleep 5
 
-# Check for client certificates
+# Step 2: Start Greenhosting webserver on ports 5002/5003
+echo "Starting Greenhosting webserver on ports $READ_PORT/$WRITE_PORT..."
+pushd ./greenhosting_webserver_2/ > /dev/null
+npm start "host_metax=localhost:$METAX_PORT" "sitemap_uuid=$SITEMAP_UUID" "read_server_port=$READ_PORT" "write_server_port=$WRITE_PORT" "key=$SELF_PRIVKEY" "cert=$SELF_CERT" "client_key=$LOCALHOST_CLIENT_KEY" "client_cert=$LOCALHOST_CLIENT_CERT" "ca=$LOCALHOST_CA" &
+WEBSERVER_PID=$!
+popd > /dev/null
+
+echo "Waiting for webserver to initialize..."
+sleep 3
+
+popd > /dev/null
+
+# Step 3: Start JsonEditor Qt application
 CERT_PATH="$SERVER_DIR/certs/localhost/Mani.crt"
 KEY_PATH="$SERVER_DIR/certs/localhost/Mani.key"
 

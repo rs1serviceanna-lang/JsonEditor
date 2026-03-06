@@ -34,7 +34,7 @@ trap cleanup EXIT
 
 echo "Starting Metax Zero Webserver (Stable Version)..."
 pushd "$SERVER_DIR" > /dev/null
-source ./start.conf
+source ./scripts/start.conf
 pushd ./metax_2/ > /dev/null
 node "../../JsonEditor App/rest_api_stable.mjs" storage=../storage/ port=$METAX_PORT key=$SELF_PRIVKEY cert=$SELF_CERT &
 SERVER_PID=$!
