@@ -1,44 +1,123 @@
-// 
+/*
+==================== rest_api.mjs - Metax HTTP/2 Server Entry Point ===========
+
+This file is the main entry point for the Metax backend process. It:
+
+  1. Reads configuration from command-line arguments (key=value pairs).
+  2. Sets up global utilities (assert, is_valid_uuid, WebSocket state).
+  3. Initializes the database storage layer.
+  4. Starts a secure HTTP/2 + WebSocket server on a configured port.
+  5. Routes incoming requests to the correct handler:
+	   - /db/* calls -> db_rest_api.mjs (raw file storage)
+	   - /oo/* calls -> odm_rest_api.mjs (object data model)
+	   - /config/*   -> handled locally for user identity requests.
+
+--- Security ---
+
+  - Listens only on 127.0.0.1 (loopback). No external network traffic.
+  - Optionally requires mutual TLS (mTLS) if a CA certificate is configured.
+  - Rejects connections from non-localhost addresses with HTTP 403.
+  - Logs client certificate CN and protocol for every request (audit trail).
+
+--- WebSocket ---
+
+  Each new WebSocket connection is assigned a random session token (UUID).
+  The token is sent to the client as { event: "connected", token: "<uuid>" }.
+  Clients use this token to register as listeners for DB UUID updates.
+  When a UUID is saved, all registered listeners receive an "update" event.
+
+--- Configuration (via command-line args) ---
+
+  storage=<path>   Path to the file storage directory.
+  port=<number>    Port for the HTTPS server.
+  key=<path>       Path to the TLS private key file.
+  cert=<path>      Path to the TLS certificate file.
+  ca=<path>        (optional) Path to CA cert for mTLS client auth.
+
+================================================================================
+*/
+
+// ========================= Imports from this project =========================
+
+// DB initialization and HTTP request handler for /db/* routes.
 import {
 	initialize_db_rest_api
 	, handle_db_request
 } from "./db_rest_api.mjs";
 
+// HTTP request handler for /oo/* (Object Data Model) routes.
 import { handle_odm_request } from "./odm_rest_api.mjs";
 
-//imports from standard libraries
+// ========================= Imports from standard libraries ===================
+
+// createSecureServer: Creates an HTTP/2 server with TLS support.
 import { createSecureServer } from "http2";
+// readFileSync: Loads certificate files synchronously at startup.
 import { readFileSync } from "fs";
+// randomUUID: Generates unique session tokens for each WebSocket connection.
 import { randomUUID } from "crypto";
 
-//imports from third party libraries
+// ========================= Imports from third-party libraries ================
+
+// WebSocketServer: Attaches a WebSocket server to the existing HTTP/2 server.
 import { WebSocketServer } from "ws";
 
+// ========================= Configuration Object ==============================
+
+// Runtime configuration object populated from command-line args in configure_metax().
+// All server settings (port, paths, etc.) are read from here at startup.
 const config = {};
 
+// ========================= Global Error Handler ==============================
+
+// Catches any uncaught exceptions that escape the normal try/catch flow.
+// Logs the error with timestamp and exits to prevent running in a broken state.
 process.on('uncaughtException', (err, origin) => {
 	console.log(new Date(), "Uncaught exception", err, origin);
 	process.exit(-1);
 });
 
+// ========================= Global State ======================================
+
+// wss_clients: Maps session token (UUID) -> active WebSocket connection object.
+// Used to send "update" notifications to clients when a UUID is saved.
 global.wss_clients = {};
+
+// listened_uuids: Maps UUID -> [session_token, ...].
+// When a UUID is updated, all tokens in its list receive a WebSocket notification.
 global.listened_uuids = {};
 
+// config is exposed globally so that db.mjs can access config.storage at runtime.
 global.config = config;
+
+// assert: Global assertion helper. Logs the message and terminates if condition is false.
+// Used throughout the codebase to enforce invariants and catch invalid states early.
 global.assert = (c, m) => {
 	if (!c) {
 		console.error("Assertion violation: ", m);
 		process.exit(-1);
 	}
 };
+
+// is_valid_uuid: Global UUID format validator.
+// Accepts both standard UUIDs and the double-UUID format used by db.mjs for storage keys.
+// Returns true if the string matches either format, false otherwise.
 global.is_valid_uuid = (u) => {
 	if (typeof u !== 'string') return false;
 	return /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u) ||
 		/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}-[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u);
 };
 
+// ========================= Application Startup ================================
+
+// Entry point: configure, initialize DB, then start the server.
 main();
 
+// Main startup sequence:
+// 1. Parse and validate command-line configuration.
+// 2. Assert all required config values are present.
+// 3. Initialize the database storage directory.
+// 4. Start the secure HTTP/2 + WebSocket server.
 function main() {
 	configure_metax();
 	assert(config.storage !== undefined, "storage path is not defined.");
@@ -49,6 +128,10 @@ function main() {
 	start_server();
 }
 
+// ========================= Configuration =====================================
+
+// Parses command-line arguments in "key=value" format and populates config.
+// Example: node rest_api.mjs storage=./storage port=5001 key=./key.pem cert=./cert.pem
 function configure_metax() {
 	const argv = process.argv.slice(2);
 	for (let i = 0; i < argv.length; i++) {
@@ -58,10 +141,22 @@ function configure_metax() {
 	console.log("metax configured.");
 }
 
+// ========================= Server Startup ====================================
+
+// Creates and starts the HTTP/2 + WebSocket server.
+//
+// Security options:
+// - If a CA cert is found, enables mTLS (requires client certificates).
+// - If CA is not available, starts without client cert verification (logs a warning).
+// - The server listens ONLY on 127.0.0.1 (loopback) for security isolation.
+//
+// WebSocket:
+// - Attaches a WebSocket server to the same HTTP/2 server instance.
+// - New WebSocket connections are handled by handle_websocket_new_connection().
 function start_server() {
 	assert(!isNaN(parseInt(config.port)), "port must be a number.");
 
-	// Load CA certificate for client verification (localhost communication only)
+	// Load CA certificate for optional mTLS client authentication.
 	let ca;
 	try {
 		ca = readFileSync(config.ca || '../certs/localhost/ca.crt');
@@ -70,22 +165,30 @@ function start_server() {
 		console.warn("Warning: Could not load CA certificate for client auth, continuing without client verification");
 	}
 
+	// Create the HTTPS/HTTP2 server with TLS configuration.
+	// requestCert and rejectUnauthorized are only enabled if a CA is available.
 	const http_server = createSecureServer({
 		peerMaxConcurrentStreams: 1000,
 		key: readFileSync(config.key),
 		cert: readFileSync(config.cert),
 		ca: ca,
-		requestCert: !!ca,  // Request client certificate if CA is available
-		rejectUnauthorized: !!ca,  // Reject connections without valid client cert
-		allowHTTP1: true
+		requestCert: !!ca,            // Request client cert only if CA is configured.
+		rejectUnauthorized: !!ca,     // Reject without valid cert only if CA is configured.
+		allowHTTP1: true              // Also accept HTTP/1.1 for compatibility.
 	}, route_incoming_request);
 	http_server.on("error", handle_http_server_error)
+	// Listen only on localhost (127.0.0.1) to prevent external access.
 	http_server.listen(parseInt(config.port), "127.0.0.1",
 		() => console.log("https server started on 127.0.0.1"));
+	// Attach WebSocket server to the same HTTPS server.
 	const wss = new WebSocketServer({ server: http_server });
 	wss.on("connection", handle_websocket_new_connection);
 }
 
+// ========================= Error Handler =====================================
+
+// Handles fatal HTTP server errors.
+// The most common case is EADDRINUSE (port already in use), which causes exit.
 function handle_http_server_error(e) {
 	switch (e.code) {
 		case "EADDRINUSE":
@@ -97,8 +200,21 @@ function handle_http_server_error(e) {
 	}
 }
 
+// ========================= Request Router ====================================
+
+// Routes all incoming HTTP requests to the correct handler based on the path.
+// Also enforces security policies: localhost-only and audit logging.
+//
+// Security steps performed on every request:
+// 1. Rejects non-localhost connections with HTTP 403.
+// 2. Logs the connecting client's certificate CN, protocol, and IP.
+// 3. Warns about non-HTTP/2 requests (expected to use HTTP/2 via ALPN).
+//
+// Sets CORS headers to allow cross-origin access (needed for browser clients).
+// Normalizes HTTP/1.1 requests to use HTTP/2 header names (:path, :method).
+// Routes by the first path segment: "db", "oo", or "config".
 function route_incoming_request(req, res) {
-	// SECURITY: Only allow connections from localhost
+	// SECURITY: Reject any connection that is not from localhost.
 	const remoteAddr = req.socket.remoteAddress;
 	const isLocalhost = remoteAddr === '127.0.0.1' ||
 		remoteAddr === '::1' ||
@@ -112,31 +228,33 @@ function route_incoming_request(req, res) {
 		return;
 	}
 
-	// AUDIT: Log who connected (Client Certificate CN) and protocol
+	// AUDIT: Extract client certificate info for logging.
 	const cert = req.socket.getPeerCertificate();
 	const clientCN = cert && cert.subject ? cert.subject.CN : "No Client Cert/Auth Error";
 	const protocol = req.httpVersion >= 2 ? "HTTP/2" : "HTTP/1.1";
 
-	// Enforce HTTP/2 for non-WebSocket REST requests
-	// Note: regular browser REST calls should use HTTP/2 via ALPN
+	// Warn if a REST request is not using HTTP/2 (WebSocket upgrades are exempt).
 	if (req.headers['upgrade'] !== 'websocket' && req.httpVersion < 2) {
-		// Just logging warning for now as per "Ensure... all other requests must be HTTP/2"
-		// If we want hard rejection, we can return 426 Upgrade Required
+		// Logging only for now; could return 426 Upgrade Required if stricter enforcement needed.
 		console.warn(`[AUDIT] Potential non-HTTP/2 REST request from ${clientCN} via ${protocol}`);
 	}
 
+	// Log every connection with timestamp, client identity, and address.
 	console.log(`[AUDIT] [${new Date().toISOString()}] Connection from ${clientCN} (${remoteAddr}) using ${protocol}`);
 
+	// Set CORS headers to allow browser clients from any origin.
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 	res.setHeader('Access-Control-Allow-Headers', '*');
 
+	// Handle preflight OPTIONS requests immediately (used by browsers for CORS).
 	if (req.method === 'OPTIONS') {
 		res.writeHead(200);
 		res.end();
 		return;
 	}
 
+	// Normalize HTTP/1.1 headers to HTTP/2 pseudo-headers for unified handling.
 	if (!req.headers[":path"]) req.headers[":path"] = req.url;
 	if (!req.headers[":scheme"]) req.headers[":scheme"] = "https";
 	if (!req.headers[":method"]) req.headers[":method"] = req.method;
@@ -144,15 +262,19 @@ function route_incoming_request(req, res) {
 	let req_path = req.headers[":path"].split("?")[0];
 	console.log(`received new request from ${req.socket.remoteAddress},`,
 		`request path: ${req.headers[":path"]}`);
-	switch (req_path.split("/")[1]) {
 
+	// Dispatch to the appropriate handler based on the first path segment.
+	switch (req_path.split("/")[1]) {
 		case "db":
+			// Raw storage operations (get, save, delete, listeners).
 			handle_db_request(req, res);
 			break;
 		case "oo":
+			// Object Data Model operations (properties, collections, wrap).
 			handle_odm_request(req, res);
 			break;
 		case "config":
+			// Configuration and identity requests.
 			handle_config_request(req, res);
 			break;
 		default:
@@ -162,44 +284,80 @@ function route_incoming_request(req, res) {
 	}
 }
 
+// ========================= WebSocket Handling ================================
+
+// Called when a new WebSocket client connects.
+// Assigns a random UUID token to the session and sends it to the client.
+// The client uses this token to subscribe to UUID update notifications.
+//
+// On close:
+// - Validates the session exists in wss_clients before cleanup.
+// - Removes the session from wss_clients.
+// - Removes the session token from all listened_uuids lists.
 function handle_websocket_new_connection(s) {
+	// Assign a unique session token for this WebSocket connection.
 	const token = randomUUID();
 	wss_clients[token] = s;
+	// Inform the client of its session token so it can register listeners.
 	s.send(`{"event":"connected", "token": "${token}"}`);
 	s.on("close", () => {
 		console.log(`received websocket close event for session: ${token}`);
 		assert(wss_clients[token] !== undefined,
 			"websocket connection was closed improperly");
+		// Remove this session from the active clients map.
 		delete wss_clients[token];
+		// Remove this token from all UUID listener lists to prevent memory leaks.
 		clean_up_listened_uuids_per_token(token);
 	});
 }
 
+// Removes a WebSocket session token from all UUID listener lists.
+// Called when a WebSocket connection closes to prevent stale references.
+//
+// Parameters:
+// - token: The session token of the disconnected WebSocket client.
 function clean_up_listened_uuids_per_token(token) {
 	const uuids = Object.keys(listened_uuids);
 	for (let i = 0; i < uuids.length; i++) {
 		let token_index = listened_uuids[uuids[i]].indexOf(token);
 		if (token_index !== -1) {
+			// Remove this token from the listener array for this UUID.
 			listened_uuids[uuids[i]].splice(token_index, 1);
 		}
 	}
 }
 
+// Sends a JSON "update" event to all WebSocket sessions listening for a UUID.
+// Called after every successful save or mutation of a UUID's data.
+// Global so that db_rest_api.mjs and odm_rest_api.mjs can call it directly.
+//
+// Parameters:
+// - uuid: The UUID whose data was updated.
 global.send_notification_to_websocket_clients = (uuid) => {
 	if (listened_uuids[uuid] !== undefined) {
 		for (let i = 0; i < listened_uuids[uuid].length; i++) {
 			let token = listened_uuids[uuid][i];
 			assert(wss_clients[token] !== undefined,
 				"listened_uuids has token in list, but websocket object not found.");
+			// Send the update event with the UUID so clients know which object changed.
 			wss_clients[token].send(JSON.stringify({ event: "update", uuid }))
 		}
 	}
 }
 
+// ========================= Config Request Handler ============================
+
+// Handles requests to /config/* endpoints.
+// Currently only supports /config/get_user_id which returns a fixed user ID.
+//
+// Parameters:
+// - req: Incoming HTTP request.
+// - res: HTTP response object.
 function handle_config_request(req, res) {
 	console.log(`handling config request`, `request path: ${req.headers[":path"]}`);
 	const req_path = req.headers[":path"].split("?")[0];
 	if (req_path === "/config/get_user_id") {
+		// Return the fixed "admin" user ID for this local metax instance.
 		res.writeHead(200, { "content-type": "application/json" });
 		res.end(JSON.stringify({ user_id: "d0000000-0000-0000-0000-000000000000" }));
 	} else {

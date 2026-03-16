@@ -1,3 +1,61 @@
+/*
+==================== webserver.mjs - Greenhosting WebServer Entry Point =======
+
+This is the main application file for the greenhosting webserver. It:
+
+  1. Configures the structured logger and file operations audit logger.
+  2. Reads configuration from command-line arguments.
+  3. Loads the sitemap (website/subdomain/certificate metadata) from Metax.
+  4. Connects to the local Metax backend (HTTP/2 + WebSocket).
+  5. Starts the read-only HTTPS server (public-facing).
+  6. Starts the write HTTPS server (authenticated writes only).
+  7. Attaches a WebSocket server for real-time client updates.
+
+--- Dual Server Architecture ---
+
+  Write server (port: config.port):
+    - Handles create/update/delete operations.
+    - Requires valid client TLS certificate (mTLS).
+    - Delegates to handle_new_write_server_stream in router.mjs.
+
+  Read-only server (port: config.port_read_only):
+    - Handles public read requests and permission requests.
+    - Also requires a client TLS certificate.
+    - Delegates to handle_new_read_only_stream in router.mjs.
+
+--- Connection to Metax ---
+
+  The webserver connects to the local Metax process (metax_2) using HTTP/2
+  with optional mTLS. A WebSocket connection to Metax is also maintained for
+  receiving real-time UUID update events (then forwarded to browser clients).
+
+  If either connection drops, the webserver reconnects automatically after a
+  short delay, re-registers all UUID listeners, and triggers client updates.
+
+--- Configuration (command-line key=value pairs) ---
+
+  port=<number>            Write server port.
+  port_read_only=<number>  Read-only server port.
+  key=<path>               Server TLS private key.
+  cert=<path>              Server TLS certificate.
+  ca=<path>                CA certificate for mTLS verification.
+  client_key=<path>        Client TLS key for connecting to Metax.
+  client_cert=<path>       Client TLS cert for connecting to Metax.
+  host_metax=<host:port>   Host and port of the local Metax backend.
+  sitemap_uuid=<uuid>      UUID of the sitemap object in Metax.
+
+--- Sitemap ---
+
+  The sitemap is a JSON object in Metax that maps websites to:
+  - Subdomains served by this webserver.
+  - Client certificates authorized to connect.
+  - TLS key/certificate paths per subdomain (SNI).
+  - Service configurations (mail, API keys, etc.).
+  - A list of website UUIDs to preload on startup.
+
+================================================================================
+*/
+
 //imports from this project
 import logger from "./logger.mjs";
 import {
@@ -27,42 +85,65 @@ process.on('uncaughtException', (err) => {
         console.log(Date.now(), "Uncaught exception", err);
 });
 
+// ========================= Path Resolution ===================================
+
+// Resolve the absolute path to this module's directory.
+// Used to compute paths relative to the project root (e.g., log directories).
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+// ROOT_DIR points two levels up from /src/ to the project root.
 const ROOT_DIR = join(__dirname, '../../');
 
+// ========================= Global State ======================================
+
+// Runtime configuration populated from command-line args.
 const config = {};
+// Logger options: enable both console and file output with 10 MB rotation.
 const logger_options = {
         file_channel: {
                 usage: true,
-                rotation: 10,
+                rotation: 10,  // Max log file size in MB before rotation.
                 path: join(ROOT_DIR, "logs/webserver/greenhosting_webserver.log")
         },
         console_channel: { usage: true },
         pattern: "%p %Y-%m-%d %H:%M:%S.%i %s: %t"
 };
 
+// sessions_log: Write stream for logging session-level connection events.
+// Appended to across restarts so session history is preserved.
 global.sessions_log = createWriteStream(join(ROOT_DIR, "logs/webserver_session.log"),
         { 'flags': 'a', 'encoding': "utf8" });
 
+// website_uuids: List of website UUIDs preloaded from the sitemap at startup.
 const website_uuids = [];
+// sitemap: Global sitemap object loaded from Metax. Used by router and notifier.
 global.sitemap = {};
+// config is exposed globally so all modules can access it.
 global.config = config;
+// assert: Global assertion helper. Logs the error and exits if condition is false.
+// Used throughout all modules to enforce invariants.
 global.assert = (c, m) => {
         if (!c) {
                 error("Assertion violation: " + m);
                 process.exit(-1);
         }
 };
+// is_valid_uuid: Global UUID format validator shared by all modules.
+// Accepts both standard UUIDs and the double-UUID format used by db.mjs.
 global.is_valid_uuid = (u) => {
         if (typeof u !== 'string') return false;
         return /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u) ||
                 /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}-[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i.test(u);
 };
 
+// http_get: Global helper for making GET requests to the local Metax backend.
+// Used by notifier.mjs (get_property) and other modules that need Metax data.
+// Relies on the global `metax` HTTP/2 connection set up in start_metax_connection().
+// Returns a Promise resolving to the raw response body string.
+// Rejects if Metax returns a 400 error or any data error occurs.
 global.http_get = (path) => {
         return new Promise((resolve, reject) => {
                 const get_request = metax.request({
@@ -116,19 +197,34 @@ global.http_post = (path, data, mime) => {
         });
 }
 global.logger = logger;
+// metax: Global HTTP/2 client connection to the local Metax backend.
+// Set to 0 initially; replaced with the active connection in connect_to_host_metax().
 global.metax = 0;
+// metax_wss_token: Session token received from Metax's WebSocket.
+// Used as the listener token when calling metax_register_listener.
 global.metax_wss_token = "";
+// Shorthand helpers for common Metax API calls via http_get/http_post.
 global.metax_get = (u) => http_get(`/db/get?id=${u}`);
 global.metax_update = (u, d, m) => http_post(`/db/save/node?id=${u}`, d, m);
 global.metax_register_listener = (u, t) => http_get(`/db/register_listener?id=${u}&token=${metax_wss_token}`);
 global.metax_unregister_listener = (u, t) => http_get(`/db/unregister_listener?id=${u}&token=${metax_wss_token}`);
 
+// ========================= Logging Aliases ===================================
+
+// Short aliases for structured logger calls scoped to "webserver" module.
 const trace = (m) => logger.trace("webserver", m);
 const warning = (m) => logger.warning("webserver", m);
 const error = (m) => logger.error("webserver", m);
 
+// ========================= Application Startup ================================
+
+// Entry point: configures logger, then starts all subsystems in order.
 main();
 
+// Main startup sequence. Called once at process start.
+// Order matters: logger must be ready before any other module logs.
+// Metax HTTP/2 and WebSocket connections must be up before the sitemap loads.
+// Servers start only after sitemap and notifiers are ready.
 async function main() {
         const log = await logger.configure(logger_options);
         if (log.status === "success") {
@@ -147,6 +243,13 @@ async function main() {
         }
 }
 
+// Establishes and maintains the HTTP/2 connection to the local Metax backend.
+// Returns a Promise that resolves once connected.
+// Automatically retries on error or connection close with a 500ms delay.
+//
+// Uses mutual TLS (mTLS) if client_key, client_cert, and ca are all configured.
+// Falls back to rejectUnauthorized: false for backward compatibility (dev only).
+// Sets global.metax to the active HTTP/2 session so all modules can use it.
 function connect_to_host_metax() {
         return new Promise((resolve, reject) => {
                 const _connect = () => {
@@ -190,6 +293,9 @@ function connect_to_host_metax() {
                 _connect();
         });
 }
+// Placeholder handler for sitemap UUID updates from Metax.
+// When the sitemap object is modified, this should reload website configurations.
+// Currently a no-op (dynamic website adding is not yet implemented - TODO).
 //TODO implement website adding dynamically
 async function handle_sitemap_uuid_update() {
         trace("handle_sitemap_uuid_update");
@@ -207,6 +313,12 @@ async function handle_sitemap_uuid_update() {
         trace("END handle_sitemap_uuid_update");
 }
 
+// Reloads a single website's configuration from Metax when its UUID is updated.
+// Finds the website by UUID in the sitemap and replaces it with a fresh copy.
+// Called when Metax signals an update event for a known website UUID.
+//
+// Parameters:
+// - w_uuid: UUID of the website object in Metax to reload.
 async function handle_website_uuid_update(w_uuid) {
         trace("handle_website_uuid_update for " + w_uuid);
         let i = sitemap.websites.findIndex(el => el.uuid === w_uuid);
@@ -219,6 +331,11 @@ async function handle_website_uuid_update(w_uuid) {
         trace("END handle_website_uuid_update for " + w_uuid);
 }
 
+// Performs a full global refresh after the Metax WebSocket reconnects.
+// Steps:
+//   1. Re-loads the sitemap and all website configurations from Metax.
+//   2. Re-registers all UUID listeners with the new Metax session token.
+//   3. Sends "update" events to all browser WebSocket clients so they refresh.
 async function re_register_all_listeners() {
         trace("performing global update on reconnection.");
         try {
@@ -237,6 +354,15 @@ async function re_register_all_listeners() {
         }
 }
 
+// Establishes and maintains the WebSocket connection to the local Metax backend.
+// Returns a Promise that resolves once the initial "connected" token is received.
+// Automatically reconnects on close or error (with re_register_all_listeners).
+//
+// On "message" events:
+//   - "connected": Saves the session token (metax_wss_token) for listener calls.
+//     If this is a reconnect, triggers re_register_all_listeners().
+//   - "update":    If the UUID matches sitemap or website, handles the update.
+//     Otherwise, forwards the update to browser clients via handle_metax_update_message.
 function connect_to_host_metax_websocket() {
         return new Promise((resolve, reject) => {
                 const _connect = () => {
@@ -311,6 +437,9 @@ function connect_to_host_metax_websocket() {
         });
 }
 
+// Reads command-line arguments in key=value format and populates config.
+// Validates that all required configuration fields are present using assert().
+// Called before any servers start so config is fully initialized.
 function configure_webserver() {
         trace("configure_webserver");
         const argv = process.argv.slice(2);
@@ -327,6 +456,14 @@ function configure_webserver() {
         trace("END configure_webserver");
 }
 
+// Creates and starts the public-facing HTTPS/HTTP2 read-only server.
+// Uses SNI (Server Name Indication) via sni_callback_read_only to serve
+// the correct TLS certificate per subdomain.
+// Requires client certificates (mTLS) for authentication.
+// Also attaches a WebSocket server for real-time client notifications.
+//
+// Parameters:
+// - port: The port number to listen on (config.read_server_port).
 function start_read_only_server(port) {
         assert(!isNaN(port), "port must be a number.");
         trace("starting read-only server");
@@ -349,6 +486,13 @@ function start_read_only_server(port) {
         wss.on("connection", handle_websocket_new_connection);
 }
 
+// Creates and starts the write HTTPS/HTTP2 server for authenticated writes.
+// Uses SNI via sni_callback to serve per-subdomain certificates.
+// Logs each new secure connection's client CN and address.
+// Also requires mTLS and attaches a WebSocket server.
+//
+// Parameters:
+// - port: The port number to listen on (config.write_server_port).
 function start_write_server(port) {
         assert(!isNaN(port), "port must be a number.");
         trace("starting write server");
@@ -377,6 +521,8 @@ function start_write_server(port) {
         wss.on("connection", handle_websocket_new_connection);
 }
 
+// Handles fatal HTTP server errors.
+// EADDRINUSE means the port is already in use; exits the process.
 function handle_http_server_error(e) {
         switch (e.code) {
                 case "EADDRINUSE":
@@ -386,6 +532,10 @@ function handle_http_server_error(e) {
         }
 }
 
+// Loads the sitemap object and all its websites from Metax into global.sitemap.
+// Also loads the permission_requests sub-object and all client certificates.
+// Registers a Metax listener on the sitemap UUID so updates are detected.
+// Exits the process if the sitemap cannot be loaded (it is required to operate).
 async function init_sitemap() {
         sitemap = await metax_get(config.sitemap_uuid)
                 .then(r => JSON.parse(r))
@@ -404,6 +554,15 @@ async function init_sitemap() {
         }
 }
 
+// Loads a single website configuration from Metax by its UUID.
+// Fetches and inlines: TLS private key, TLS certificate, and all client certificates.
+// Registers a Metax listener for this website UUID so config updates are detected.
+// Tracks loaded website UUIDs in website_uuids to avoid duplicate registrations.
+//
+// Parameters:
+// - website_uuid: UUID of the website object to load.
+//
+// Returns: The fully-loaded website configuration object.
 async function get_website(website_uuid) {
         trace(`get_website for ${website_uuid}`)
         const website = await metax_get(website_uuid)
@@ -447,6 +606,14 @@ async function get_website(website_uuid) {
         return website;
 }
 
+// SNI callback for the read-only server.
+// Called by Node.js TLS per connection to pick the right TLS certificate for a subdomain.
+// Builds combined CA from all client certificates for the matched website plus the global CA.
+// Note: Per-website SSL cert/key are disabled here; always uses the global server cert.
+//
+// Parameters:
+// - serverName: SNI hostname from the TLS ClientHello.
+// - cb: Callback(null, SecureContext) to return the context to Node's TLS layer.
 function sni_callback_read_only(serverName, cb) {
         let cert = null
         let key = null
@@ -482,6 +649,14 @@ function sni_callback_read_only(serverName, cb) {
         }));
 }
 
+// SNI callback for the write server.
+// Identical to sni_callback_read_only but also loads per-website TLS key/cert if available.
+// Falls back to the global server cert/key when no website-specific cert is configured.
+// Falls back to the first website if the serverName is not found in the sitemap.
+//
+// Parameters:
+// - serverName: SNI hostname from the TLS ClientHello.
+// - cb: Callback(null, SecureContext) to return the context to Node's TLS layer.
 function sni_callback(serverName, cb) {
         trace("sni_callback received serverName: " + serverName);
         let cert = null

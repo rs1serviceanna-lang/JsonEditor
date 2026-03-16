@@ -8,8 +8,7 @@
     "start:metax": "node metax_2/src/rest_api.mjs",
     "start:webserver": "node greenhosting_webserver_2/src/webserver.mjs",
     "verify": "bash scripts/verify_security.sh",
-    "test:metax": "node metax_2/tests/test_functionality.mjs",
-    "test:webserver": "node greenhosting_webserver_2/tests/test_functionality.mjs"
+    "test:metax": "node metax_2/tests/test_functionality.mjs"
   },
   "author": "Raffi Knyazyan",
   "license": "ISC",

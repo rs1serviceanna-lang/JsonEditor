@@ -1,3 +1,52 @@
+/*
+=================== router.mjs - Greenhosting WebServer Request Router =======
+
+This module handles all incoming HTTP/2 stream requests for the greenhosting
+webserver. It acts as a security gateway and proxy between external clients
+(with mTLS certificates) and the local Metax backend.
+
+--- Two Server Modes ---
+
+  Write server (handle_new_write_server_stream):
+	- Accepts all operations: GET, POST, save, delete, ODM, notify, translate.
+	- Requires a valid client certificate (mTLS enforced).
+
+  Read-only server (handle_new_read_only_stream):
+	- Accepts only read operations: GET, register_listener, ODM reads, wrap.
+	- Also requires a valid client certificate.
+
+--- Security ---
+
+  Every request is validated against the client's TLS certificate.
+  Requests without a valid certificate fingerprint are rejected with 400.
+  All sessions and streams are logged with the client's certificate CN.
+
+--- Proxy Architecture ---
+
+  For most requests, the router does NOT process data itself.
+  Instead it proxies the request to the local Metax backend (metax_sessions):
+  - Each session has a dedicated HTTP/2 connection to the local Metax server.
+  - The router pipes the incoming stream to Metax and pipes the response back.
+  - This allows the webserver to add mTLS authentication and audit logging
+	on top of the existing Metax API without duplicating its logic.
+
+--- WebSocket ---
+
+  WebSocket connections are handled separately from HTTP/2 streams.
+  Each connection gets a random UUID session token.
+  Clients use this token to subscribe to UUID update events.
+  A 30-second ping/pong keep-alive prevents silent disconnects.
+
+--- Listener Tracking ---
+
+  listened_uuids: Map of UUID -> [token, ...]
+  wss_clients:    Map of token -> WebSocket connection
+  When handle_metax_update_message(uuid) is called, all tokens registered
+  for that UUID receive { event: "update", uuid } via WebSocket.
+
+================================================================================
+*/
+
 //imports from this project
 import { add_notifier } from "./notifier.mjs"
 import { translate_property } from "./translator.mjs"
@@ -11,16 +60,40 @@ import { readFileSync } from "fs";
 
 //imports from third party libraries
 
+// ========================= Logging Aliases ===================================
+
+// Short aliases for structured logger calls scoped to "router" module.
 const trace = (m) => logger.trace("router", m);
 const warning = (m) => logger.warning("router", m);
 const error = (m) => logger.error("router", m);
 
+// ========================= State =============================================
+
+// listened_uuids: Maps UUID -> [session_token, ...]
+// Clients register here to receive WebSocket notifications on UUID updates.
 const listened_uuids = {};
+
+// wss_clients: Maps session_token (UUID) -> active WebSocket object.
+// Used to push "update" events to the right client.
 const wss_clients = {};
 
+// metax_sessions: Maps session ID -> HTTP/2 connection to local Metax backend.
+// Each client session has its own dedicated connection to Metax.
 const metax_sessions = {};
+
+// Auto-incrementing counter to give each session a unique numeric ID.
 let session_id_counter = 1;
 
+// ========================= Write Server Stream Handler =======================
+
+// Handles all incoming HTTP/2 streams on the write server port.
+// Enforces mTLS (rejects requests without a valid client certificate).
+// Dispatches to the appropriate handler based on the :path header.
+// Logs each new session's first stream with the client CN and protocol.
+//
+// Parameters:
+// - stream:  The HTTP/2 ServerHttp2Stream object.
+// - headers: The HTTP/2 request headers object.
 export function handle_new_write_server_stream(stream, headers) {
 	try {
 		const clientCert = stream.session.socket.getPeerCertificate();
@@ -99,6 +172,16 @@ export function handle_new_write_server_stream(stream, headers) {
 	}
 }
 
+// ========================= Read-Only Server Stream Handler ===================
+
+// Handles incoming HTTP/2 streams on the read-only server port.
+// Also enforces mTLS (rejects requests without a valid client certificate).
+// Only allows read operations (GET, register_listener, ODM reads, wrap).
+// HEAD requests are rejected immediately.
+//
+// Parameters:
+// - stream:  The HTTP/2 ServerHttp2Stream object.
+// - headers: The HTTP/2 request headers object.
 export function handle_new_read_only_stream(stream, headers) {
 	try {
 		const clientCert = stream.session.socket.getPeerCertificate();
@@ -149,6 +232,21 @@ export function handle_new_read_only_stream(stream, headers) {
 	}
 }
 
+// ========================= Session Lifecycle =================================
+
+// Called when a new client TLS session is established.
+// Assigns a numeric session ID and opens a dedicated HTTP/2 connection
+// to the local Metax backend for this session.
+//
+// Connection to Metax uses mutual TLS if client_key, client_cert, and ca
+// are configured; otherwise falls back to rejectUnauthorized: false.
+//
+// The Metax connection is stored in metax_sessions[session.id] and is
+// closed automatically when the client session closes.
+// Sessions have a 120-second idle timeout.
+//
+// Parameters:
+// - session: The HTTP/2 session object from the "session" event.
 export function handle_new_client_session(session) {
 	session.id = session_id_counter++;
 	session.first_stream = true;
@@ -199,6 +297,11 @@ export function handle_new_client_session(session) {
 	session.on('timeout', () => session.close());
 }
 
+// ========================= Listener Re-Registration =========================
+
+// Re-registers all currently active UUID listeners with the Metax backend.
+// Called after the WebSocket connection to Metax is reconnected, so that
+// notifications for all tracked UUIDs resume correctly.
 export async function re_register_proxied_listeners() {
 	trace("re-registering all proxied metax listeners.");
 	const uuids = Object.keys(listened_uuids);
@@ -211,6 +314,9 @@ export async function re_register_proxied_listeners() {
 	}
 }
 
+// Forces an "update" WebSocket notification to be sent to all clients
+// for every UUID that has at least one registered listener.
+// Called after a Metax reconnection to ensure clients refresh their data.
 export function trigger_all_client_updates() {
 	trace("triggering updates for all listened uuids.");
 	const uuids = Object.keys(listened_uuids);
@@ -219,6 +325,11 @@ export function trigger_all_client_updates() {
 	}
 }
 
+// Sends a WebSocket "update" event to all clients registered as listeners
+// for the given UUID. Called when Metax signals that a UUID was modified.
+//
+// Parameters:
+// - uuid: The UUID whose data was updated.
 export function handle_metax_update_message(uuid) {
 	assert(is_valid_uuid(uuid), "handle_metax_update_message received invalid uuid.");
 	trace("received handle_metax_update_message with uuid: " + uuid)
@@ -233,6 +344,17 @@ export function handle_metax_update_message(uuid) {
 	}
 }
 
+// ========================= WebSocket Connection Handler =====================
+
+// Called when a new WebSocket client connects.
+// Assigns a random UUID token and sends it to the client as:
+//   { event: "connected", token: "<uuid>" }
+// Sets up a 30-second ping/pong keep-alive to detect silent disconnects.
+// On close: removes the client from wss_clients and cleans up all listener
+// registrations to prevent memory leaks and stale notification targets.
+//
+// Parameters:
+// - s: The WebSocket connection object.
 export function handle_websocket_new_connection(s) {
 	const token = randomUUID();
 	wss_clients[token] = s;
@@ -255,6 +377,12 @@ export function handle_websocket_new_connection(s) {
 	});
 }
 
+// Removes a session token from all UUID listener lists.
+// Called when a WebSocket session closes to prevent sending
+// notifications to dead sessions.
+//
+// Parameters:
+// - token: The UUID session token of the disconnected client.
 function clean_up_listened_uuids_per_token(token) {
 	const uuids = Object.keys(listened_uuids);
 	for (let i = 0; i < uuids.length; i++) {
@@ -265,6 +393,16 @@ function clean_up_listened_uuids_per_token(token) {
 	}
 }
 
+// ========================= Request Handlers ==================================
+
+// Returns the user_id for the requesting client based on their client certificate.
+// Searches the sitemap to find which website and which client certificate
+// the request belongs to, then returns the associated user_id.
+// Returns { user_id: "anonymous" } if no certificate is presented.
+//
+// Parameters:
+// - stream:  The HTTP/2 stream object.
+// - headers: Request headers including :authority for subdomain lookup.
 function handle_get_user_id_request(stream, headers) {
 	trace(`processing get_user_id request with path ${headers[":path"]}`);
 	try {
@@ -314,6 +452,14 @@ function handle_get_user_id_request(stream, headers) {
 	}
 }
 
+// Handles a permission request from a new client.
+// Saves the client's certificate to Metax storage and adds an entry
+// to the sitemap's permission_requests list for admin review.
+// Only available on the read-only server.
+//
+// Parameters:
+// - stream:  The HTTP/2 stream object.
+// - headers: Request headers; body must be the PEM certificate content.
 function handle_request_permission_request(stream, headers) {
 	trace(`processing request_permission request with path ${headers[":path"]}`);
 	if (headers[":method"] !== "POST") {
@@ -377,6 +523,11 @@ function handle_request_permission_request(stream, headers) {
 	stream.pipe(save_request);
 }
 
+// Unregisters a WebSocket session token as a listener for a UUID.
+// After this, the session will no longer receive "update" events for the UUID.
+// Also calls metax_unregister_listener to stop listening on the Metax backend.
+//
+// Query parameters: id (UUID), token (session token).
 async function handle_unregister_listener_request(stream, headers) {
 	trace(`processing unregister_listener request with path ${headers[":path"]}`);
 	const { id, token } = parse(headers[":path"], true).query;
@@ -422,6 +573,11 @@ async function handle_unregister_listener_request(stream, headers) {
 		});
 }
 
+// Registers a WebSocket session token as a listener for a UUID.
+// On successful registration, calls metax_register_listener to also
+// subscribe on the Metax backend so update events flow through.
+//
+// Query parameters: id (UUID), token (session token).
 async function handle_register_listener_request(stream, headers) {
 	trace(`processing register_listener request with path ${headers[":path"]}`);
 	const { id, token } = parse(headers[":path"], true).query;
@@ -456,6 +612,13 @@ async function handle_register_listener_request(stream, headers) {
 		});
 }
 
+// Adds a token to the listener list for a UUID and responds to the client.
+// Prevents duplicate registrations. Sends 400 if already registered.
+//
+// Parameters:
+// - id:     The UUID to watch.
+// - token:  The session token to register.
+// - stream: The HTTP/2 stream to respond on.
 function add_uuid_in_listened_uuids(id, token, stream) {
 	if (listened_uuids[id] === undefined) {
 		listened_uuids[id] = [];
@@ -472,6 +635,14 @@ function add_uuid_in_listened_uuids(id, token, stream) {
 	}
 }
 
+// Proxies a /db/save request to the Metax backend.
+// Validates the request method (POST), extracts user info for audit logging,
+// then pipes the incoming stream to the Metax backend and the response back.
+// Logs the write operation after completion via log_file_operation().
+//
+// Parameters:
+// - stream:  The HTTP/2 stream (incoming data body is piped from this).
+// - headers: Request headers forwarded to Metax.
 function handle_save_request(stream, headers) {
 	trace(`processing /db/save request with path ${headers[":path"]}`);
 	// Extract user info for logging
@@ -513,6 +684,13 @@ function handle_save_request(stream, headers) {
 	stream.pipe(save_request);
 }
 
+// Proxies an /oo/* ODM request to the Metax backend.
+// Accepts GET and POST methods. For POST, pipes the incoming stream body.
+// Pipes the Metax response back to the client.
+//
+// Parameters:
+// - stream:  The HTTP/2 stream.
+// - headers: Request headers forwarded to Metax.
 function handle_odm_request(stream, headers) {
 	trace(`processing odm request with path ${headers[":path"]}.`);
 	if (headers[":method"] !== "GET" && headers[":method"] !== "POST") {
@@ -540,6 +718,13 @@ function handle_odm_request(stream, headers) {
 	}
 }
 
+// Proxies a /db/delete request to the Metax backend.
+// Validates the request method (GET) and UUID.
+// Logs the delete operation after completion via log_file_operation().
+//
+// Parameters:
+// - stream:  The HTTP/2 stream.
+// - headers: Request headers including the UUID in the query string.
 function handle_delete_request(stream, headers) {
 	const query_object = parse(headers[":path"], true).query;
 	if (headers[":method"] !== "GET") {
@@ -587,6 +772,14 @@ function handle_delete_request(stream, headers) {
 	}
 }
 
+// Proxies a /db/get request to the Metax backend.
+// Validates the request method (GET) and UUID.
+// Logs the read operation after completion via log_file_operation().
+// Handles "aborted" events to close resources cleanly.
+//
+// Parameters:
+// - stream:  The HTTP/2 stream; response is piped from Metax into this.
+// - headers: Request headers including UUID and optional Range header.
 function handle_get_request(stream, headers) {
 	const query_object = parse(headers[":path"], true).query;
 	if (headers[":method"] !== "GET") {
@@ -639,7 +832,12 @@ function handle_get_request(stream, headers) {
 	})
 }
 
-// router.mjs / handle_default_request
+// Handles requests that don't match any specific route.
+// If the path starts with /db/, delegates to handle_get_request.
+// Otherwise, searches the sitemap for a matching subdomain and path,
+// then proxies a /db/get request to serve the configured destination UUID.
+// Returns 400 if no matching path is found in the sitemap.
+//
 function handle_default_request(stream, headers) {
 	const req_path = parse(headers[":path"], true).pathname;
 	trace("received default request from " + headers[":authority"] + " with path " + req_path);
@@ -682,6 +880,12 @@ function handle_default_request(stream, headers) {
 }
 
 
+// Handles /notify requests that trigger email notifications to object watchers.
+// Validates the request method (POST) and UUID.
+// Parses the JSON request body for the change descriptor and type.
+// Calls add_notifier() which debounces and eventually sends the email.
+//
+// Body format: { id: <target_uuid>, type: "property"|"collection_add"|"collection_delete", ... }
 function handle_notify_request(stream, headers) {
 	const query_object = parse(headers[":path"], true).query;
 	if (headers[":method"] !== "POST") {
@@ -729,6 +933,11 @@ function handle_notify_request(stream, headers) {
 	})
 }
 
+// Handles /translate_property requests that use OpenAI to translate a property.
+// Validates the request method (GET) and retrieves the API key from the sitemap.
+// Calls translate_property() from translator.mjs and returns the translated value.
+//
+// Query parameters: id (object UUID), property (field name), locale (target locale).
 async function handle_translation_request(stream, headers) {
 	const query_object = parse(headers[":path"], true).query;
 	if (headers[":method"] !== "GET") {
@@ -754,6 +963,13 @@ async function handle_translation_request(stream, headers) {
 	}
 }
 
+// ========================= Sitemap Helpers ===================================
+
+// Finds and returns the website object in the sitemap that owns a given subdomain name.
+// Returns undefined if no matching website is found.
+//
+// Parameters:
+// - subdomain: The subdomain/authority string to search for.
 function find_website_in_sitemap(subdomain) {
 	for (let i = 0; i < sitemap.websites.length; i++) {
 		const sd = sitemap.websites[i].subdomains.find(d => d.name === subdomain);
@@ -761,6 +977,16 @@ function find_website_in_sitemap(subdomain) {
 	}
 }
 
+// ========================= Error Helpers =====================================
+
+// Sends an error response, handling HEAD requests specially.
+// HEAD requests must not include a body, so only status and content-type are sent.
+// All other methods use send_error() for a full JSON error body.
+//
+// Parameters:
+// - res:    The HTTP/2 stream to respond on.
+// - msg:    The error message text.
+// - method: The HTTP method of the original request.
 function send_method_error(res, msg, method) {
 	if (method === "HEAD") {
 		res.respond({
@@ -773,6 +999,12 @@ function send_method_error(res, msg, method) {
 	}
 }
 
+// Sends a 400 Bad Request response with a JSON error body.
+// Used consistently by all handlers for error responses.
+//
+// Parameters:
+// - res: The HTTP/2 stream to respond on.
+// - msg: The error message (will be JSON-serialized).
 function send_error(res, msg) {
 	res.respond({
 		":status": 400
