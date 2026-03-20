@@ -1,25 +1,31 @@
 /*
 ================ db_rest_api.mjs - HTTP REST API Layer for DB ================
 
-This file exposes the core key-value storage functions from db.mjs as an HTTP
-REST API. It sits between the HTTP server (rest_api.mjs) and the underlying
-storage layer (db.mjs), translating incoming HTTP requests into storage calls
-and sending back appropriate JSON or streamed responses.
+This module exposes the low-level disk operations from db.mjs via an HTTP 
+interface. It handles request routing, query parameter validation, and 
+orchestrates the lifecycle of data file streaming and WebSocket notifications.
 
---- Supported Endpoints ---
+--- Endpoint Overview ---
 
-  GET  /db/get                 - Retrieve stored file by UUID (streaming).
-  POST /db/save/node           - Save a Node.js readable stream directly.
-  POST /db/save/data           - Save a multipart/form-data upload.
-  GET  /db/delete              - Delete a stored file and its contract.
-  GET  /db/register_listener   - Subscribe a WebSocket session to a UUID.
-  GET  /db/unregister_listener - Unsubscribe a WebSocket session from a UUID.
-  GET  /db/live                - Serve a live JSON viewer HTML page.
+  1. CRUD Operations:
+	 - GET /db/get: Streams a file back. Supports chunked media streaming (206).
+	 - POST /db/save/node: Saves raw stream data from the request body.
+	 - POST /db/save/data: Saves multipart/form-data content.
+	 - GET /db/delete: Deletes a data entry and its associated metadata.
 
---- Dependency on Globals ---
+  2. Real-time Listeners:
+	 - GET /db/register_listener: Subscribes a session to a UUID for updates.
+	 - GET /db/unregister_listener: Removes a session subscription.
 
-  Uses globals set in rest_api.mjs: is_valid_uuid, assert, wss_clients,
-  listened_uuids, and send_notification_to_websocket_clients.
+  3. Developer Tools:
+	 - GET /db/live: Serves a dynamic HTML/JS page for live JSON inspection.
+
+--- Architecture & State ---
+
+  This layer relies on several global state registries (wss_clients, 
+  listened_uuids) and utility functions (is_valid_uuid, assert) initialized 
+  in rest_api.mjs. It handles the mapping between HTTP sessions and WebSocket 
+  notification targets.
 
 ================================================================================
 */
@@ -115,42 +121,30 @@ function send_error(res, msg) {
 	res.end(`{"error":"${msg}"}`);
 }
 
-// ========================= Unregister Listener ================================
-
-// Removes a WebSocket session token from the listener list for a UUID.
-// After this, that session will no longer receive update notifications
-// when the UUID's data is modified.
-//
-// Query parameters:
-// - id:    The UUID to stop watching.
-// - token: The WebSocket session token to remove.
-//
-// Validations: GET only, valid UUID, active WebSocket token, token must be registered.
+// Unregisters a WebSocket session token from the listener list for a UUID.
+// This stops the client from receiving real-time "update" notifications for this item.
 function handle_unregister_listener_request(req, res) {
-	console.log(`received unregister_listener request with path ${req.headers[":path"]}`);
+	console.log(`received unregister_listener request: ${req.headers[":path"]}`);
 	const query_object = parse(req.headers[":path"], true).query;
 	if (req.method !== "GET") {
-		send_error(res, `received /db/unregister_listener with request method ${req.method}`);
+		send_error(res, `Method ${req.method} not allowed for listener registration.`);
 		return;
 	}
 	const { id, token } = query_object;
-	if (!is_valid_uuid(id)) {
-		send_error(res, `invalid uuid.`);
+	if (!is_valid_uuid(id) || !is_valid_uuid(token)) {
+		send_error(res, `Invalid UUID or session token provided.`);
 		return;
 	}
-	if (!is_valid_uuid(token)
-		|| wss_clients[token] === undefined) {
-		send_error(res, `session token not found.`);
+	if (wss_clients[token] === undefined) {
+		send_error(res, `Session token ${token} is not active or has expired.`);
 		return;
 	}
-	if (listened_uuids[id] === undefined
-		|| listened_uuids[id].indexOf(token) === -1) {
-		send_error(res, `no listener register for ${id} in this session.`);
+	if (listened_uuids[id] === undefined || listened_uuids[id].indexOf(token) === -1) {
+		send_error(res, `No active listener found for UUID ${id} in this session.`);
 		return;
 	}
-	// Remove the token from the listener array for this UUID.
+	// Securely remove the token from the subscriber registry.
 	listened_uuids[id].splice(listened_uuids[id].indexOf(token), 1);
-	// Clean up the UUID entry entirely when no listeners remain.
 	if (listened_uuids[id].length === 0) {
 		delete listened_uuids[id];
 	}
@@ -200,73 +194,58 @@ function handle_register_listener_request(req, res) {
 	}
 }
 
-// ========================= Get Handler ========================================
-
-// Retrieves a stored file by UUID and streams it back to the client.
-// Supports full file delivery (200) and partial content delivery (206)
-// for video/audio seeking via HTTP Range requests.
-//
-// Query parameters:
-// - id:       UUID of the file to retrieve.
-// - chunking: (optional) Set to "false" to get the whole file at once.
-//
-// Headers used:
-// - range: (optional) e.g. "bytes=0-2000000" for partial reads.
-//
-// How it works:
-// 1. Validates method (GET) and UUID.
-// 2. Parses the Range header if present.
-// 3. Calls get_uuid() from db.mjs for stream + metadata.
-// 4. Sends 200 (full) or 206 (partial) with correct headers.
-// 5. Pipes the file stream to the response.
+// Retrieves a file by UUID and streams it to the client.
+// Implements full HTTP Range support (RFC 7233) for optimized media streaming.
 function handle_get_request(req, res) {
-	console.log(`received get request with path ${req.headers[":path"]}`);
+	console.log(`received get request: ${req.headers[":path"]}`);
 	const query_object = parse(req.headers[":path"], true).query;
 	if (query_object.id !== undefined) {
 		query_object.id = query_object.id.split("?")[0];
 	}
 	if (req.method !== "GET") {
-		send_error(res, `received /db/get with request method ${req.method}`);
+		send_error(res, `Method ${req.method} not allowed for file retrieval.`);
 		return;
 	}
 	if (!is_valid_uuid(query_object.id)) {
-		send_error(res, `invalid uuid.`);
+		send_error(res, `Invalid or malformed UUID: ${query_object.id}`);
 		return;
 	}
 	try {
-		// Parse the Range header to support partial content (video seeking).
-		// Format: "bytes=<start>-<end>"
+		// Handle Byte Range Requests (Video/Audio seeking)
 		const range = req.headers["range"];
 		const [start_byte, end_byte] = range ?
 			range.slice(6).split("-").map(Number) : [0];
 		const chunking = query_object.chunking !== "false";
 		const get = get_uuid(query_object.id, start_byte, end_byte, chunking);
-		assert(get.type === "full" || get.type === "partial", `get_uuid returned invalid type, ${get.type}`);
-		assert(get.length !== undefined, `get_uuid did not return content length.`);
+
+		assert(get.type === "full" || get.type === "partial", `Invalid storage response type: ${get.type}`);
+		assert(get.length !== undefined, `Storage layer failed to return content length.`);
+
 		if (get.type === "full") {
-			// Deliver the whole file.
+			// standard HTTP 200 delivery.
 			res.setHeader("Content-Length", get.length);
 			res.writeHead(200, { "content-type": get.mime });
 		} else if (get.type === "partial") {
-			// Deliver a partial byte range (HTTP 206 Partial Content).
+			// partial delivery (HTTP 206) for streaming media.
 			res.setHeader("Content-Length", get.end_byte - start_byte + 1);
 			res.setHeader("Content-Range", `bytes ${start_byte}-${get.end_byte}/${get.length}`);
 			res.setHeader("Accept-Ranges", `bytes`);
 			res.writeHead(206, { "content-type": get.mime });
 		}
-		// Stream the file data directly to the HTTP response.
+
 		get.data_stream.pipe(res);
 		res.on("finish", () => {
-			console.log("finish handling get request for " + query_object.id);
+			console.log(`Successfully streamed UUID ${query_object.id}`);
 			res.end();
 		});
-		// If client disconnects mid-stream, close the file stream to free resources.
-		req.on("aborted", e => {
+
+		// Resources cleanup on client disconnect midway.
+		req.on("aborted", () => {
 			get.data_stream.close();
-			console.log("aborted request for " + query_object.id);
+			console.log(`Stream aborted by client: ${query_object.id}`);
 		})
 	} catch (e) {
-		send_error(res, e);
+		send_error(res, e.message || e);
 	}
 }
 

@@ -1,46 +1,32 @@
 /*
 ================ odm_rest_api.mjs - HTTP REST API Layer for the ODM ===========
 
-This file exposes the Object Data Model operations from odm.mjs as an HTTP
-REST API. It translates incoming HTTP requests into ODM calls (get/set
-properties, manage collections) and returns JSON responses.
+This layer exposes the high-level Object Data Model from odm.mjs via HTTP. 
+It facilitates complex object graphs management, including nested properties, 
+symmetric collections, and locale-aware resolution.
 
 --- Endpoint Groups ---
 
-  Property access (owned objects):
-	GET  /oo/get_property             - Read a property from an owned object.
-	POST /oo/set_property             - Write a property to an owned object.
+  1. Managed Properties:
+	 - GET /oo/get_property: Reads an owned object property.
+	 - POST /oo/set_property: Writes an owned object property.
+	 - POST /oo/get_property/embedded: Navigates and reads nested properties.
+	 - POST /oo/set_property/embedded: Navigates and writes nested properties.
 
-  Property access (embedded objects):
-	POST /oo/get_property/embedded    - Read a property from an embedded object.
-	POST /oo/set_property/embedded    - Write a property to an embedded object.
+  2. Managed Collections:
+	 - GET /oo/get_collection: Lists resolved collection elements.
+	 - GET /oo/add_element_to_collection: Links an existing object.
+	 - GET /oo/create_element_in_collection: Creates and links a new object.
+	 - POST /oo/create_element_in_collection/embedded: Creates nested list items.
+	 - GET /oo/delete_element_from_collection: Unlinks an object.
 
-  Collection operations:
-	GET  /oo/get_collection           - List collection elements.
-	GET  /oo/add_element_to_collection
-	GET  /oo/create_element_in_collection
-	GET  /oo/create_element_in_embedded_collection
-	POST /oo/create_element_in_collection/embedded
-	GET  /oo/delete_element_from_collection
-	GET  /oo/delete_element_from_embedded_collection
-	POST /oo/delete_element_from_collection/embedded
+  3. Object Resolution:
+	 - GET /oo/wrap: Returns a fully-resolved JSON snapshot of an object tree.
 
-  Object wrapping:
-	GET  /oo/wrap                     - Return a fully-resolved object.
+--- Dependencies ---
 
---- Common Query Parameters ---
-
-  id:         UUID of the root (owned) object.
-  property:   Property id (field name) to read/write.
-  collection: Collection id to operate on.
-  locale:     Locale code for i18n resolution (default: "en_US").
-
---- Dependency on Globals ---
-
-  Uses globals from webserver.mjs / rest_api.mjs:
-  - is_valid_uuid(u): Validates UUID string format.
-  - assert(c, m):     Asserts a condition or exits.
-  - send_notification_to_websocket_clients(uuid): Notifies WS listeners.
+  Uses global utility functions (assert, is_valid_uuid) and WebSocket 
+  notification state managed in rest_api.mjs.
 
 ================================================================================
 */
@@ -156,30 +142,30 @@ function send_error(res, msg) {
 //
 // Validation: GET only, valid UUID, property must be provided.
 // Response: 200 with { value: <resolved value> } or 400 on error.
+// Reads a property from a top-level (owned) object.
+// Returns the resolved value considering locale and status.
 function handle_get_property_request(req, res) {
-	console.log(`received get_property request with path ${req.headers[":path"]}`);
+	console.log(`received get_property request: ${req.headers[":path"]}`);
 	const query_object = parse(req.headers[":path"], true).query;
 	if (req.method !== "GET") {
-		send_error(res, `received /oo/get_property with request method ${req.method}`);
+		send_error(res, `Method ${req.method} not allowed for property retrieval.`);
 		return;
 	}
 	const { id, property, locale } = query_object;
 	if (!is_valid_uuid(id)) {
-		send_error(res, `Invalid uuid.`);
+		send_error(res, `Provided ID is not a valid UUID.`);
 		return;
 	}
 	if (!property) {
-		send_error(res, `Missing property id`);
+		send_error(res, `Missing 'property' query parameter.`);
 		return
 	}
 	try {
-		// Resolve property value with i18n and version control applied.
 		const value = get_property_in_owned_object(id, property, locale || "en_US");
 		res.writeHead(200, { "content-type": "application/json" });
-		const response = { value }
-		res.end(JSON.stringify(response));
+		res.end(JSON.stringify({ value }));
 	} catch (e) {
-		send_error(res, e);
+		send_error(res, e.message || e);
 	}
 }
 
@@ -197,43 +183,35 @@ function handle_get_property_request(req, res) {
 //
 // Validation: POST only, valid UUID, property must be provided, valid JSON body.
 // Response: 200 with { value: <resolved value> } or 400 on error.
+// Navigates into an embedded object and reads a property.
+// Requires a navigation descriptor in the POST body.
 function handle_get_property_in_embedded_object_request(req, res) {
-	console.log(`received get_property request with path ${req.headers[":path"]}`);
+	console.log(`received get_property/embedded: ${req.headers[":path"]}`);
 	const query_object = parse(req.headers[":path"], true).query;
 	if (req.method !== "POST") {
-		send_error(res, `received /oo/get_property/embedded with request method ${req.method}`);
+		send_error(res, `Method ${req.method} not allowed; POST navigation body required.`);
 		return;
 	}
 	const { id, property, locale } = query_object;
 	if (!is_valid_uuid(id)) {
-		send_error(res, `Invalid uuid.`);
+		send_error(res, `Root ID must be a valid UUID.`);
 		return;
 	}
 	if (!property) {
-		send_error(res, `Missing property id`);
+		send_error(res, `Embedded property name missing.`);
 		return
 	}
-	// Accumulate the POST body (the child navigation descriptor).
 	let data = '';
-	req.on('data', (chunk) => {
-		data += chunk;
-	}).on('end', () => {
-		// Parse the navigation descriptor from the request body.
+	req.on('data', chunk => data += chunk).on('end', () => {
 		try {
-			data = JSON.parse(data);
-		} catch (e) {
-			send_error(res, "Request body is not valid json.");
-		}
-		try {
-			const value = get_property_in_embedded_object(id, property, data, locale || "en_US");
+			const nav_descriptor = JSON.parse(data);
+			const value = get_property_in_embedded_object(id, property, nav_descriptor, locale || "en_US");
 			res.writeHead(200, { "content-type": "application/json" });
-			res.end(`{"value":"${value}"}`);
+			res.end(JSON.stringify({ value }));
 		} catch (e) {
-			send_error(res, e);
+			send_error(res, `Navigation Failure: ${e.message || e}`);
 		}
-	}).on('error', (e) => {
-		send_error(res, 'Failed get request body');
-	})
+	});
 }
 
 // Writes a value to a property in a top-level (owned) object and saves to disk.
@@ -248,39 +226,36 @@ function handle_get_property_in_embedded_object_request(req, res) {
 //
 // Validation: POST only, valid UUID, property must be provided.
 // Response: 200 with { value: <stored value> } or 400 on error.
+// Writes a value to a property in an owned object.
+// Automatically triggers WebSocket "update" event for the object.
 function handle_set_property_request(req, res) {
-	console.log(`received set_property request with path ${req.headers[":path"]}`);
+	console.log(`received set_property request: ${req.headers[":path"]}`);
 	const query_object = parse(req.headers[":path"], true).query;
 	if (req.method !== "POST") {
-		send_error(res, `received /oo/set_property with request method ${req.method}`);
+		send_error(res, `Method ${req.method} not allowed; POST value body required.`);
 		return;
 	}
 	const { id, property, locale } = query_object;
 	if (!is_valid_uuid(id)) {
-		send_error(res, `Invalid uuid.`);
+		send_error(res, `Target object ID must be a valid UUID.`);
 		return;
 	}
 	if (!property) {
-		send_error(res, `Missing property id`);
+		send_error(res, `Target property ID missing.`);
 		return
 	}
-	// Accumulate the POST body (the new property value).
 	let value = '';
-	req.on('data', (chunk) => {
-		value += chunk;
-	}).on('end', () => {
+	req.on('data', chunk => value += chunk).on('end', () => {
 		try {
-			let response = set_property_in_owned_object(id, property, value, locale || "en_US");
-			// Notify WebSocket clients listening on this object that it was updated.
+			const response = set_property_in_owned_object(id, property, value, locale || "en_US");
+			// Broadcast update event to all subscribers.
 			send_notification_to_websocket_clients(id);
 			res.writeHead(200, { "content-type": "application/json" });
-			res.end(JSON.stringify({ "value": response }));
+			res.end(JSON.stringify({ value: response }));
 		} catch (e) {
-			send_error(res, e);
+			send_error(res, `Write Failure: ${e.message || e}`);
 		}
-	}).on('error', (e) => {
-		send_error(res, 'Failed get request body');
-	})
+	});
 }
 
 // Writes a value to a property inside a nested embedded object and saves to disk.
@@ -353,29 +328,30 @@ function handle_set_property_in_embedded_object_request(req, res) {
 //
 // Validation: GET only, valid UUID, collection must be provided.
 // Response: 200 with { collection: [...] } or 400 on error.
+// Lists elements in an owned object's collection.
+// Elements can be returned as raw UUIDs or partially resolved properties.
 function handle_get_collection_request(req, res) {
-	console.log(`received get_collection request with path ${req.headers[":path"]}`);
+	console.log(`received get_collection request: ${req.headers[":path"]}`);
 	const query_object = parse(req.headers[":path"], true).query;
 	if (req.method !== "GET") {
-		send_error(res, `received /oo/get_collection with request method ${req.method}`);
+		send_error(res, `Method ${req.method} not allowed.`);
 		return;
 	}
 	const { id, collection, property, locale } = query_object;
 	if (!is_valid_uuid(id)) {
-		send_error(res, `Invalid uuid.`);
+		send_error(res, `Owning object ID must be a valid UUID.`);
 		return;
 	}
 	if (!collection) {
-		send_error(res, `Missing property id`);
+		send_error(res, `Collection identifier missing.`);
 		return
 	}
 	try {
-		const value = get_collection(id, collection, property, locale || "en_US");
+		const elements = get_collection(id, collection, property, locale || "en_US");
 		res.writeHead(200, { "content-type": "application/json" });
-		const response = { collection: value }
-		res.end(JSON.stringify(response));
+		res.end(JSON.stringify({ collection: elements }));
 	} catch (e) {
-		send_error(res, e);
+		send_error(res, `Collection Read Failure: ${e.message || e}`);
 	}
 }
 
@@ -682,24 +658,25 @@ function handle_delete_element_from_embedded_objects_collection_request(req, res
 //
 // Validation: GET only, valid UUID.
 // Response: 200 with the serialized fully-resolved object, or 400 on error.
+// Returns a fully-resolved deep-clone snapshot of an object tree.
+// Recursively follows type specs to expand all mandatory properties and collections.
 function handle_wrap_request(req, res) {
-	console.log(`received wrap request with path ${req.headers[":path"]}`);
+	console.log(`received wrap request: ${req.headers[":path"]}`);
 	const query_object = parse(req.headers[":path"], true).query;
 	if (req.method !== "GET") {
-		send_error(res, `received /oo/wrap with request method ${req.method}`);
+		send_error(res, `Method ${req.method} not allowed.`);
 		return;
 	}
 	const { id, locale } = query_object;
 	if (!is_valid_uuid(id)) {
-		send_error(res, `Invalid uuid.`);
+		send_error(res, `Target ID must be a valid UUID.`);
 		return;
 	}
 	try {
-		// Fully resolve the object with all nested properties and collections.
 		const object = wrap_owned_object(id, locale || "en_US");
 		res.writeHead(200, { "content-type": "application/json" });
 		res.end(JSON.stringify(object));
 	} catch (e) {
-		send_error(res, e);
+		send_error(res, `Object Wrap Failure: ${e.message || e}`);
 	}
 }

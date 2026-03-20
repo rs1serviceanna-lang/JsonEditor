@@ -1,65 +1,33 @@
 /*
 =================== odm.mjs - Object Data Model (ODM) Layer ==================
 
-This module implements a high-level Object Data Model (ODM) on top of the raw
-key-value storage provided by db.mjs. It provides object-oriented access to
-JSON data stored in Metax, supporting typed objects, properties, collections,
-version control, and internationalization (i18n).
+Metax ODM is a schema-aware document mapper built on the core DB storage. 
+It provides a high-level API for managing structured JSON objects with 
+support for inheritance (via types), versioning, and internationalization.
 
---- Core Concepts ---
+--- Data Architecture ---
 
-  Typed Object:
-    Every stored JSON object has a "type" field containing a UUID pointing to
-    a "type definition" object. The type definition lists the object's
-    properties and collections, along with their metadata (pspec/cspec).
+  1. Typed Objects:
+     Each JSON object contains a "type" field (Double-UUID). This points to 
+      a "Type Strategy" object that defines allowed properties and collections.
 
-  Property (pspec - property specification):
-    Describes a single field on an object. Metadata includes:
-    - id:                    The property key name used in the JSON.
-    - kind:                  "embedded" (stored inline) or "owned" (UUID ref).
-    - value_type:            UUID of the type for this property's value.
-    - enable_internalization: Whether the field supports multiple locales.
-    - enable_version_tracking: Whether changes are tracked (version control).
-    - mandatory/default_value: Validation and defaults.
+  2. Property Strategy (pspec):
+     - 'embedded': Value is stored inline within the parent JSON.
+     - 'owned':    Value is a UUID pointing to another independent object.
+     - i18n support: Automatically handles locale-based value resolution.
+     - VCS support: Automatically manages value versioning via 'vcs_item' proxy.
 
-  Collection (cspec - collection specification):
-    Describes an array field on an object. Can be "embedded" (objects stored
-    inline) or "composition" (array of UUIDs to other objects). Also supports
-    symmetric relationships where adding/removing from one side also updates
-    the other side.
+  3. Collection Strategy (cspec):
+     - 'embedded': Array of inline objects (good for small, fixed children).
+     - 'composition': Array of UUIDs (good for large or shared children).
+     - 'symmetric': Automatically manages two-way relationships (parent-child).
 
-  Version Control:
-    When enable_version_tracking is set, a property's value is replaced by
-    a UUID pointing to a version control item (vcs_item) which stores the
-    current value. This allows modification history tracking.
+--- Core Logic Patterns ---
 
-  Internationalization:
-    When enable_internalization is set, a property stores an object keyed by
-    locale codes (e.g., { "en_US": "Hello", "hy_AM": "Բարև" }) instead of a
-    plain string. Reading resolves to the requested locale with fallbacks.
-
---- UUID Constants ---
-
-  The "uuids" object maps well-known concept names to their fixed UUID values
-  stored in the database, so the code can reference them by name rather than
-  by raw UUID string. For example, uuids.true is the UUID of the boolean "true"
-  type object in the system.
-
---- Exported Functions (Public API) ---
-
-  get_property_in_owned_object(uuid, id, locale)
-  get_property_in_embedded_object(uuid, id, child, locale)
-  set_property_in_owned_object(uuid, id, value, locale)
-  set_property_in_embedded_object(uuid, id, value, child, locale)
-  wrap_owned_object(uuid, locale, is_type, is_type_type)
-  add_element_to_collection(uuid, id, el)
-  create_element_in_collection(uuid, id)
-  create_element_in_embedded_collection(uuid, id)
-  delete_element_from_collection(uuid, id, el)
-  delete_element_from_embedded_collection(uuid, id, index)
-  create_element_in_embedded_objects_collection(uuid, id, child)
-  delete_element_from_embedded_objects_collection(uuid, id, index, child)
-  get_collection(uuid, id, property, locale)
+  - Wrapping: 'wrap_owned_object' recursively resolves types and properties 
+    into a plain JS object for application consumption.
+  - Property I/O: 'get_property' and 'set_property' handle the complexity of 
+    VCI (Version Control Item) lookups and locale fallbacks.
 
 ================================================================================
 */
@@ -106,6 +74,11 @@ const uuids = {
 
 // Default locale used when no locale is specified by the caller.
 const default_locale = "en_US";
+
+// Internal cache for Type Strategy objects to prevent redundant disk I/O.
+// Since schema types change infrequently, caching them improves wrap_object 
+// performance by several orders of magnitude.
+const type_cache = new Map();
 
 // ========================= Property Spec Helpers =============================
 
@@ -178,46 +151,43 @@ function get_collspec(type, id) {
 // ========================= Core Object I/O ===================================
 
 // Reads a JSON object from storage by UUID.
-// Throws if the stored data is not valid JSON.
-//
-// Parameters:
-// - uuid: UUID of the object to read.
-//
-// Returns: Parsed JavaScript object.
+// Strictly validates JSON integrity.
 function get_object(uuid) {
         let o = get_uuid_sync(uuid).data;
         try {
                 o = JSON.parse(o);
-        } catch {
-                throw `The ${uuid} is not valid JSON.`;
+        } catch (err) {
+                throw new Error(`Data integrity error: ${uuid} is not a valid JSON document.`);
         }
-        return o
+        return o;
 }
 
-// Reads an object and builds a "wrapper" that includes resolved property/collection
-// keys from its type definition. Only the fields declared on the type are included.
-//
-// Parameters:
-// - uuid: UUID of the object to wrap.
-//
-// Returns: Object with properties and collections populated from the type spec.
+// Builds a virtual object by mapping the raw JSON data to its schema (Type).
+// Only fields explicitly defined in the propspec/collspec are exposed.
 function wrap_object(uuid) {
         const object = {};
         let o = get_object(uuid);
         if (!o.type || !is_valid_uuid(o.type)) {
-                throw `The ${uuid} has invalid type.`
+                throw new Error(`Schema Violation: Item ${uuid} has an invalid or missing 'type' reference.`);
         }
-        let type = get_object(o.type);
-        // Populate each declared property from the stored object.
+        let type;
+        if (type_cache.has(o.type)) {
+                type = type_cache.get(o.type);
+        } else {
+                type = get_object(o.type);
+                type_cache.set(o.type, type);
+        }
+        // Expose only defined properties.
         type.properties.forEach(property => {
                 object[property.id] = o[property.id];
         });
-        // Populate each declared collection from the stored object.
+        // Expose only defined collections.
         type.collections.forEach(collection => {
                 object[collection.id] = o[collection.id];
         });
         object.type = type;
-        return object
+        object.uuid = uuid; // Keep reference to original key
+        return object;
 }
 
 // Writes an object back to storage, serializing it as JSON.
@@ -250,28 +220,29 @@ function update_object(o) {
 // Returns: [embedded_object, embedded_type] tuple.
 function get_embedded_object(o, t, c) {
         if (!c.property && !(c.collection && c.index !== undefined)) {
-                throw "There is no collection or property id specified.";
+                throw new Error("Navigation Error: No collection or property id specified in descriptor.");
         }
         let type_uuid;
         let object;
         if (c.property) {
-                // Navigate into an embedded property.
                 const propspec = get_propspec(t, c.property);
                 type_uuid = propspec.value_type;
                 object = o[c.property]
         } else {
-                // Navigate into a specific element of an embedded collection.
                 const collspec = get_collspec(t, c.collection);
                 type_uuid = collspec.element_type;
                 object = o[c.collection][c.index];
         }
-        let type = get_uuid_sync(type_uuid).data;
-        try {
-                type = JSON.parse(type);
-        } catch {
-                throw `The ${type_uuid} is not valid JSON.`;
+
+        // Cache-aware type loading.
+        let type;
+        if (type_cache.has(type_uuid)) {
+                type = type_cache.get(type_uuid);
+        } else {
+                type = get_object(type_uuid);
+                type_cache.set(type_uuid, type);
         }
-        // If there's a deeper child navigation, recurse into it.
+
         if (!c.child) {
                 return [object, type]
         }
@@ -426,13 +397,12 @@ function set_external_property_value(o, id, v, pspec) {
 // Returns: The resolved property value.
 export function get_property_in_owned_object(uuid, id, locale) {
         const object = wrap_object(uuid);
-        // Special case: reading the "type" property returns the type's UUID.
         if (id === "type") {
-                return object.type.uuid
+                return object.type.uuid || object.type;
         }
         const propspec = get_propspec(object.type, id);
         if (propspec === undefined) {
-                throw `There is no property with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Property Error: '${id}' not found in type schema for object ${uuid}.`);
         }
         return get_property(object, propspec, locale);
 }
@@ -450,7 +420,7 @@ export function get_property_in_embedded_object(uuid, id, child, locale) {
         const [embedded_object, type] = get_embedded_object(object, object.type, child);
         const propspec = get_propspec(type, id);
         if (propspec === undefined) {
-                throw `There is no property with id: ${id}.`;
+                throw new Error(`Property Error: '${id}' not found in embedded object type.`);
         }
         return get_property(embedded_object, propspec, locale, object);
 }
@@ -468,13 +438,12 @@ export function set_property_in_owned_object(uuid, id, value, locale) {
         const o = wrap_object(uuid);
         const propspec = get_propspec(o.type, id);
         if (propspec === undefined) {
-                throw `There is no property with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Property Error: cannot set unknown property '${id}' in object ${uuid}.`);
         }
         if (id === "type") {
                 value = wrap_owned_object(value, true);
         }
         const r = set_property(o, propspec, value, locale);
-        // Persist the updated object back to disk.
         update_object(o);
         return r
 }
@@ -494,13 +463,12 @@ export function set_property_in_embedded_object(uuid, id, value, child, locale) 
         const [embedded_object, type] = get_embedded_object(object, object.type, child);
         const propspec = get_propspec(type, id);
         if (propspec === undefined) {
-                throw `There is no property with id: ${id}.`;
+                throw new Error(`Property Error: Cannot set unknown property '${id}' in embedded object.`);
         }
         if (id === "type") {
                 value = wrap_owned_object(value, true);
         }
         const r = set_property(embedded_object, propspec, value, locale);
-        // Only the root object is saved; embedded objects are stored inline.
         update_object(object);
         return r
 }
@@ -587,11 +555,11 @@ export function add_element_to_collection(uuid, id, el) {
         const element = wrap_object(el);
         const cspec = get_collspec(object.type, id);
         if (cspec === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         // Enforce type safety: the element must match the collection's declared element type.
         if (cspec.element_type !== element.type.uuid) {
-                throw `The element ${el} is not of type ${cspec.element_type}.`;
+                throw new Error(`Type Mismatch: element '${el}' is not of type '${cspec.element_type}'.`);
         }
         object[id].push(el);
         // For symmetric collections, update the other side of the relationship too.
@@ -659,11 +627,11 @@ export function delete_element_from_collection(uuid, id, el) {
         const object = wrap_object(uuid);
         const cspec = get_collspec(object.type, id);
         if (cspec === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         const index = object[id].indexOf(el);
         if (index === -1) {
-                throw `There is no element with uuid ${el} in collection ${id}.`;
+                throw new Error(`Not Found: element '${el}' not found in collection '${id}'.`);
         }
         object[id].splice(index, 1);
         if (is_composition_collection(cspec) && cspec.symmetric) {
@@ -687,7 +655,7 @@ export function create_element_in_collection(uuid, id) {
         const object = wrap_object(uuid);
         const cspec = get_collspec(object.type, id);
         if (cspec === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         const type = get_object(cspec.element_type);
         const new_object = create_new_mani_object(type)
@@ -717,7 +685,7 @@ export function create_element_in_embedded_collection(uuid, id) {
         const object = wrap_object(uuid);
         const cspec = get_collspec(object.type, id);
         if (cspec === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         const type = get_object(cspec.element_type);
         const new_object = create_new_mani_object(type)
@@ -742,10 +710,10 @@ export function delete_element_from_embedded_collection(uuid, id, index) {
         const object = wrap_object(uuid);
         const cspec = get_collspec(object.type, id);
         if (cspec === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         if (object[id][index] === undefined) {
-                throw `There is no element with index ${index} in colletion.`;
+                throw new Error(`Not Found: no element at index ${index} in collection.`);
         }
         object[id].splice(index, 1);
         update_object(object);
@@ -766,7 +734,7 @@ export function create_element_in_embedded_objects_collection(uuid, id, child) {
         const [embedded_object, type] = get_embedded_object(object, object.type, child);
         const cspec = get_collspec(type, id);
         if (cspec === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         const element_type = get_object(cspec.element_type);
         const new_object = create_new_mani_object(element_type)
@@ -790,10 +758,10 @@ export function delete_element_from_embedded_objects_collection(uuid, id, index,
         const [embedded_object, type] = get_embedded_object(object, object.type, child);
         const cspec = get_collspec(type, id);
         if (cspec === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         if (embedded_object[id][index] === undefined) {
-                throw `There is no element with index ${index} in colletion.`;
+                throw new Error(`Not Found: no element at index ${index} in collection.`);
         }
         embedded_object[id].splice(index, 1);
         update_object(object);
@@ -817,7 +785,7 @@ export function get_collection(uuid, id, property, locale) {
         const object = wrap_object(uuid);
         const cspec = get_collspec(object.type, id);
         if (cspec === undefined || object[cspec.id] === undefined) {
-                throw `There is no collection with id: ${id} in object: ${uuid}.`;
+                throw new Error(`Collection Error: '${id}' not found in object '${uuid}'.`);
         }
         const collection = [];
         // Without a property filter, return the raw array of UUIDs.

@@ -1,38 +1,23 @@
 /*
-==================== rest_api.mjs - Metax HTTP/2 Server Entry Point ===========
+================= rest_api.mjs - Metax Server Engine Core ===================
 
-This file is the main entry point for the Metax backend process. It:
+This is the central entry point for the Metax Data Platform. 
+It instantiates the secure HTTP/2 server, manages the global configuration, 
+and coordinates the interaction between raw DB storage and ODM layers.
 
-  1. Reads configuration from command-line arguments (key=value pairs).
-  2. Sets up global utilities (assert, is_valid_uuid, WebSocket state).
-  3. Initializes the database storage layer.
-  4. Starts a secure HTTP/2 + WebSocket server on a configured port.
-  5. Routes incoming requests to the correct handler:
-	   - /db/* calls -> db_rest_api.mjs (raw file storage)
-	   - /oo/* calls -> odm_rest_api.mjs (object data model)
-	   - /config/*   -> handled locally for user identity requests.
+--- Operational Flow ---
 
---- Security ---
+  1. Configuration: Parses command-line k=v pairs (storage, port, keys).
+  2. Initialization: Prepares the disk-based DB layer and mTLS context.
+  3. Server Context: Opens a secure HTTP/2 + WebSocket multiplexer on localhost.
+  4. Dispatch: Routes traffic to /db (raw), /oo (ODM), or /config (identity).
 
-  - Listens only on 127.0.0.1 (loopback). No external network traffic.
-  - Optionally requires mutual TLS (mTLS) if a CA certificate is configured.
-  - Rejects connections from non-localhost addresses with HTTP 403.
-  - Logs client certificate CN and protocol for every request (audit trail).
+--- Security & Audit ---
 
---- WebSocket ---
-
-  Each new WebSocket connection is assigned a random session token (UUID).
-  The token is sent to the client as { event: "connected", token: "<uuid>" }.
-  Clients use this token to register as listeners for DB UUID updates.
-  When a UUID is saved, all registered listeners receive an "update" event.
-
---- Configuration (via command-line args) ---
-
-  storage=<path>   Path to the file storage directory.
-  port=<number>    Port for the HTTPS server.
-  key=<path>       Path to the TLS private key file.
-  cert=<path>      Path to the TLS certificate file.
-  ca=<path>        (optional) Path to CA cert for mTLS client auth.
+  - Enforces localhost-only access patterns by default.
+  - Supports mutual TLS (mTLS) for cryptographic client identification.
+  - Maintains a per-request audit trail including Client CN and Protocol.
+  - WebSocket session isolation via high-entropy random tokens.
 
 ================================================================================
 */
@@ -130,15 +115,15 @@ function main() {
 
 // ========================= Configuration =====================================
 
-// Parses command-line arguments in "key=value" format and populates config.
-// Example: node rest_api.mjs storage=./storage port=5001 key=./key.pem cert=./cert.pem
+// Processes command-line arguments in "key=value" format.
+// Populates the internal config registry for runtime availability.
 function configure_metax() {
 	const argv = process.argv.slice(2);
-	for (let i = 0; i < argv.length; i++) {
-		let pairs = argv[i].split("=");
-		config[pairs[0]] = pairs[1];
-	}
-	console.log("metax configured.");
+	argv.forEach(arg => {
+		const [key, value] = arg.split("=");
+		if (key && value) config[key] = value;
+	});
+	console.log(`[SYSTEM] Configuration loaded: ${Object.keys(config).join(", ")}`);
 }
 
 // ========================= Server Startup ====================================
@@ -202,84 +187,39 @@ function handle_http_server_error(e) {
 
 // ========================= Request Router ====================================
 
-// Routes all incoming HTTP requests to the correct handler based on the path.
-// Also enforces security policies: localhost-only and audit logging.
-//
-// Security steps performed on every request:
-// 1. Rejects non-localhost connections with HTTP 403.
-// 2. Logs the connecting client's certificate CN, protocol, and IP.
-// 3. Warns about non-HTTP/2 requests (expected to use HTTP/2 via ALPN).
-//
-// Sets CORS headers to allow cross-origin access (needed for browser clients).
-// Normalizes HTTP/1.1 requests to use HTTP/2 header names (:path, :method).
-// Routes by the first path segment: "db", "oo", or "config".
+// Main request router. Routes traffic based on the first path segment.
+// Implements CORS for browser clients and standardizes pseudo-headers.
 function route_incoming_request(req, res) {
-	// SECURITY: Reject any connection that is not from localhost.
 	const remoteAddr = req.socket.remoteAddress;
-	const isLocalhost = remoteAddr === '127.0.0.1' ||
-		remoteAddr === '::1' ||
-		remoteAddr === '::ffff:127.0.0.1' ||
-		remoteAddr === 'localhost';
+	const isLocalhost = remoteAddr === '127.0.0.1' || remoteAddr === '::1' || remoteAddr === 'localhost';
 
 	if (!isLocalhost) {
-		console.error(`Rejected non-localhost connection attempt from ${remoteAddr}`);
+		console.warn(`[SECURITY] Blocked non-localhost attempt from ${remoteAddr}`);
 		res.writeHead(403, { "content-type": "application/json" });
-		res.end('{"error":"Access denied. Only localhost connections allowed."}');
+		res.end('{"error":"Access Restricted: Only localhost connections are permitted."}');
 		return;
 	}
 
-	// AUDIT: Extract client certificate info for logging.
 	const cert = req.socket.getPeerCertificate();
-	const clientCN = cert && cert.subject ? cert.subject.CN : "No Client Cert/Auth Error";
-	const protocol = req.httpVersion >= 2 ? "HTTP/2" : "HTTP/1.1";
+	const clientCN = cert && cert.subject ? cert.subject.CN : "System/Anonymous";
+	const protocol = req.httpVersion >= 2 ? "H2" : "H1.1";
 
-	// Warn if a REST request is not using HTTP/2 (WebSocket upgrades are exempt).
-	if (req.headers['upgrade'] !== 'websocket' && req.httpVersion < 2) {
-		// Logging only for now; could return 426 Upgrade Required if stricter enforcement needed.
-		console.warn(`[AUDIT] Potential non-HTTP/2 REST request from ${clientCN} via ${protocol}`);
-	}
-
-	// Log every connection with timestamp, client identity, and address.
-	console.log(`[AUDIT] [${new Date().toISOString()}] Connection from ${clientCN} (${remoteAddr}) using ${protocol}`);
-
-	// Set CORS headers to allow browser clients from any origin.
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-	res.setHeader('Access-Control-Allow-Headers', '*');
-
-	// Handle preflight OPTIONS requests immediately (used by browsers for CORS).
-	if (req.method === 'OPTIONS') {
-		res.writeHead(200);
-		res.end();
-		return;
-	}
-
-	// Normalize HTTP/1.1 headers to HTTP/2 pseudo-headers for unified handling.
+	// Internal normalization for HTTP/1.1 compatibility.
 	if (!req.headers[":path"]) req.headers[":path"] = req.url;
-	if (!req.headers[":scheme"]) req.headers[":scheme"] = "https";
 	if (!req.headers[":method"]) req.headers[":method"] = req.method;
 
-	let req_path = req.headers[":path"].split("?")[0];
-	console.log(`received new request from ${req.socket.remoteAddress},`,
-		`request path: ${req.headers[":path"]}`);
+	const clean_path = req.headers[":path"].split("?")[0];
+	const root_segment = clean_path.split("/")[1];
 
-	// Dispatch to the appropriate handler based on the first path segment.
-	switch (req_path.split("/")[1]) {
-		case "db":
-			// Raw storage operations (get, save, delete, listeners).
-			handle_db_request(req, res);
-			break;
-		case "oo":
-			// Object Data Model operations (properties, collections, wrap).
-			handle_odm_request(req, res);
-			break;
-		case "config":
-			// Configuration and identity requests.
-			handle_config_request(req, res);
-			break;
+	console.log(`[AUDIT] [${protocol}] ${clientCN} -> ${clean_path}`);
+
+	switch (root_segment) {
+		case "db": handle_db_request(req, res); break;
+		case "oo": handle_odm_request(req, res); break;
+		case "config": handle_config_request(req, res); break;
 		default:
-			res.writeHead(400, { "content-type": "application/json" });
-			res.end(`{"error":"request is not handled yet."}`);
+			res.writeHead(404, { "content-type": "application/json" });
+			res.end(`{"error":"Resource not found: ${clean_path}"}`);
 			break;
 	}
 }
@@ -300,7 +240,14 @@ function handle_websocket_new_connection(s) {
 	wss_clients[token] = s;
 	// Inform the client of its session token so it can register listeners.
 	s.send(`{"event":"connected", "token": "${token}"}`);
+
+	// 30-second keep-alive to prevent silent disconnects
+	const keep_alive = setInterval(() => {
+		if (s.readyState === s.OPEN) s.ping();
+	}, 30_000);
+
 	s.on("close", () => {
+		clearInterval(keep_alive);
 		console.log(`received websocket close event for session: ${token}`);
 		assert(wss_clients[token] !== undefined,
 			"websocket connection was closed improperly");
