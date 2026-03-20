@@ -63,7 +63,7 @@ import { readFileSync } from "fs";
 // ========================= Logging Aliases ===================================
 
 // Short aliases for structured logger calls scoped to "router" module.
-const trace = (m) => logger.trace("router", m);
+const trace = (m) => logger.console.log("router", m);
 const warning = (m) => logger.warning("router", m);
 const error = (m) => logger.error("router", m);
 
@@ -120,7 +120,7 @@ export function handle_new_write_server_stream(stream, headers) {
 			return;
 		}
 		const path = parse(headers[":path"], true).pathname;
-		trace(`received new secure request: ${stream.session.id} path: ${path}`);
+		console.log(`received new secure request: ${stream.session.id} path: ${path}`);
 		switch (path) {
 			case "/db/get":
 				handle_get_request(stream, headers);
@@ -185,13 +185,7 @@ export function handle_new_write_server_stream(stream, headers) {
 export function handle_new_read_only_stream(stream, headers) {
 	try {
 		const clientCert = stream.session.socket.getPeerCertificate();
-		if (!clientCert || !clientCert.fingerprint256) {
-			warning(`rejecting read request without client certificate from ${stream.session.socket.remoteAddress}`);
-			send_method_error(stream, "request is unauthorized, please insert a valid client certificate.", headers[":method"]);
-			return;
-		}
-
-		const clientCN = clientCert.subject ? clientCert.subject.CN : "Unknown CN";
+		const clientCN = clientCert && clientCert.subject ? clientCert.subject.CN : "Anonymous";
 		const protocol = stream.session.alpnProtocol || "HTTP/1.1";
 
 		if (protocol !== "h2" && headers['upgrade'] !== 'websocket') {
@@ -207,7 +201,7 @@ export function handle_new_read_only_stream(stream, headers) {
 			return;
 		}
 		const path = parse(headers[":path"], true).pathname;
-		trace(`received new stream from ${stream.session.id}, path: ${path}`);
+		console.log(`received new stream from ${stream.session.id}, path: ${path}`);
 		switch (path) {
 			case "/db/get":
 				handle_get_request(stream, headers);
@@ -252,7 +246,7 @@ export function handle_new_client_session(session) {
 	session.first_stream = true;
 	sessions_log.write("new session: " + session.socket.remoteAddress + "  , session id: " + session.id +
 		"  , fingerprint: " + session.socket.getPeerCertificate().fingerprint256 + "\n");
-	trace("new session with id: " + session.id +
+	console.log("new session with id: " + session.id +
 		"  , fingerprint: " + session.socket.getPeerCertificate().fingerprint256);
 	// Create secure connection to metax with client certificate
 	let metaxOptions = {};
@@ -266,7 +260,7 @@ export function handle_new_client_session(session) {
 			};
 		} else {
 			metaxOptions = { rejectUnauthorized: false };
-			trace("WARNING: Session metax connection without client certificate");
+			console.log("WARNING: Session metax connection without client certificate");
 		}
 	} catch (e) {
 		error(`Failed to load TLS certs for session: ${e}`);
@@ -303,7 +297,7 @@ export function handle_new_client_session(session) {
 // Called after the WebSocket connection to Metax is reconnected, so that
 // notifications for all tracked UUIDs resume correctly.
 export async function re_register_proxied_listeners() {
-	trace("re-registering all proxied metax listeners.");
+	console.log("re-registering all proxied metax listeners.");
 	const uuids = Object.keys(listened_uuids);
 	for (let i = 0; i < uuids.length; i++) {
 		try {
@@ -318,7 +312,7 @@ export async function re_register_proxied_listeners() {
 // for every UUID that has at least one registered listener.
 // Called after a Metax reconnection to ensure clients refresh their data.
 export function trigger_all_client_updates() {
-	trace("triggering updates for all listened uuids.");
+	console.log("triggering updates for all listened uuids.");
 	const uuids = Object.keys(listened_uuids);
 	for (let i = 0; i < uuids.length; i++) {
 		handle_metax_update_message(uuids[i]);
@@ -332,13 +326,13 @@ export function trigger_all_client_updates() {
 // - uuid: The UUID whose data was updated.
 export function handle_metax_update_message(uuid) {
 	assert(is_valid_uuid(uuid), "handle_metax_update_message received invalid uuid.");
-	trace("received handle_metax_update_message with uuid: " + uuid)
+	console.log("received handle_metax_update_message with uuid: " + uuid)
 	if (listened_uuids[uuid] !== undefined) {
 		for (let i = 0; i < listened_uuids[uuid].length; i++) {
 			let token = listened_uuids[uuid][i];
 			assert(wss_clients[token] !== undefined,
 				"listened_uuids has token in list, but websocket object not found.");
-			trace("sending update_message for uuid: " + uuid + " to token: " + token);
+			console.log("sending update_message for uuid: " + uuid + " to token: " + token);
 			wss_clients[token].send(JSON.stringify({ event: "update", uuid }))
 		}
 	}
@@ -368,7 +362,7 @@ export function handle_websocket_new_connection(s) {
 		s.ping();
 	}, 30000);
 	s.on("close", () => {
-		trace(`received websocket close event for session: ${token}`);
+		console.log(`received websocket close event for session: ${token}`);
 		assert(wss_clients[token] !== undefined,
 			"websocket connection was closed improperly");
 		clearInterval(send_ping);
@@ -404,17 +398,19 @@ function clean_up_listened_uuids_per_token(token) {
 // - stream:  The HTTP/2 stream object.
 // - headers: Request headers including :authority for subdomain lookup.
 function handle_get_user_id_request(stream, headers) {
-	trace(`processing get_user_id request with path ${headers[":path"]}`);
+	console.log(`processing get_user_id request with path ${headers[":path"]}`);
 	try {
 		if (headers[":method"] !== "GET") {
 			send_method_error(stream, `received /config/get_user_id request with method ${headers[":method"]}`, headers[":method"]);
 			return;
 		}
+		const authority = headers[":authority"] ? headers[":authority"].split(":")[0] : "";
 		let i = sitemap.websites.findIndex(website => {
-			let index = website.subdomains.findIndex(el => el.name === headers[":authority"].split(":")[0])
+			let index = website.subdomains.findIndex(el => el.name === authority)
 			return index !== -1;
 		});
 		if (i === -1) {
+			console.log(`No website found in sitemap for authority: ${authority}`);
 			send_error(stream, "couln't find user");
 			return
 		}
@@ -461,7 +457,7 @@ function handle_get_user_id_request(stream, headers) {
 // - stream:  The HTTP/2 stream object.
 // - headers: Request headers; body must be the PEM certificate content.
 function handle_request_permission_request(stream, headers) {
-	trace(`processing request_permission request with path ${headers[":path"]}`);
+	console.log(`processing request_permission request with path ${headers[":path"]}`);
 	if (headers[":method"] !== "POST") {
 		send_method_error(stream, `received /config/request_permission request with method ${headers[":method"]}`, headers[":method"]);
 		return;
@@ -518,7 +514,7 @@ function handle_request_permission_request(stream, headers) {
 				"content-type": "application/json"
 			});
 			stream.end(`{"status":"success"}`);
-			trace(`end processing request_permission request with path ${headers[":path"]}`);
+			console.log(`end processing request_permission request with path ${headers[":path"]}`);
 		});
 	stream.pipe(save_request);
 }
@@ -529,7 +525,7 @@ function handle_request_permission_request(stream, headers) {
 //
 // Query parameters: id (UUID), token (session token).
 async function handle_unregister_listener_request(stream, headers) {
-	trace(`processing unregister_listener request with path ${headers[":path"]}`);
+	console.log(`processing unregister_listener request with path ${headers[":path"]}`);
 	const { id, token } = parse(headers[":path"], true).query;
 	if (headers[":method"] !== "GET") {
 		send_method_error(stream, `received /db/unregister_listener with request method ${headers[":method"]}`, headers[":method"]);
@@ -579,7 +575,7 @@ async function handle_unregister_listener_request(stream, headers) {
 //
 // Query parameters: id (UUID), token (session token).
 async function handle_register_listener_request(stream, headers) {
-	trace(`processing register_listener request with path ${headers[":path"]}`);
+	console.log(`processing register_listener request with path ${headers[":path"]}`);
 	const { id, token } = parse(headers[":path"], true).query;
 	if (headers[":method"] !== "GET") {
 		send_method_error(stream, `received /db/register_listener with request method ${headers[":method"]}`, headers[":method"]);
@@ -644,7 +640,7 @@ function add_uuid_in_listened_uuids(id, token, stream) {
 // - stream:  The HTTP/2 stream (incoming data body is piped from this).
 // - headers: Request headers forwarded to Metax.
 function handle_save_request(stream, headers) {
-	trace(`processing /db/save request with path ${headers[":path"]}`);
+	console.log(`processing /db/save request with path ${headers[":path"]}`);
 	// Extract user info for logging
 	const user_info_save = extract_user_info(stream.session);
 	const cert_save = stream.session.socket?.getPeerCertificate();
@@ -679,7 +675,7 @@ function handle_save_request(stream, headers) {
 				mime_type: headers['content-type'] || '',
 				additional: { path: headers[':path'] }
 			});
-			trace(`finished /db/save request for ${query_object.id}`);
+			console.log(`finished /db/save request for ${query_object.id}`);
 		});
 	stream.pipe(save_request);
 }
@@ -692,7 +688,7 @@ function handle_save_request(stream, headers) {
 // - stream:  The HTTP/2 stream.
 // - headers: Request headers forwarded to Metax.
 function handle_odm_request(stream, headers) {
-	trace(`processing odm request with path ${headers[":path"]}.`);
+	console.log(`processing odm request with path ${headers[":path"]}.`);
 	if (headers[":method"] !== "GET" && headers[":method"] !== "POST") {
 		send_method_error(stream, `received /oo request with method ${headers[":method"]}`, headers[":method"]);
 		return;
@@ -711,7 +707,7 @@ function handle_odm_request(stream, headers) {
 		}).on("end", () => {
 			odm_request.close();
 			stream.end();
-			trace(`finished odm request with path ${headers[":path"]}.`);
+			console.log(`finished odm request with path ${headers[":path"]}.`);
 		});
 	if (headers[":method"] === "POST") {
 		stream.pipe(odm_request);
@@ -735,7 +731,7 @@ function handle_delete_request(stream, headers) {
 		query_object.id = query_object.id.split("?")[0];
 	}
 	if (is_valid_uuid(query_object.id)) {
-		trace(`processing /db/delete for ${query_object.id}`);
+		console.log(`processing /db/delete for ${query_object.id}`);
 		// Extract user info for logging
 		const user_info_del = extract_user_info(stream.session);
 		const cert_del = stream.session.socket?.getPeerCertificate();
@@ -764,7 +760,7 @@ function handle_delete_request(stream, headers) {
 					ip_address: user_info_del.remote_address,
 					fingerprint: user_info_del.fingerprint
 				});
-				trace(`finished /db/delete for ${query_object.id}`);
+				console.log(`finished /db/delete for ${query_object.id}`);
 			});
 		stream.on("close", () => get_request.close())
 	} else {
@@ -793,7 +789,7 @@ function handle_get_request(stream, headers) {
 		send_error(stream, "invalid uuid.");
 		return
 	}
-	trace(`processing /db/get for ${query_object.id}`);
+	console.log(`processing /db/get for ${query_object.id}`);
 	// Extract user info for logging
 	const user_info_get = extract_user_info(stream.session);
 	const cert_get = stream.session.socket?.getPeerCertificate();
@@ -820,7 +816,7 @@ function handle_get_request(stream, headers) {
 		}).on("end", () => {
 			get_request.close();
 			stream.end();
-			trace(`finished /db/get for ${query_object.id}`);
+			console.log(`finished /db/get for ${query_object.id}`);
 		}).on("error", err => {
 			stream.end()
 			error(err);
@@ -828,7 +824,7 @@ function handle_get_request(stream, headers) {
 	stream.on("aborted", () => {
 		get_request.close();
 		stream.end();
-		trace(`stream aborted for ${query_object.id}`);
+		console.log(`stream aborted for ${query_object.id}`);
 	})
 }
 
@@ -837,10 +833,10 @@ function handle_get_request(stream, headers) {
 // Otherwise, searches the sitemap for a matching subdomain and path,
 // then proxies a /db/get request to serve the configured destination UUID.
 // Returns 400 if no matching path is found in the sitemap.
-//
 function handle_default_request(stream, headers) {
+	const authority = headers[":authority"] ? headers[":authority"].split(":")[0] : "";
 	const req_path = parse(headers[":path"], true).pathname;
-	trace("received default request from " + headers[":authority"] + " with path " + req_path);
+	console.log("received default request from " + authority + " with path " + req_path);
 
 	// Եթե path-ը արդեն /db/get կամ /db/save, ուղիղ մատուցել
 	if (req_path.startsWith("/db/")) {
@@ -850,15 +846,15 @@ function handle_default_request(stream, headers) {
 
 	// Երկար առաջի fallback (sitemap) մնացակա
 	for (let i = 0; i < sitemap.websites.length; i++) {
-		const subdomain = sitemap.websites[i].subdomains.find(s => s.name === headers[":authority"]);
-		if (!subdomain) continue;
+		const subdomain = sitemap.websites[i].subdomains.find(s => s.name === authority);
+		if (!subdomain || !subdomain.paths) continue;
+
 		const path = subdomain.paths.find(p => p.name === req_path);
 		if (!path || !is_valid_uuid(path.destination_uuid)) {
-			send_error(stream, "request not handled yet.");
-			return;
+			continue; // Check other websites/subdomains if current one doesn't have the path
 		}
 		const req_headers = { ":path": `/db/get?id=${path.destination_uuid}` };
-		trace("piping default request with path " + req_path);
+		console.log("piping default request with path " + req_path);
 		const get_request = metax_sessions[stream.session.id].request(req_headers)
 			.on("response", respHeaders => {
 				if (!stream.destroyed) {
@@ -871,11 +867,11 @@ function handle_default_request(stream, headers) {
 			}).on("end", () => {
 				get_request.close();
 				stream.end();
-				trace(`finished handle default request`);
+				console.log(`finished handle default request`);
 			});
 		return;
 	}
-	trace("skipping default request with path " + req_path);
+	console.log("skipping default request with path " + req_path);
 	send_error(stream, "request not handled yet.");
 }
 
@@ -899,7 +895,7 @@ function handle_notify_request(stream, headers) {
 		send_error(stream, "invalid uuid.");
 		return
 	}
-	trace(`processing /notify for ${query_object.id}`);
+	console.log(`processing /notify for ${query_object.id}`);
 	let body = "";
 	stream.on("data", (c) => {
 		body += c;
@@ -947,7 +943,7 @@ async function handle_translation_request(stream, headers) {
 	const { id, property, locale } = query_object;
 	const website_name = headers[":authority"].split(":")[0];
 	const api_key = find_website_in_sitemap(website_name).openai_api_key;
-	trace(`processing /translate_property request for property ${property} in ${id}`);
+	console.log(`processing /translate_property request for property ${property} in ${id}`);
 	try {
 		const response = await translate_property(id, property, locale, api_key);
 		stream.respond({
@@ -956,7 +952,7 @@ async function handle_translation_request(stream, headers) {
 		});
 		stream.write(JSON.stringify({ value: response }));
 		stream.end();
-		trace(`finished /translate_property request for property ${property} in ${id}`);
+		console.log(`finished /translate_property request for property ${property} in ${id}`);
 	} catch (e) {
 		send_error(stream, e);
 		error(`failed to translate property ${property} in ${id}, ${e}`);

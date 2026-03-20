@@ -60,3 +60,21 @@ new session: ::ffff:192.168.11.73  , session id: 3  , fingerprint: 85:09:60:7E:A
 new session: ::ffff:192.168.11.73  , session id: 4  , fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
 Session 3 from Mani (::ffff:192.168.11.73) : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 via h2
 new session: ::ffff:192.168.11.73  , session id: 5  , fingerprint: 85:09:60:7E:A1:46:73:0F:9F:43:A1:19:81:B4:02:16:9B:59:C0:93:02:30:D5:1A:4E:3C:B5:0D:12:DB:91:55
+new session: ::ffff:127.0.0.1  , session id: 1  , fingerprint: undefined
+new session: ::ffff:127.0.0.1  , session id: 2  , fingerprint: undefined
+new session: ::ffff:127.0.0.1  , session id: 1  , fingerprint: undefined
+new session: ::ffff:127.0.0.1  , session id: 2  , fingerprint: undefined
+new session: ::ffff:127.0.0.1  , session id: 3  , fingerprint: undefined
+new session: ::ffff:127.0.0.1  , session id: 4  , fingerprint: undefined
+new session: ::ffff:127.0.0.1  , session id: 1  , fingerprint: undefined
+new session: ::ffff:192.168.11.57  , session id: 1  , fingerprint: 39:57:09:E0:D0:86:A2:4D:AD:10:7C:EC:7E:F7:35:34:8D:E2:B1:02:04:34:AE:25:D9:4A:5A:25:AE:89:11:8E
+Session 1 from Mani (::ffff:192.168.11.57) : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 via h2
+new session: ::ffff:192.168.11.57  , session id: 2  , fingerprint: 39:57:09:E0:D0:86:A2:4D:AD:10:7C:EC:7E:F7:35:34:8D:E2:B1:02:04:34:AE:25:D9:4A:5A:25:AE:89:11:8E
+Session 2 from Mani (::ffff:192.168.11.57) : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 via h2
+new session: ::ffff:192.168.11.57  , session id: 3  , fingerprint: undefined
+new session: ::ffff:192.168.11.57  , session id: 4  , fingerprint: undefined
+new session: ::ffff:192.168.11.57  , session id: 5  , fingerprint: undefined
+new session: ::ffff:192.168.11.57  , session id: 6  , fingerprint: 39:57:09:E0:D0:86:A2:4D:AD:10:7C:EC:7E:F7:35:34:8D:E2:B1:02:04:34:AE:25:D9:4A:5A:25:AE:89:11:8E
+Session 6 from Mani (::ffff:192.168.11.57) : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 via h2
+new session: ::ffff:192.168.11.57  , session id: 7  , fingerprint: 39:57:09:E0:D0:86:A2:4D:AD:10:7C:EC:7E:F7:35:34:8D:E2:B1:02:04:34:AE:25:D9:4A:5A:25:AE:89:11:8E
+Session 7 from Mani (::ffff:192.168.11.57) : Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0 via h2

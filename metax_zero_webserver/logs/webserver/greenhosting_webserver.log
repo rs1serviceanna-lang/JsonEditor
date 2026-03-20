@@ -116038,3 +116038,159 @@ Trace 2026-3-6 17:20:54.770 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e
 Trace 2026-3-6 17:20:54.770 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
 Trace 2026-3-6 17:20:54.771 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
 Trace 2026-3-6 17:20:54.773 router: finished /db/get for 379b80bf-bdf4-47b2-8a6e-53ebd8362879
+Trace 2026-3-20 14:42:36.921 webserver: logger configured.
+Trace 2026-3-20 14:42:36.924 webserver: configure_webserver
+Trace 2026-3-20 14:42:36.924 webserver: END configure_webserver
+Trace 2026-3-20 14:42:36.924 webserver: connecting to host metax.
+Trace 2026-3-20 14:42:36.925 webserver: Using mutual TLS with client certificate
+Trace 2026-3-20 14:42:36.961 webserver: successfully connected to host metax.
+Trace 2026-3-20 14:42:36.962 webserver: connecting to metax websocket.
+Trace 2026-3-20 14:42:36.962 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-3-20 14:42:36.987 webserver: successfully connected to metax websocket.
+Trace 2026-3-20 14:42:36.988 webserver: metax websocket token received: 23eb52b2-ed15-49e9-be3d-073e9d07b3ca
+Error 2026-3-20 14:42:37.6 webserver: unable to get sitemap permission requests object: {"error":"Invalid or malformed UUID: undefined"}
+Trace 2026-3-20 14:42:37.9 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 14:42:37.28 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 14:42:37.29 notifier: construct_transporter_package
+Trace 2026-3-20 14:42:37.29 notifier: END construct_transporter_package
+Trace 2026-3-20 14:42:37.29 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-3-20 14:42:37.29 webserver: starting read-only server
+Trace 2026-3-20 14:42:37.32 webserver: starting write server
+Trace 2026-3-20 14:42:37.34 webserver: read-only server running on port: 5002
+Trace 2026-3-20 14:42:37.34 webserver: write server running on port: 5003
+Trace 2026-3-20 14:43:8.312 webserver: handle_sitemap_uuid_update
+Trace 2026-3-20 14:43:8.312 webserver: END handle_sitemap_uuid_update
+Trace 2026-3-20 14:43:8.313 router: received handle_metax_update_message with uuid: 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-3-20 14:54:32.708 webserver: logger configured.
+Trace 2026-3-20 14:54:32.710 webserver: configure_webserver
+Trace 2026-3-20 14:54:32.710 webserver: END configure_webserver
+Trace 2026-3-20 14:54:32.711 webserver: connecting to host metax.
+Trace 2026-3-20 14:54:32.711 webserver: Using mutual TLS with client certificate
+Trace 2026-3-20 14:54:32.741 webserver: successfully connected to host metax.
+Trace 2026-3-20 14:54:32.741 webserver: connecting to metax websocket.
+Trace 2026-3-20 14:54:32.741 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-3-20 14:54:32.758 webserver: successfully connected to metax websocket.
+Trace 2026-3-20 14:54:32.760 webserver: metax websocket token received: 1e0a44c1-15ea-4968-b3ce-cc521aaa2f4b
+Trace 2026-3-20 14:54:32.767 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 14:54:32.779 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 14:54:32.779 notifier: construct_transporter_package
+Trace 2026-3-20 14:54:32.779 notifier: END construct_transporter_package
+Trace 2026-3-20 14:54:32.779 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-3-20 14:54:32.779 webserver: starting read-only server
+Trace 2026-3-20 14:54:32.782 webserver: starting write server
+Trace 2026-3-20 14:54:32.783 webserver: read-only server running on port: 5002
+Trace 2026-3-20 14:54:32.783 webserver: write server running on port: 5003
+Trace 2026-3-20 14:57:5.947 webserver: logger configured.
+Trace 2026-3-20 14:57:5.950 webserver: configure_webserver
+Trace 2026-3-20 14:57:5.951 webserver: END configure_webserver
+Trace 2026-3-20 14:57:5.951 webserver: connecting to host metax.
+Trace 2026-3-20 14:57:5.951 webserver: Using mutual TLS with client certificate
+Trace 2026-3-20 14:57:5.984 webserver: successfully connected to host metax.
+Trace 2026-3-20 14:57:5.984 webserver: connecting to metax websocket.
+Trace 2026-3-20 14:57:5.984 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-3-20 14:57:6.4 webserver: successfully connected to metax websocket.
+Trace 2026-3-20 14:57:6.5 webserver: metax websocket token received: b623dce0-4e2d-4ec9-920f-2ceebbb21c36
+Trace 2026-3-20 14:57:6.19 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 14:57:6.32 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 14:57:6.33 notifier: construct_transporter_package
+Trace 2026-3-20 14:57:6.33 notifier: END construct_transporter_package
+Trace 2026-3-20 14:57:6.33 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-3-20 14:57:6.34 webserver: starting read-only server
+Trace 2026-3-20 14:57:6.37 webserver: starting write server
+Trace 2026-3-20 14:57:6.38 webserver: read-only server running on port: 5002
+Trace 2026-3-20 14:57:6.38 webserver: write server running on port: 5003
+Trace 2026-3-20 15:9:6.643 webserver: logger configured.
+Trace 2026-3-20 15:9:6.645 webserver: configure_webserver
+Trace 2026-3-20 15:9:6.645 webserver: END configure_webserver
+Trace 2026-3-20 15:9:6.646 webserver: connecting to host metax.
+Trace 2026-3-20 15:9:6.646 webserver: Using mutual TLS with client certificate
+Trace 2026-3-20 15:9:6.675 webserver: successfully connected to host metax.
+Trace 2026-3-20 15:9:6.676 webserver: connecting to metax websocket.
+Trace 2026-3-20 15:9:6.676 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-3-20 15:9:6.696 webserver: successfully connected to metax websocket.
+Trace 2026-3-20 15:9:6.697 webserver: metax websocket token received: 63a19e1a-9790-48e3-bd17-55de7f7338b9
+Trace 2026-3-20 15:9:6.704 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 15:9:6.714 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 15:9:6.715 notifier: construct_transporter_package
+Trace 2026-3-20 15:9:6.715 notifier: END construct_transporter_package
+Trace 2026-3-20 15:9:6.715 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-3-20 15:9:6.715 webserver: starting read-only server
+Trace 2026-3-20 15:9:6.718 webserver: starting write server
+Trace 2026-3-20 15:9:6.719 webserver: read-only server running on port: 5002
+Trace 2026-3-20 15:9:6.719 webserver: write server running on port: 5003
+Trace 2026-3-20 15:10:57.942 webserver: logger configured.
+Trace 2026-3-20 15:10:57.944 webserver: configure_webserver
+Trace 2026-3-20 15:10:57.945 webserver: END configure_webserver
+Trace 2026-3-20 15:10:57.945 webserver: connecting to host metax.
+Trace 2026-3-20 15:10:57.945 webserver: Using mutual TLS with client certificate
+Trace 2026-3-20 15:10:57.973 webserver: successfully connected to host metax.
+Trace 2026-3-20 15:10:57.973 webserver: connecting to metax websocket.
+Trace 2026-3-20 15:10:57.973 webserver: Using mutual TLS for WebSocket with client certificate
+Trace 2026-3-20 15:10:57.988 webserver: successfully connected to metax websocket.
+Trace 2026-3-20 15:10:57.989 webserver: metax websocket token received: 455704f1-55ae-4377-9cad-28790096d91f
+Trace 2026-3-20 15:10:57.995 webserver: get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 15:10:58.8 webserver: END get_website for 4aaf100e-618a-460b-9f38-0bc0bfd2e4dc-fd09f58a-cfb4-4708-9918-bb5d59a5613a
+Trace 2026-3-20 15:10:58.8 notifier: construct_transporter_package
+Trace 2026-3-20 15:10:58.9 notifier: END construct_transporter_package
+Trace 2026-3-20 15:10:58.9 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-3-20 15:10:58.9 webserver: starting read-only server
+Trace 2026-3-20 15:10:58.11 webserver: starting write server
+Trace 2026-3-20 15:10:58.12 webserver: read-only server running on port: 5002
+Trace 2026-3-20 15:10:58.13 webserver: write server running on port: 5003
+Trace 2026-3-20 15:12:38.925 webserver: sni_callback_read_only received serverName: localhost
+Trace 2026-3-20 15:12:38.943 router: new session with id: 1  , fingerprint: undefined
+Trace 2026-3-20 15:12:38.949 webserver: New secure connection to 5002: localhost from ::ffff:127.0.0.1
+Trace 2026-3-20 15:12:38.951 router: received new stream from 1, path: /
+Trace 2026-3-20 15:12:38.952 router: received default request from localhost with path /
+Trace 2026-3-20 15:12:38.952 router: skipping default request with path /
+Trace 2026-3-20 15:13:38.684 webserver: sni_callback_read_only received serverName: localhost
+Trace 2026-3-20 15:13:38.691 webserver: sni_callback_read_only received serverName: localhost
+Trace 2026-3-20 15:13:43.529 webserver: sni_callback_read_only received serverName: localhost
+Trace 2026-3-20 15:13:43.539 router: new session with id: 2  , fingerprint: undefined
+Trace 2026-3-20 15:13:43.540 webserver: New secure connection to 5002: localhost from ::ffff:127.0.0.1
+Trace 2026-3-20 15:13:43.541 router: received new stream from 2, path: /db/get
+Trace 2026-3-20 15:13:43.542 router: processing /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-3-20 15:13:43.559 router: finished /db/get for 5909ce96-f166-4662-b291-11d651ed2f70-a27156a8-fb53-4e3d-be02-954feb7ac311
+Trace 2026-3-20 15:13:43.604 router: received new stream from 2, path: /favicon.ico
+Trace 2026-3-20 15:13:43.604 router: received default request from localhost with path /favicon.ico
+Trace 2026-3-20 15:13:43.604 router: skipping default request with path /favicon.ico
+Trace 2026-3-20 15:16:21.723 notifier: construct_transporter_package
+Trace 2026-3-20 15:16:21.724 notifier: END construct_transporter_package
+Trace 2026-3-20 15:16:21.724 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Error 2026-3-20 15:26:21.777 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 15:26:21.780 notifier: construct_transporter_package
+Trace 2026-3-20 15:26:21.780 notifier: END construct_transporter_package
+Trace 2026-3-20 15:26:21.781 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Error 2026-3-20 16:8:58.534 webserver: Assertion violation: host metax is not defined.
+Error 2026-3-20 16:12:21.644 webserver: Assertion violation: host metax is not defined.
+Error 2026-3-20 16:22:3.257 webserver: Assertion violation: host metax is not defined.
+Error 2026-3-20 16:46:50.994 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 16:46:50.996 notifier: construct_transporter_package
+Trace 2026-3-20 16:46:50.996 notifier: END construct_transporter_package
+Trace 2026-3-20 16:46:50.996 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Error 2026-3-20 16:55:1.859 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 16:55:1.864 notifier: construct_transporter_package
+Trace 2026-3-20 16:55:1.864 notifier: END construct_transporter_package
+Trace 2026-3-20 16:55:1.864 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Error 2026-3-20 17:6:42.998 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 17:6:43.3 notifier: construct_transporter_package
+Trace 2026-3-20 17:6:43.4 notifier: END construct_transporter_package
+Trace 2026-3-20 17:6:43.4 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Error 2026-3-20 17:7:40.500 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 17:7:40.505 notifier: construct_transporter_package
+Error 2026-3-20 17:9:25.487 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 17:9:25.490 notifier: construct_transporter_package
+Trace 2026-3-20 17:9:25.490 notifier: END construct_transporter_package
+Trace 2026-3-20 17:9:25.490 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Error 2026-3-20 17:23:23.523 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 17:23:23.528 notifier: construct_transporter_package
+Error 2026-3-20 17:23:59.969 webserver: unable to get ssl certificate for Mani, skipping
+Trace 2026-3-20 17:23:59.975 notifier: construct_transporter_package
+Trace 2026-3-20 17:23:59.976 notifier: END construct_transporter_package
+Trace 2026-3-20 17:23:59.976 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-3-20 17:28:54.642 notifier: construct_transporter_package
+Trace 2026-3-20 17:28:54.643 notifier: END construct_transporter_package
+Trace 2026-3-20 17:28:54.643 notifier: Erevan ERP doesn't have mailing credentials, skipping
+Trace 2026-3-20 17:29:11.838 notifier: construct_transporter_package
+Trace 2026-3-20 17:29:11.838 notifier: END construct_transporter_package
+Trace 2026-3-20 17:29:11.838 notifier: Erevan ERP doesn't have mailing credentials, skipping

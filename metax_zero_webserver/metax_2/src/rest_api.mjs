@@ -163,8 +163,8 @@ function start_server() {
 	}, route_incoming_request);
 	http_server.on("error", handle_http_server_error)
 	// Listen only on localhost (127.0.0.1) to prevent external access.
-	http_server.listen(parseInt(config.port), "127.0.0.1",
-		() => console.log("https server started on 127.0.0.1"));
+	http_server.listen(parseInt(config.port), "0.0.0.0",
+		() => console.log("https server started on all interfaces"));
 	// Attach WebSocket server to the same HTTPS server.
 	const wss = new WebSocketServer({ server: http_server });
 	wss.on("connection", handle_websocket_new_connection);

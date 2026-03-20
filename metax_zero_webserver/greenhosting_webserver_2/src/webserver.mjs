@@ -212,7 +212,7 @@ global.metax_unregister_listener = (u, t) => http_get(`/db/unregister_listener?i
 // ========================= Logging Aliases ===================================
 
 // Short aliases for structured logger calls scoped to "webserver" module.
-const trace = (m) => logger.trace("webserver", m);
+const trace = (m) => logger.console.log("webserver", m);
 const warning = (m) => logger.warning("webserver", m);
 const error = (m) => logger.error("webserver", m);
 
@@ -228,7 +228,7 @@ main();
 async function main() {
         const log = await logger.configure(logger_options);
         if (log.status === "success") {
-                trace("logger configured.");
+                console.log("logger configured.");
                 initialize_file_ops_logging();  // Initialize file operations audit log
                 configure_webserver();
                 await connect_to_host_metax();
@@ -253,7 +253,7 @@ async function main() {
 function connect_to_host_metax() {
         return new Promise((resolve, reject) => {
                 const _connect = () => {
-                        trace("connecting to host metax.");
+                        console.log("connecting to host metax.");
 
                         // Load client certificate and CA for mutual TLS
                         let tlsOptions = {};
@@ -265,11 +265,11 @@ function connect_to_host_metax() {
                                                 ca: readFileSync(config.ca),
                                                 rejectUnauthorized: true  // SECURE: validate server certificate
                                         };
-                                        trace("Using mutual TLS with client certificate");
+                                        console.log("Using mutual TLS with client certificate");
                                 } else {
                                         // Fallback for backward compatibility (should not be used in production)
                                         tlsOptions = { rejectUnauthorized: false };
-                                        trace("WARNING: Connecting without client certificate validation");
+                                        console.log("WARNING: Connecting without client certificate validation");
                                 }
                         } catch (e) {
                                 error("Failed to load TLS certificates: " + e);
@@ -282,11 +282,11 @@ function connect_to_host_metax() {
                                 setTimeout(_connect, 500);
                         });
                         metax.on("connect", () => {
-                                trace("successfully connected to host metax.");
+                                console.log("successfully connected to host metax.");
                                 resolve("success");
                         });
                         metax.on("close", () => {
-                                trace("host metax connection closed. Retrying immediately...");
+                                console.log("host metax connection closed. Retrying immediately...");
                                 _connect();
                         });
                 };
@@ -298,7 +298,7 @@ function connect_to_host_metax() {
 // Currently a no-op (dynamic website adding is not yet implemented - TODO).
 //TODO implement website adding dynamically
 async function handle_sitemap_uuid_update() {
-        trace("handle_sitemap_uuid_update");
+        console.log("handle_sitemap_uuid_update");
         /*
         const updated_sitemap = await metax_get(config.sitemap_uuid)
                                                         .then(JSON.parse);
@@ -310,7 +310,7 @@ async function handle_sitemap_uuid_update() {
                 }
         }
         */
-        trace("END handle_sitemap_uuid_update");
+        console.log("END handle_sitemap_uuid_update");
 }
 
 // Reloads a single website's configuration from Metax when its UUID is updated.
@@ -320,7 +320,7 @@ async function handle_sitemap_uuid_update() {
 // Parameters:
 // - w_uuid: UUID of the website object in Metax to reload.
 async function handle_website_uuid_update(w_uuid) {
-        trace("handle_website_uuid_update for " + w_uuid);
+        console.log("handle_website_uuid_update for " + w_uuid);
         let i = sitemap.websites.findIndex(el => el.uuid === w_uuid);
         assert(i !== -1, "received website update for uuid which is not found in sitemap.");
         try {
@@ -328,7 +328,7 @@ async function handle_website_uuid_update(w_uuid) {
         } catch (e) {
                 error(e);
         }
-        trace("END handle_website_uuid_update for " + w_uuid);
+        console.log("END handle_website_uuid_update for " + w_uuid);
 }
 
 // Performs a full global refresh after the Metax WebSocket reconnects.
@@ -337,7 +337,7 @@ async function handle_website_uuid_update(w_uuid) {
 //   2. Re-registers all UUID listeners with the new Metax session token.
 //   3. Sends "update" events to all browser WebSocket clients so they refresh.
 async function re_register_all_listeners() {
-        trace("performing global update on reconnection.");
+        console.log("performing global update on reconnection.");
         try {
                 // 1. Refresh sitemap and websites metadata
                 await init_sitemap();
@@ -348,7 +348,7 @@ async function re_register_all_listeners() {
                 // 3. Trigger updates everywhere (notify all clients to refresh)
                 trigger_all_client_updates();
 
-                trace("successfully performed global update.");
+                console.log("successfully performed global update.");
         } catch (e) {
                 error("failed to perform global update: " + e);
         }
@@ -366,7 +366,7 @@ async function re_register_all_listeners() {
 function connect_to_host_metax_websocket() {
         return new Promise((resolve, reject) => {
                 const _connect = () => {
-                        trace("connecting to metax websocket.");
+                        console.log("connecting to metax websocket.");
 
                         // Load client certificate and CA for mutual TLS (WebSocket)
                         let wssOptions = {};
@@ -378,10 +378,10 @@ function connect_to_host_metax_websocket() {
                                                 ca: readFileSync(config.ca),
                                                 rejectUnauthorized: true
                                         };
-                                        trace("Using mutual TLS for WebSocket with client certificate");
+                                        console.log("Using mutual TLS for WebSocket with client certificate");
                                 } else {
                                         wssOptions = { rejectUnauthorized: false };
-                                        trace("WARNING: WebSocket connecting without client certificate validation");
+                                        console.log("WARNING: WebSocket connecting without client certificate validation");
                                 }
                         } catch (e) {
                                 error("Failed to load TLS certificates for WebSocket: " + e);
@@ -396,7 +396,7 @@ function connect_to_host_metax_websocket() {
                         });
 
                         metax_wss.on("open", () => {
-                                trace("successfully connected to metax websocket.");
+                                console.log("successfully connected to metax websocket.");
                         });
 
                         metax_wss.on("close", () => {
@@ -410,7 +410,7 @@ function connect_to_host_metax_websocket() {
                                         if (m.event === "connected") {
                                                 const is_reconnect = (metax_wss_token !== "");
                                                 metax_wss_token = m.token;
-                                                trace("metax websocket token received: " + metax_wss_token);
+                                                console.log("metax websocket token received: " + metax_wss_token);
                                                 if (is_reconnect) {
                                                         await re_register_all_listeners();
                                                 }
@@ -441,7 +441,7 @@ function connect_to_host_metax_websocket() {
 // Validates that all required configuration fields are present using assert().
 // Called before any servers start so config is fully initialized.
 function configure_webserver() {
-        trace("configure_webserver");
+        console.log("configure_webserver");
         const argv = process.argv.slice(2);
         for (let i = 0; i < argv.length; i++) {
                 let pairs = argv[i].split("=");
@@ -453,7 +453,7 @@ function configure_webserver() {
         assert(config.cert !== undefined, "certificate path is not defined.");
         assert(config.write_server_port !== undefined, "write server port is not defined.");
         assert(config.read_server_port !== undefined, "read server port is not defined.");
-        trace("END configure_webserver");
+        console.log("END configure_webserver");
 }
 
 // Creates and starts the public-facing HTTPS/HTTP2 read-only server.
@@ -466,22 +466,23 @@ function configure_webserver() {
 // - port: The port number to listen on (config.read_server_port).
 function start_read_only_server(port) {
         assert(!isNaN(port), "port must be a number.");
-        trace("starting read-only server");
+        console.log("starting read-only server");
         const http_server = createSecureServer({
                 peerMaxConcurrentStreams: 1000,
                 SNICallback: sni_callback_read_only,
                 key: readFileSync(config.key),
                 cert: readFileSync(config.cert),
                 ca: config.ca ? readFileSync(config.ca, "utf8") : undefined,
-                allowHTTP1: true,
-                requestCert: true,
-                rejectUnauthorized: true
+                allowHTTP1: true
+        });
+        http_server.on('secureConnection', (socket) => {
+                console.log(`New secure connection to 5002: ${socket.servername} from ${socket.remoteAddress}`);
         });
         http_server.on("session", handle_new_client_session);
         http_server.on("stream", handle_new_read_only_stream);
         http_server.on("error", handle_http_server_error);
         http_server.listen(port,
-                () => trace(`read-only server running on port: ${port}`));
+                () => console.log(`read-only server running on port: ${port}`));
         const wss = new WebSocketServer({ server: http_server });
         wss.on("connection", handle_websocket_new_connection);
 }
@@ -495,7 +496,7 @@ function start_read_only_server(port) {
 // - port: The port number to listen on (config.write_server_port).
 function start_write_server(port) {
         assert(!isNaN(port), "port must be a number.");
-        trace("starting write server");
+        console.log("starting write server");
         const http_server = createSecureServer({
                 peerMaxConcurrentStreams: 1000,
                 SNICallback: sni_callback,
@@ -509,14 +510,14 @@ function start_write_server(port) {
         http_server.on('secureConnection', (socket) => {
                 const cert = socket.getPeerCertificate();
                 if (cert && cert.subject) {
-                        trace(`New secure connection to ${socket.servername} from ${cert.subject.CN} (${socket.remoteAddress})`);
+                        console.log(`New secure connection to ${socket.servername} from ${cert.subject.CN} (${socket.remoteAddress})`);
                 }
         });
         http_server.on("stream", handle_new_write_server_stream);
         http_server.on("session", handle_new_client_session);
         http_server.on("error", handle_http_server_error);
         http_server.listen(port,
-                () => trace(`write server running on port: ${port}`));
+                () => console.log(`write server running on port: ${port}`));
         const wss = new WebSocketServer({ server: http_server });
         wss.on("connection", handle_websocket_new_connection);
 }
@@ -543,11 +544,13 @@ async function init_sitemap() {
                         error("unable to get sitemap uuid: " + e);
                         process.exit(-1);
                 });
-        sitemap.permission_requests = await metax_get(sitemap.permission_requests)
-                .then(r => JSON.parse(r))
-                .catch(e => {
-                        error("unable to get sitemap permission requests object: " + e);
-                });
+        if (sitemap.permission_requests) {
+                sitemap.permission_requests = await metax_get(sitemap.permission_requests)
+                        .then(r => JSON.parse(r))
+                        .catch(e => {
+                                error("unable to get sitemap permission requests object: " + e);
+                        });
+        }
         await metax_register_listener(config.sitemap_uuid);
         for (let i = 0; i < sitemap.websites.length; i++) {
                 sitemap.websites[i] = await get_website(sitemap.websites[i]);
@@ -564,7 +567,7 @@ async function init_sitemap() {
 //
 // Returns: The fully-loaded website configuration object.
 async function get_website(website_uuid) {
-        trace(`get_website for ${website_uuid}`)
+        console.log(`get_website for ${website_uuid}`)
         const website = await metax_get(website_uuid)
                 .then(r => JSON.parse(r))
                 .catch(e => {
@@ -602,7 +605,7 @@ async function get_website(website_uuid) {
                 website_uuids.push(website_uuid);
                 await metax_register_listener(website_uuid)
         }
-        trace(`END get_website for ${website_uuid}`)
+        console.log(`END get_website for ${website_uuid}`)
         return website;
 }
 
@@ -615,6 +618,7 @@ async function get_website(website_uuid) {
 // - serverName: SNI hostname from the TLS ClientHello.
 // - cb: Callback(null, SecureContext) to return the context to Node's TLS layer.
 function sni_callback_read_only(serverName, cb) {
+        console.log("sni_callback_read_only received serverName: " + serverName);
         let cert = null
         let key = null
         let ca = "";
@@ -634,7 +638,7 @@ function sni_callback_read_only(serverName, cb) {
                 //key = sitemap.websites[i].ssl_private_key;
                 //cert = sitemap.websites[i].ssl_certificate;
                 for (let j = 0; j < sitemap.websites[i].client_certificates.length; j++) {
-                        ca += sitemap.websites[i].client_certificates[j]["certificate"];
+                        ca += sitemap.websites[i].client_certificates[j]["certificate"] + "\n";
                 }
         }// else if (cert === null && key === null) {
         //        key = readFileSync(config.key);
@@ -642,7 +646,7 @@ function sni_callback_read_only(serverName, cb) {
         //}
 
         const global_ca = config.ca ? readFileSync(config.ca, "utf8") : "";
-        cb(null, new createSecureContext({
+        cb(null, createSecureContext({
                 cert,
                 key,
                 ca: ca + (ca.length > 0 && global_ca.length > 0 ? "\n" : "") + global_ca
@@ -658,7 +662,7 @@ function sni_callback_read_only(serverName, cb) {
 // - serverName: SNI hostname from the TLS ClientHello.
 // - cb: Callback(null, SecureContext) to return the context to Node's TLS layer.
 function sni_callback(serverName, cb) {
-        trace("sni_callback received serverName: " + serverName);
+        console.log("sni_callback received serverName: " + serverName);
         let cert = null
         let key = null
         let ca = "";
@@ -670,7 +674,7 @@ function sni_callback(serverName, cb) {
         })
 
         if (i === -1 && sitemap.websites.length > 0) {
-                trace("serverName not found or missing, falling back to first website: " + sitemap.websites[0].name);
+                console.log("serverName not found or missing, falling back to first website: " + sitemap.websites[0].name);
                 i = 0;
         }
 
@@ -679,17 +683,17 @@ function sni_callback(serverName, cb) {
         cert = readFileSync(config.cert);
 
         if (i !== -1) {
-                trace("Found matching website for SNI: " + sitemap.websites[i].name);
+                console.log("Found matching website for SNI: " + sitemap.websites[i].name);
                 for (let j = 0; j < sitemap.websites[i].client_certificates.length; j++) {
-                        ca += sitemap.websites[i].client_certificates[j]["certificate"];
+                        ca += sitemap.websites[i].client_certificates[j]["certificate"] + "\n";
                 }
-                trace("Loaded CA string length: " + ca.length);
+                console.log("Loaded CA string length: " + ca.length);
         } else {
-                trace("No matching website found for SNI and no websites available in sitemap.");
+                console.log("No matching website found for SNI and no websites available in sitemap.");
         }
 
         const global_ca = config.ca ? readFileSync(config.ca, "utf8") : "";
-        trace("trying new secure connection " + serverName);
+        console.log("trying new secure connection " + serverName);
         cb(null, createSecureContext({
                 cert,
                 key,
